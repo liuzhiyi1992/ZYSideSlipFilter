@@ -11,5 +11,5 @@
 typedef void (^SideSlipFilterCommitBlock)(NSDictionary *commitDict);
 
 @interface ZYSideSlipFilterController : UIViewController
-+ (void)showSideSlipFilter:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock;
++ (void)showSideSlipFilterWithSponsor:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock;
 @end

@@ -18,6 +18,11 @@
     [super viewDidLoad];
 }
 
+- (IBAction)clickFilterButton:(id)sender {
+    [ZYSideSlipFilterController showSideSlipFilterWithSponsor:self commitBlock:^(NSDictionary *commitDict) {
+        NSLog(@"");
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
