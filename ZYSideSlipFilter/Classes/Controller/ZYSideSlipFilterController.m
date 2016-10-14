@@ -42,14 +42,17 @@
 
 - (void)configureUI {
     self.mainTableView = [[UITableView alloc] init];
-//    NSDictionary *views = @{@"mainTableView":_mainTableView};
-//    [_mainTableView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSDictionary *views = @{@"mainTableView":_mainTableView};
+    [_mainTableView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addSubview:_mainTableView];
     
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[mainTableView]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[mainTableView]|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor redColor]];
+//    [self.view setBackgroundColor:[UIColor redColor]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +71,9 @@
 
 - (void)clickBackCover:(id)sender {
     NSLog(@"clickBackCover");
+    [_backCover removeFromSuperview];
+    [self.navigationController.view removeFromSuperview];
+    [self.navigationController removeFromParentViewController];
 }
 /*
 #pragma mark - Navigation
