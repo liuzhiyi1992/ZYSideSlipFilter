@@ -15,16 +15,24 @@
 #define SLIP_ORIGIN_FRAME CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH - SIDE_SLIP_LEADING, SCREEN_HEIGHT)
 #define SLIP_DISTINATION_FRAME CGRectMake(SIDE_SLIP_LEADING, 0, SCREEN_WIDTH - SIDE_SLIP_LEADING, SCREEN_HEIGHT)
 
+#define ANIMATION_DURATION_DEFAULT .3f
+
 @interface ZYSideSlipFilterController ()
 @property (copy, nonatomic) SideSlipFilterCommitBlock commitBlock;
 @property (strong, nonatomic) UITableView *mainTableView;
 @property (strong, nonatomic) UIView *backCover;
+@property (weak, nonatomic) UIViewController *sponsor;
 @end
 
 @implementation ZYSideSlipFilterController
-- (instancetype)init {
+- (instancetype)initWithSponsor:(UIViewController *)sponsor {
     self = [super init];
     if (self) {
+        _sponsor = sponsor;
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self];
+        [navController setNavigationBarHidden:YES];
+        [navController.view setFrame:SLIP_ORIGIN_FRAME];
+        [self configureStatic];
         [self configureUI];
     }
     return self;
@@ -50,6 +58,19 @@
     }];
 }
 
+- (void)show {
+    [_sponsor.navigationController.view addSubview:self.backCover];
+    [_sponsor.navigationController addChildViewController:self.navigationController];
+    [_sponsor.navigationController.view addSubview:self.navigationController.view];
+    
+    [_backCover setAlpha:0.f];
+    [UIView animateWithDuration:_animationDuration animations:^{
+        [self.navigationController.view setFrame:SLIP_DISTINATION_FRAME];
+    } completion:^(BOOL finished) {
+        [_backCover setAlpha:1.f];
+    }];
+}
+
 
 - (void)configureUI {
     self.mainTableView = [[UITableView alloc] init];
@@ -62,7 +83,9 @@
 }
 
 - (void)configureStatic {
-    
+    if (_animationDuration == 0) {
+        self.animationDuration = ANIMATION_DURATION_DEFAULT;
+    }
 }
 
 - (void)viewDidLoad {

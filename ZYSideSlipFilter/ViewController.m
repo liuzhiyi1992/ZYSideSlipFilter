@@ -19,9 +19,11 @@
 }
 
 - (IBAction)clickFilterButton:(id)sender {
-    [ZYSideSlipFilterController showSideSlipFilterWithSponsor:self commitBlock:^(NSDictionary *commitDict) {
-        NSLog(@"");
-    }];
+//    [ZYSideSlipFilterController showSideSlipFilterWithSponsor:self commitBlock:^(NSDictionary *commitDict) {
+//        NSLog(@"");
+//    }];
+    ZYSideSlipFilterController *filterController =[[ZYSideSlipFilterController alloc] initWithSponsor:self];
+    [filterController show];
 }
 
 - (void)didReceiveMemoryWarning {
