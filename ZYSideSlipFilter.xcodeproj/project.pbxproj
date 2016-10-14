@@ -23,6 +23,7 @@
 		553B4FD31DB0C82B007A2374 /* SideSlipPriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553B4FD11DB0C82B007A2374 /* SideSlipPriceTableViewCell.xib */; };
 		553B4FD71DB0C846007A2374 /* SideSlipServiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4FD51DB0C846007A2374 /* SideSlipServiceTableViewCell.m */; };
 		553B4FD81DB0C846007A2374 /* SideSlipServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553B4FD61DB0C846007A2374 /* SideSlipServiceTableViewCell.xib */; };
+		553B4FDB1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4FDA1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		553B4FD41DB0C846007A2374 /* SideSlipServiceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideSlipServiceTableViewCell.h; sourceTree = "<group>"; };
 		553B4FD51DB0C846007A2374 /* SideSlipServiceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideSlipServiceTableViewCell.m; sourceTree = "<group>"; };
 		553B4FD61DB0C846007A2374 /* SideSlipServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideSlipServiceTableViewCell.xib; sourceTree = "<group>"; };
+		553B4FD91DB0D22F007A2374 /* SideSlipBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideSlipBaseTableViewCell.h; sourceTree = "<group>"; };
+		553B4FDA1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideSlipBaseTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 				553B4FD41DB0C846007A2374 /* SideSlipServiceTableViewCell.h */,
 				553B4FD51DB0C846007A2374 /* SideSlipServiceTableViewCell.m */,
 				553B4FD61DB0C846007A2374 /* SideSlipServiceTableViewCell.xib */,
+				553B4FD91DB0D22F007A2374 /* SideSlipBaseTableViewCell.h */,
+				553B4FDA1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				553B4FDB1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m in Sources */,
 				553B4F9D1DB0C1B3007A2374 /* ViewController.m in Sources */,
 				553B4FD21DB0C82B007A2374 /* SideSlipPriceTableViewCell.m in Sources */,
 				553B4FD71DB0C846007A2374 /* SideSlipServiceTableViewCell.m in Sources */,
@@ -504,6 +510,7 @@
 				553B4FB61DB0C1B3007A2374 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		553B4FB71DB0C1B3007A2374 /* Build configuration list for PBXNativeTarget "ZYSideSlipFilterTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +519,7 @@
 				553B4FB91DB0C1B3007A2374 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

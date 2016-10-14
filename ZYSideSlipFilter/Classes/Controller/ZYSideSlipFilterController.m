@@ -12,7 +12,7 @@
 @end
 
 @implementation ZYSideSlipFilterController
-+ (void)showSideSlipFilter:(UIViewController *)sponsor {
++ (void)showSideSlipFilter:(UIViewController *)sponsor commitBlock:(void(^)(NSDictionary *))commitBlock {
     NSAssert(sponsor.navigationController, @"ERROR: sponsor must have the navigationController");
     //show
 }

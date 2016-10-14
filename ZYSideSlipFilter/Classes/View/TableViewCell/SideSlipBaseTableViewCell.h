@@ -1,5 +1,5 @@
 //
-//  SideSlipCommonTableViewCell.h
+//  SideSlipBaseTableViewCell.h
 //  ZYSideSlipFilter
 //
 //  Created by zhiyi on 16/10/14.
@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SideSlipBaseTableViewCell.h"
 
-@interface SideSlipCommonTableViewCell : SideSlipBaseTableViewCell
+@interface SideSlipBaseTableViewCell : UITableViewCell
+
 @end

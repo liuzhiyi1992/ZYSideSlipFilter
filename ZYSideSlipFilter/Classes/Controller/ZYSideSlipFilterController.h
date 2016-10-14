@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ZYSideSlipFilterController : UIViewController
-
++ (void)showSideSlipFilter:(UIViewController *)sponsor commitBlock:(void(^)(NSDictionary *filterDict))commitBlock;
 @end
