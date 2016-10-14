@@ -12,6 +12,9 @@
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 
+#define SLIP_ORIGIN_FRAME CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH - SIDE_SLIP_LEADING, SCREEN_HEIGHT)
+#define SLIP_DISTINATION_FRAME CGRectMake(SIDE_SLIP_LEADING, 0, SCREEN_WIDTH - SIDE_SLIP_LEADING, SCREEN_HEIGHT)
+
 @interface ZYSideSlipFilterController ()
 @property (copy, nonatomic) SideSlipFilterCommitBlock commitBlock;
 @property (strong, nonatomic) UITableView *mainTableView;
@@ -29,16 +32,24 @@
 
 + (void)showSideSlipFilterWithSponsor:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock {
     NSAssert(sponsor.navigationController, @"ERROR: sponsor must have the navigationController");
-    //show
+    //ZYSideSlipFilterController
     ZYSideSlipFilterController *sideSlipFilterController = [[ZYSideSlipFilterController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:sideSlipFilterController];
     [navController setNavigationBarHidden:YES];
-    [navController.view setFrame:CGRectMake(SIDE_SLIP_LEADING, 0, SCREEN_WIDTH - SIDE_SLIP_LEADING, SCREEN_HEIGHT)];
-    
+    [navController.view setFrame:SLIP_ORIGIN_FRAME];
+    //show
     [sponsor.navigationController.view addSubview:sideSlipFilterController.backCover];
     [sponsor.navigationController addChildViewController:navController];
     [sponsor.navigationController.view addSubview:navController.view];
+    
+    [sideSlipFilterController.backCover setAlpha:0.f];
+    [UIView animateWithDuration:sideSlipFilterController.animationDuration animations:^{
+        [navController.view setFrame:SLIP_DISTINATION_FRAME];
+    } completion:^(BOOL finished) {
+        [sideSlipFilterController.backCover setAlpha:1.f];
+    }];
 }
+
 
 - (void)configureUI {
     self.mainTableView = [[UITableView alloc] init];
@@ -50,9 +61,12 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[mainTableView]|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
 }
 
+- (void)configureStatic {
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self.view setBackgroundColor:[UIColor redColor]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,18 +85,17 @@
 
 - (void)clickBackCover:(id)sender {
     NSLog(@"clickBackCover");
-    [_backCover removeFromSuperview];
-    [self.navigationController.view removeFromSuperview];
-    [self.navigationController removeFromParentViewController];
+    [self dismiss];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)dismiss {
+    [UIView animateWithDuration:_animationDuration animations:^{
+        [self.navigationController.view setFrame:SLIP_ORIGIN_FRAME];
+    } completion:^(BOOL finished) {
+        [_backCover removeFromSuperview];
+        [self.navigationController.view removeFromSuperview];
+        [self.navigationController removeFromParentViewController];
+    }];
 }
-*/
 
 @end
