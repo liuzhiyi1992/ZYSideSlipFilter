@@ -9,17 +9,22 @@
 #import "ZYSideSlipFilterController.h"
 
 @interface ZYSideSlipFilterController ()
+@property (copy, nonatomic) SideSlipFilterCommitBlock commitBlock;
 @end
 
 @implementation ZYSideSlipFilterController
-+ (void)showSideSlipFilter:(UIViewController *)sponsor commitBlock:(void(^)(NSDictionary *))commitBlock {
++ (void)showSideSlipFilter:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock {
     NSAssert(sponsor.navigationController, @"ERROR: sponsor must have the navigationController");
     //show
+    ZYSideSlipFilterController *sideSlipFilterController = [[ZYSideSlipFilterController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:sideSlipFilterController];
+    [sponsor.navigationController addChildViewController:navController];
+    [sponsor.view addSubview:navController.view];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.view setBackgroundColor:[UIColor redColor]];
 }
 
 - (void)didReceiveMemoryWarning {

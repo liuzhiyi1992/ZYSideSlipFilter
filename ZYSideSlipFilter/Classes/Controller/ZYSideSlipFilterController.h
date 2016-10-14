@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^SideSlipFilterCommitBlock)(NSDictionary *commitDict);
+
 @interface ZYSideSlipFilterController : UIViewController
-+ (void)showSideSlipFilter:(UIViewController *)sponsor commitBlock:(void(^)(NSDictionary *filterDict))commitBlock;
++ (void)showSideSlipFilter:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock;
 @end
