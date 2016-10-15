@@ -82,6 +82,8 @@ id (*objc_msgSendCreateCell)(id self, SEL _cmd) = (void *)objc_msgSend;
 - (void)configureUI {
     self.mainTableView = [[UITableView alloc] init];
     _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _mainTableView.delegate = self;
+    _mainTableView.dataSource = self;
     NSDictionary *views = @{@"mainTableView":_mainTableView};
     [_mainTableView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:_mainTableView];

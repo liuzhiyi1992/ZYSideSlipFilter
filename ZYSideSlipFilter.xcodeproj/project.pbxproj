@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		486B766D1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B766C1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.m */; };
+		486B76711DB22BC0000A7B53 /* FilterCommonCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B766F1DB22BC0000A7B53 /* FilterCommonCollectionViewCell.m */; };
+		486B76721DB22BC0000A7B53 /* FilterCommonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486B76701DB22BC0000A7B53 /* FilterCommonCollectionViewCell.xib */; };
+		486B76751DB22C89000A7B53 /* FilterBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B76741DB22C89000A7B53 /* FilterBaseCollectionViewCell.m */; };
 		553B4F971DB0C1B3007A2374 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F961DB0C1B3007A2374 /* main.m */; };
 		553B4F9A1DB0C1B3007A2374 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F991DB0C1B3007A2374 /* AppDelegate.m */; };
 		553B4F9D1DB0C1B3007A2374 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F9C1DB0C1B3007A2374 /* ViewController.m */; };
@@ -40,6 +43,11 @@
 /* Begin PBXFileReference section */
 		486B766B1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSideSlipFilterItemModel.h; sourceTree = "<group>"; };
 		486B766C1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSideSlipFilterItemModel.m; sourceTree = "<group>"; };
+		486B766E1DB22BC0000A7B53 /* FilterCommonCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilterCommonCollectionViewCell.h; path = ZYSideSlipFilter/Classes/Model/FilterCommonCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		486B766F1DB22BC0000A7B53 /* FilterCommonCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilterCommonCollectionViewCell.m; path = ZYSideSlipFilter/Classes/Model/FilterCommonCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
+		486B76701DB22BC0000A7B53 /* FilterCommonCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FilterCommonCollectionViewCell.xib; path = ZYSideSlipFilter/Classes/Model/FilterCommonCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		486B76731DB22C89000A7B53 /* FilterBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilterBaseCollectionViewCell.h; path = ZYSideSlipFilter/Classes/Model/FilterBaseCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		486B76741DB22C89000A7B53 /* FilterBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilterBaseCollectionViewCell.m; path = ZYSideSlipFilter/Classes/Model/FilterBaseCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
 		553B4F921DB0C1B3007A2374 /* ZYSideSlipFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYSideSlipFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553B4F961DB0C1B3007A2374 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		553B4F981DB0C1B3007A2374 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -181,6 +189,11 @@
 		553B4FC31DB0C6B6007A2374 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				486B76731DB22C89000A7B53 /* FilterBaseCollectionViewCell.h */,
+				486B76741DB22C89000A7B53 /* FilterBaseCollectionViewCell.m */,
+				486B766E1DB22BC0000A7B53 /* FilterCommonCollectionViewCell.h */,
+				486B766F1DB22BC0000A7B53 /* FilterCommonCollectionViewCell.m */,
+				486B76701DB22BC0000A7B53 /* FilterCommonCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -295,6 +308,7 @@
 				553B4FC91DB0C759007A2374 /* SideSlipCommonTableViewCell.xib in Resources */,
 				553B4FD81DB0C846007A2374 /* SideSlipServiceTableViewCell.xib in Resources */,
 				553B4FA21DB0C1B3007A2374 /* Assets.xcassets in Resources */,
+				486B76721DB22BC0000A7B53 /* FilterCommonCollectionViewCell.xib in Resources */,
 				553B4FA01DB0C1B3007A2374 /* Main.storyboard in Resources */,
 				553B4FCE1DB0C796007A2374 /* SideSlipAllCategoryTableViewCell.xib in Resources */,
 			);
@@ -316,12 +330,14 @@
 			files = (
 				553B4FDB1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m in Sources */,
 				553B4F9D1DB0C1B3007A2374 /* ViewController.m in Sources */,
+				486B76711DB22BC0000A7B53 /* FilterCommonCollectionViewCell.m in Sources */,
 				486B766D1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.m in Sources */,
 				553B4FD21DB0C82B007A2374 /* SideSlipPriceTableViewCell.m in Sources */,
 				553B4FD71DB0C846007A2374 /* SideSlipServiceTableViewCell.m in Sources */,
 				553B4FC81DB0C759007A2374 /* SideSlipCommonTableViewCell.m in Sources */,
 				553B4FC21DB0C23F007A2374 /* ZYSideSlipFilterController.m in Sources */,
 				553B4F9A1DB0C1B3007A2374 /* AppDelegate.m in Sources */,
+				486B76751DB22C89000A7B53 /* FilterBaseCollectionViewCell.m in Sources */,
 				553B4FCD1DB0C796007A2374 /* SideSlipAllCategoryTableViewCell.m in Sources */,
 				553B4F971DB0C1B3007A2374 /* main.m in Sources */,
 			);

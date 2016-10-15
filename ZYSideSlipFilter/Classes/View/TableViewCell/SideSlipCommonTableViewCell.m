@@ -7,12 +7,14 @@
 //
 
 #import "SideSlipCommonTableViewCell.h"
+#import "FilterCommonCollectionViewCell.h"
 
 @interface SideSlipCommonTableViewCell () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *controlIcon;
 @property (weak, nonatomic) IBOutlet UILabel *controlLabel;
-@property (weak, nonatomic) IBOutlet UICollectionView *mainCollectionview;
+@property (weak, nonatomic) IBOutlet UICollectionView *mainCollectionView;
+@property (strong, nonatomic) NSArray *dataList;
 @end
 
 @implementation SideSlipCommonTableViewCell
@@ -22,19 +24,40 @@
 
 + (instancetype)createCell {
     SideSlipCommonTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:@"SideSlipCommonTableViewCell" owner:nil options:nil][0];
+    [cell.mainCollectionView registerClass:[FilterCommonCollectionViewCell class] forCellWithReuseIdentifier:[FilterCommonCollectionViewCell cellReuseIdentifier]];
     return cell;
 }
 
 - (void)updateCellWithDataDict:(NSDictionary *)dataDict {
-    NSLog(@"update cell");
+    //title
+    [self.titleLabel setText:dataDict[@"title"]];
+    //content
+    NSArray *itemsArray = dataDict[@"content"];
+    self.dataList = itemsArray;
+    [_mainCollectionView reloadData];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
+    return _dataList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    FilterCommonCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FilterCommonCollectionViewCell cellReuseIdentifier] forIndexPath:indexPath];
+    NSDictionary *dataDict = [_dataList objectAtIndex:indexPath.row];
+    [cell updateCellWithDataDict:dataDict];
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(120, 40);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 10.f;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 20.f;
 }
 
 - (IBAction)clickShowMoreButton:(id)sender {
