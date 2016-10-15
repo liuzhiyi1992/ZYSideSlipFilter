@@ -12,6 +12,7 @@ typedef void (^SideSlipFilterCommitBlock)(NSDictionary *commitDict);
 
 @interface ZYSideSlipFilterController : UIViewController
 @property (assign, nonatomic) CGFloat animationDuration;
+@property (strong, nonatomic) NSArray *dataList;
 + (void)showSideSlipFilterWithSponsor:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock;
 - (instancetype)initWithSponsor:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock;
 - (void)show;

@@ -16,6 +16,19 @@
 @end
 
 @implementation SideSlipCommonTableViewCell
++ (NSString *)cellReuseIdentifier {
+    return @"SideSlipCommonTableViewCell";
+}
+
++ (instancetype)createCell {
+    SideSlipCommonTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:@"SideSlipCommonTableViewCell" owner:nil options:nil][0];
+    return cell;
+}
+
+- (void)updateCellWithDataDict:(NSDictionary *)dataDict {
+    NSLog(@"update cell");
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 0;
 }
@@ -27,6 +40,12 @@
 - (IBAction)clickShowMoreButton:(id)sender {
     NSLog(@"show more");
 }
+
+
+
+
+
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
