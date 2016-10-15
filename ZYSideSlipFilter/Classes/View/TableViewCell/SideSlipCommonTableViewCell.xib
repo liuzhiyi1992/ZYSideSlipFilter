@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqK-EA-JiO">
-                        <rect key="frame" x="8" y="12" width="28" height="20"/>
+                        <rect key="frame" x="10" y="12" width="28" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -35,7 +35,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eeV-5C-Bih">
-                        <rect key="frame" x="8" y="42" width="304" height="49.5"/>
+                        <rect key="frame" x="0.0" y="42" width="320" height="49.5"/>
                         <color key="backgroundColor" red="0.35686274509999999" green="0.45098039220000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VV3-i9-efz">
                             <size key="itemSize" width="60" height="20"/>
@@ -45,7 +45,7 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpk-fT-CBc">
-                        <rect key="frame" x="36" y="8" width="276" height="34"/>
+                        <rect key="frame" x="38" y="8" width="274" height="34"/>
                         <connections>
                             <action selector="clickShowMoreButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Xmv-90-k8q"/>
                         </connections>
@@ -61,9 +61,13 @@
                     <constraint firstItem="38I-02-wdR" firstAttribute="top" secondItem="LqK-EA-JiO" secondAttribute="top" id="Qla-Tv-bTu"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1Y8-as-n4L" secondAttribute="trailing" id="R7l-BA-b3N"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Hpk-fT-CBc" secondAttribute="trailing" id="Tex-qG-fv1"/>
-                    <constraint firstItem="LqK-EA-JiO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Uhs-lQ-Mav"/>
+                    <constraint firstItem="eeV-5C-Bih" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-8" id="Tir-Ra-qmT"/>
+                    <constraint firstItem="LqK-EA-JiO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="Uhs-lQ-Mav"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="eeV-5C-Bih" secondAttribute="trailing" id="VDJ-60-YXL"/>
                     <constraint firstItem="eeV-5C-Bih" firstAttribute="top" secondItem="Hpk-fT-CBc" secondAttribute="bottom" id="YGt-5i-bQJ"/>
                     <constraint firstItem="eeV-5C-Bih" firstAttribute="top" secondItem="LqK-EA-JiO" secondAttribute="bottom" constant="10" id="eg8-bw-LPF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="eeV-5C-Bih" secondAttribute="trailing" constant="-8" id="fNH-72-kxB"/>
+                    <constraint firstItem="eeV-5C-Bih" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="hSC-Uw-omF"/>
                     <constraint firstItem="1Y8-as-n4L" firstAttribute="top" secondItem="LqK-EA-JiO" secondAttribute="top" id="iAb-aK-41r"/>
                     <constraint firstItem="1Y8-as-n4L" firstAttribute="leading" secondItem="38I-02-wdR" secondAttribute="trailing" constant="2" id="o4z-s1-ybn"/>
                     <constraint firstItem="Hpk-fT-CBc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="o8d-qn-JaC"/>
@@ -71,7 +75,11 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="7aN-NN-Lw9"/>
                         <exclude reference="C9j-TJ-qmN"/>
+                        <exclude reference="Nb1-pQ-mDf"/>
+                        <exclude reference="Tir-Ra-qmT"/>
+                        <exclude reference="VDJ-60-YXL"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

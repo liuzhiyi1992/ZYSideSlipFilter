@@ -9,6 +9,11 @@
 #import "SideSlipCommonTableViewCell.h"
 #import "FilterCommonCollectionViewCell.h"
 
+#define GAP_COLLECTION_ITEM 8
+#define NUM_OF_ITEM_ONCE_ROW 3
+#define ITEM_WIDTH ((self.frame.size.width - (NUM_OF_ITEM_ONCE_ROW+1)*GAP_COLLECTION_ITEM)/NUM_OF_ITEM_ONCE_ROW)
+#define ITEM_HEIGHT 20
+
 @interface SideSlipCommonTableViewCell () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *controlIcon;
@@ -26,6 +31,7 @@
     SideSlipCommonTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:@"SideSlipCommonTableViewCell" owner:nil options:nil][0];
     cell.mainCollectionView.delegate = cell;
     cell.mainCollectionView.dataSource = cell;
+    cell.mainCollectionView.contentInset = UIEdgeInsetsMake(0, GAP_COLLECTION_ITEM, 0, GAP_COLLECTION_ITEM);
     [cell.mainCollectionView registerClass:[FilterCommonCollectionViewCell class] forCellWithReuseIdentifier:[FilterCommonCollectionViewCell cellReuseIdentifier]];
     return cell;
 }
@@ -51,7 +57,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(60, 20);
+    return CGSizeMake(ITEM_WIDTH, ITEM_HEIGHT);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
@@ -59,7 +65,7 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 8.f;
+    return GAP_COLLECTION_ITEM;
 }
 
 - (IBAction)clickShowMoreButton:(id)sender {
