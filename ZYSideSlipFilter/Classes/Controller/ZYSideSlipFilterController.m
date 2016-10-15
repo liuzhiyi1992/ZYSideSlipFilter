@@ -19,6 +19,7 @@
 
 @interface ZYSideSlipFilterController ()
 @property (copy, nonatomic) SideSlipFilterCommitBlock commitBlock;
+@property (strong, nonatomic) UINavigationController *navController;//强引用着self.navigationController
 @property (strong, nonatomic) UITableView *mainTableView;
 @property (strong, nonatomic) UIView *backCover;
 @property (weak, nonatomic) UIViewController *sponsor;
@@ -29,9 +30,9 @@
     self = [super init];
     if (self) {
         _sponsor = sponsor;
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self];
-        [navController setNavigationBarHidden:YES];
-        [navController.view setFrame:SLIP_ORIGIN_FRAME];
+        _navController = [[UINavigationController alloc] initWithRootViewController:self];
+        [_navController setNavigationBarHidden:YES];
+        [_navController.view setFrame:SLIP_ORIGIN_FRAME];
         [self configureStatic];
         [self configureUI];
     }
