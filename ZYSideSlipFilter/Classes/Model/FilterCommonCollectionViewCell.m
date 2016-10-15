@@ -10,6 +10,7 @@
 
 @interface FilterCommonCollectionViewCell ()
 @property (weak, nonatomic) IBOutlet UIButton *nameButton;
+@property (copy, nonatomic) NSString *itemId;
 @end
 
 @implementation FilterCommonCollectionViewCell
@@ -19,14 +20,12 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    if (self) {
-//        [self setupCell];
-    }
-    return self;
+    return [[NSBundle mainBundle] loadNibNamed:@"FilterCommonCollectionViewCell" owner:nil options:nil][0];
 }
 
 - (void)updateCellWithDataDict:(NSDictionary *)dataDict {
-    [_nameButton setTitle:dataDict[@"name"] forState:UIControlStateNormal];
+    [_nameButton setTitle:dataDict[@"itemTitle"] forState:UIControlStateNormal];
+    self.itemId = dataDict[@"itemId"];
 }
 
 - (void)awakeFromNib {

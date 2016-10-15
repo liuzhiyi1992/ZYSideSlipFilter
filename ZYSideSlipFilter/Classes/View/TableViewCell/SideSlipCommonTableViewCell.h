@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "SideSlipBaseTableViewCell.h"
 
-@interface SideSlipCommonTableViewCell : SideSlipBaseTableViewCell
+@interface SideSlipCommonTableViewCell : SideSlipBaseTableViewCell <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @end
