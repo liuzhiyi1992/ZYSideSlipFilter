@@ -22,7 +22,10 @@
 //    [ZYSideSlipFilterController showSideSlipFilterWithSponsor:self commitBlock:^(NSDictionary *commitDict) {
 //        NSLog(@"");
 //    }];
-    ZYSideSlipFilterController *filterController =[[ZYSideSlipFilterController alloc] initWithSponsor:self];
+    ZYSideSlipFilterController *filterController =[[ZYSideSlipFilterController alloc] initWithSponsor:self commitBlock:^(NSDictionary *commitDict) {
+        NSLog(@"");
+    }];
+    filterController.animationDuration = .3f;
     [filterController show];
 }
 

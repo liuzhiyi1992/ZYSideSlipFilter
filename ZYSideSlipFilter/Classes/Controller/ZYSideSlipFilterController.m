@@ -15,7 +15,7 @@
 #define SLIP_ORIGIN_FRAME CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH - SIDE_SLIP_LEADING, SCREEN_HEIGHT)
 #define SLIP_DISTINATION_FRAME CGRectMake(SIDE_SLIP_LEADING, 0, SCREEN_WIDTH - SIDE_SLIP_LEADING, SCREEN_HEIGHT)
 
-#define ANIMATION_DURATION_DEFAULT .3f
+const CGFloat ANIMATION_DURATION_DEFAULT = 0.3f;
 
 @interface ZYSideSlipFilterController ()
 @property (copy, nonatomic) SideSlipFilterCommitBlock commitBlock;
@@ -26,7 +26,7 @@
 @end
 
 @implementation ZYSideSlipFilterController
-- (instancetype)initWithSponsor:(UIViewController *)sponsor {
+- (instancetype)initWithSponsor:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock {
     self = [super init];
     if (self) {
         _sponsor = sponsor;
@@ -39,6 +39,7 @@
     return self;
 }
 
+//todo 考虑不用 不方便配置各种参数
 + (void)showSideSlipFilterWithSponsor:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock {
     NSAssert(sponsor.navigationController, @"ERROR: sponsor must have the navigationController");
     //ZYSideSlipFilterController
