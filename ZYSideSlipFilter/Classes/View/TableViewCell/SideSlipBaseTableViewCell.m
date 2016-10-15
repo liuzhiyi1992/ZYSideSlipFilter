@@ -9,16 +9,8 @@
 #import "SideSlipBaseTableViewCell.h"
 
 @implementation SideSlipBaseTableViewCell
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
++ (NSString *)cellReuseIdentifier {
+    NSAssert(NO, @"\nERROR: Must realize this function in subClass");
+    return nil;
 }
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 @end

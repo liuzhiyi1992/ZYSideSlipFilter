@@ -8,6 +8,8 @@
 
 #import "ZYSideSlipFilterController.h"
 #import "ZYSideSlipFilterItemModel.h"
+#import "SideSlipBaseTableViewCell.h"
+#import "objc/message.h"
 
 #define SIDE_SLIP_LEADING 80
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
@@ -18,12 +20,16 @@
 
 const CGFloat ANIMATION_DURATION_DEFAULT = 0.3f;
 
-@interface ZYSideSlipFilterController ()
+id (*objc_msgSendGetCellIdentifier)(id self, SEL _cmd) = (void *)objc_msgSend;
+id (*objc_msgSendCreateCell)(id self, SEL _cmd) = (void *)objc_msgSend;
+
+@interface ZYSideSlipFilterController () <UITableViewDelegate, UITableViewDataSource>
 @property (copy, nonatomic) SideSlipFilterCommitBlock commitBlock;
 @property (strong, nonatomic) UINavigationController *navController;//强引用着self.navigationController
 @property (strong, nonatomic) UITableView *mainTableView;
 @property (strong, nonatomic) UIView *backCover;
 @property (weak, nonatomic) UIViewController *sponsor;
+@property (strong, nonatomic) NSArray *dataList;
 @end
 
 @implementation ZYSideSlipFilterController
@@ -121,6 +127,24 @@ const CGFloat ANIMATION_DURATION_DEFAULT = 0.3f;
         [self.navigationController.view removeFromSuperview];
         [self.navigationController removeFromParentViewController];
     }];
+}
+
+#pragma mark - DataSource Delegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _dataList.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZYSideSlipFilterItemModel *model = _dataList[indexPath.row];
+    Class cellClazz =  NSClassFromString(model.containerCellClass);
+    NSString *identifier = objc_msgSendGetCellIdentifier(cellClazz, NSSelectorFromString(@"cellReuseIdentifier"));
+    SideSlipBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = objc_msgSendCreateCell(cellClazz, NSSelectorFromString(@"createCell"));
+    }
+    //update
+    [cell updateCellWithDataDict:model.dataDict];
+    return cell;
 }
 
 @end

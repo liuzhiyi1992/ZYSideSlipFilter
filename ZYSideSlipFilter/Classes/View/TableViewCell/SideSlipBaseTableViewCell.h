@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SideSlipBaseTableViewCell : UITableViewCell
-
++ (NSString *)cellReuseIdentifier;
++ (instancetype)createCell;
+- (void)updateCellWithDataDict:(NSDictionary *)dataDict;
 @end

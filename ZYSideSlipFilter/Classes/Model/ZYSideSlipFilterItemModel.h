@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface ZYSideSlipFilterItemModel : NSObject
-
+@property (copy, nonatomic) NSString *containerCellClass;
+@property (strong, nonatomic) NSDictionary *dataDict;
 @end
