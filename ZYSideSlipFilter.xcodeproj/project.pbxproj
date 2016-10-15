@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		486B766D1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B766C1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.m */; };
 		553B4F971DB0C1B3007A2374 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F961DB0C1B3007A2374 /* main.m */; };
 		553B4F9A1DB0C1B3007A2374 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F991DB0C1B3007A2374 /* AppDelegate.m */; };
 		553B4F9D1DB0C1B3007A2374 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F9C1DB0C1B3007A2374 /* ViewController.m */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		486B766B1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSideSlipFilterItemModel.h; sourceTree = "<group>"; };
+		486B766C1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSideSlipFilterItemModel.m; sourceTree = "<group>"; };
 		553B4F921DB0C1B3007A2374 /* ZYSideSlipFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYSideSlipFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553B4F961DB0C1B3007A2374 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		553B4F981DB0C1B3007A2374 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		486B766A1DB20042000A7B53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				486B766B1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.h */,
+				486B766C1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		553B4F891DB0C1B3007A2374 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +153,7 @@
 		553B4FBA1DB0C1E3007A2374 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				486B766A1DB20042000A7B53 /* Model */,
 				553B4FBE1DB0C23F007A2374 /* Controller */,
 				553B4FC11DB0C23F007A2374 /* View */,
 			);
@@ -303,6 +316,7 @@
 			files = (
 				553B4FDB1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m in Sources */,
 				553B4F9D1DB0C1B3007A2374 /* ViewController.m in Sources */,
+				486B766D1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.m in Sources */,
 				553B4FD21DB0C82B007A2374 /* SideSlipPriceTableViewCell.m in Sources */,
 				553B4FD71DB0C846007A2374 /* SideSlipServiceTableViewCell.m in Sources */,
 				553B4FC81DB0C759007A2374 /* SideSlipCommonTableViewCell.m in Sources */,

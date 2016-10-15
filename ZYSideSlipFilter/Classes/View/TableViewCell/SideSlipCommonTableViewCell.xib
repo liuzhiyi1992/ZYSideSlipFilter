@@ -1,18 +1,92 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SideSlipCommonTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqK-EA-JiO">
+                        <rect key="frame" x="8" y="12" width="28" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_up" translatesAutoresizingMaskIntoConstraints="NO" id="1Y8-as-n4L">
+                        <rect key="frame" x="295" y="12" width="17" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="1Y8-as-n4L" secondAttribute="height" multiplier="1:1" id="4UH-0E-8jp"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="900" text="全部" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38I-02-wdR">
+                        <rect key="frame" x="265" y="12" width="28" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eeV-5C-Bih">
+                        <rect key="frame" x="8" y="42" width="304" height="49.5"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VV3-i9-efz">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="-1" id="q1z-SG-EF2"/>
+                            <outlet property="delegate" destination="-1" id="V5W-0L-MT2"/>
+                        </connections>
+                    </collectionView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpk-fT-CBc">
+                        <rect key="frame" x="36" y="8" width="276" height="34"/>
+                        <connections>
+                            <action selector="clickShowMoreButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Xmv-90-k8q"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Hpk-fT-CBc" firstAttribute="leading" secondItem="LqK-EA-JiO" secondAttribute="trailing" id="0yo-1o-WaL"/>
+                    <constraint firstItem="1Y8-as-n4L" firstAttribute="height" secondItem="38I-02-wdR" secondAttribute="height" id="6F7-Ch-rbf"/>
+                    <constraint firstItem="eeV-5C-Bih" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="7aN-NN-Lw9"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="eeV-5C-Bih" secondAttribute="bottom" id="C9j-TJ-qmN"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="eeV-5C-Bih" secondAttribute="bottom" id="M49-Jm-Wwu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="eeV-5C-Bih" secondAttribute="trailing" id="Nb1-pQ-mDf"/>
+                    <constraint firstItem="38I-02-wdR" firstAttribute="top" secondItem="LqK-EA-JiO" secondAttribute="top" id="Qla-Tv-bTu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="1Y8-as-n4L" secondAttribute="trailing" id="R7l-BA-b3N"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Hpk-fT-CBc" secondAttribute="trailing" id="Tex-qG-fv1"/>
+                    <constraint firstItem="LqK-EA-JiO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Uhs-lQ-Mav"/>
+                    <constraint firstItem="eeV-5C-Bih" firstAttribute="top" secondItem="Hpk-fT-CBc" secondAttribute="bottom" id="YGt-5i-bQJ"/>
+                    <constraint firstItem="eeV-5C-Bih" firstAttribute="top" secondItem="LqK-EA-JiO" secondAttribute="bottom" constant="10" id="eg8-bw-LPF"/>
+                    <constraint firstItem="1Y8-as-n4L" firstAttribute="top" secondItem="LqK-EA-JiO" secondAttribute="top" id="iAb-aK-41r"/>
+                    <constraint firstItem="1Y8-as-n4L" firstAttribute="leading" secondItem="38I-02-wdR" secondAttribute="trailing" constant="2" id="o4z-s1-ybn"/>
+                    <constraint firstItem="Hpk-fT-CBc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="o8d-qn-JaC"/>
+                    <constraint firstItem="LqK-EA-JiO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="whE-qL-kHJ"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="C9j-TJ-qmN"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="controlIcon" destination="1Y8-as-n4L" id="XxA-ep-dYn"/>
+                <outlet property="controlLabel" destination="38I-02-wdR" id="kEg-Qm-jZx"/>
+                <outlet property="mainCollectionview" destination="eeV-5C-Bih" id="gEs-7L-nPS"/>
+                <outlet property="titleLabel" destination="LqK-EA-JiO" id="rox-qS-jU1"/>
+            </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icon_up" width="21" height="21"/>
+    </resources>
 </document>

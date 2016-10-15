@@ -7,6 +7,7 @@
 //
 
 #import "ZYSideSlipFilterController.h"
+#import "ZYSideSlipFilterItemModel.h"
 
 #define SIDE_SLIP_LEADING 80
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
@@ -73,9 +74,9 @@ const CGFloat ANIMATION_DURATION_DEFAULT = 0.3f;
     }];
 }
 
-
 - (void)configureUI {
     self.mainTableView = [[UITableView alloc] init];
+    _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     NSDictionary *views = @{@"mainTableView":_mainTableView};
     [_mainTableView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:_mainTableView];
@@ -109,7 +110,6 @@ const CGFloat ANIMATION_DURATION_DEFAULT = 0.3f;
 }
 
 - (void)clickBackCover:(id)sender {
-    NSLog(@"clickBackCover");
     [self dismiss];
 }
 
