@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonItemModel.h"
 
 @interface FilterBaseCollectionViewCell : UICollectionViewCell
 + (NSString *)cellReuseIdentifier;
-- (void)updateCellWithDataDict:(NSDictionary *)dataDict;
+- (void)updateCellWithModel:(CommonItemModel *)model;
+- (void)tap2SelectItem:(BOOL)selected;
 @end

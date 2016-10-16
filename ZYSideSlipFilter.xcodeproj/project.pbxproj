@@ -12,6 +12,8 @@
 		486B76721DB22BC0000A7B53 /* FilterCommonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486B76701DB22BC0000A7B53 /* FilterCommonCollectionViewCell.xib */; };
 		486B76751DB22C89000A7B53 /* FilterBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B76741DB22C89000A7B53 /* FilterBaseCollectionViewCell.m */; };
 		486B76791DB283EE000A7B53 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B76781DB283EE000A7B53 /* UIView+Utils.m */; };
+		486B767F1DB3841D000A7B53 /* CommonItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B767E1DB3841D000A7B53 /* CommonItemModel.m */; };
+		486B76821DB38A0D000A7B53 /* UIColor+hexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B76811DB38A0D000A7B53 /* UIColor+hexColor.m */; };
 		553B4F971DB0C1B3007A2374 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F961DB0C1B3007A2374 /* main.m */; };
 		553B4F9A1DB0C1B3007A2374 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F991DB0C1B3007A2374 /* AppDelegate.m */; };
 		553B4F9D1DB0C1B3007A2374 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F9C1DB0C1B3007A2374 /* ViewController.m */; };
@@ -51,6 +53,10 @@
 		486B76741DB22C89000A7B53 /* FilterBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilterBaseCollectionViewCell.m; path = ZYSideSlipFilter/Classes/Model/FilterBaseCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
 		486B76771DB283EE000A7B53 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
 		486B76781DB283EE000A7B53 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
+		486B767D1DB3841D000A7B53 /* CommonItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonItemModel.h; sourceTree = "<group>"; };
+		486B767E1DB3841D000A7B53 /* CommonItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonItemModel.m; sourceTree = "<group>"; };
+		486B76801DB38A0D000A7B53 /* UIColor+hexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+hexColor.h"; sourceTree = "<group>"; };
+		486B76811DB38A0D000A7B53 /* UIColor+hexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+hexColor.m"; sourceTree = "<group>"; };
 		553B4F921DB0C1B3007A2374 /* ZYSideSlipFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYSideSlipFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553B4F961DB0C1B3007A2374 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		553B4F981DB0C1B3007A2374 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +111,8 @@
 			children = (
 				486B766B1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.h */,
 				486B766C1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.m */,
+				486B767D1DB3841D000A7B53 /* CommonItemModel.h */,
+				486B767E1DB3841D000A7B53 /* CommonItemModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -112,6 +120,8 @@
 		486B76761DB283BC000A7B53 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				486B76801DB38A0D000A7B53 /* UIColor+hexColor.h */,
+				486B76811DB38A0D000A7B53 /* UIColor+hexColor.m */,
 				486B76771DB283EE000A7B53 /* UIView+Utils.h */,
 				486B76781DB283EE000A7B53 /* UIView+Utils.m */,
 			);
@@ -348,11 +358,13 @@
 				486B766D1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.m in Sources */,
 				553B4FD21DB0C82B007A2374 /* SideSlipPriceTableViewCell.m in Sources */,
 				553B4FD71DB0C846007A2374 /* SideSlipServiceTableViewCell.m in Sources */,
+				486B767F1DB3841D000A7B53 /* CommonItemModel.m in Sources */,
 				553B4FC81DB0C759007A2374 /* SideSlipCommonTableViewCell.m in Sources */,
 				553B4FC21DB0C23F007A2374 /* ZYSideSlipFilterController.m in Sources */,
 				553B4F9A1DB0C1B3007A2374 /* AppDelegate.m in Sources */,
 				486B76751DB22C89000A7B53 /* FilterBaseCollectionViewCell.m in Sources */,
 				553B4FCD1DB0C796007A2374 /* SideSlipAllCategoryTableViewCell.m in Sources */,
+				486B76821DB38A0D000A7B53 /* UIColor+hexColor.m in Sources */,
 				553B4F971DB0C1B3007A2374 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

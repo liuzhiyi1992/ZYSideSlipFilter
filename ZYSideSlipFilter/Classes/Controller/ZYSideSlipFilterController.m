@@ -172,7 +172,6 @@ id (*objc_msgSendCreateCell)(id self, SEL _cmd) = (void *)objc_msgSend;
 - (void)sideSlipTableViewCellNeedsReload:(SideSlipBaseTableViewCell *)cell {
     NSIndexPath *indexPath = [_mainTableView indexPathForCell:cell];
     [_mainTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//    [_mainTableView reloadData];
 }
 
 #pragma mark - GetSet

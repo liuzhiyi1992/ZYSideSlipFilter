@@ -7,6 +7,14 @@
 //
 
 #import "FilterCommonCollectionViewCell.h"
+#import "CommonItemModel.h"
+#import "UIColor+hexColor.h"
+
+#define TEXT_COLOR_SELECTED [UIColor hexColor:@"c11c11"]
+#define TEXT_COLOR_NORMAL [UIColor hexColor:@"333333"]
+#define BACKGROUND_COLOR_SELECTED [UIColor whiteColor]
+#define BACKGROUND_COLOR_NORMAL [UIColor hexColor:@"dddddd"]
+
 
 @interface FilterCommonCollectionViewCell ()
 @property (weak, nonatomic) IBOutlet UIButton *nameButton;
@@ -23,9 +31,20 @@
     return [[NSBundle mainBundle] loadNibNamed:@"FilterCommonCollectionViewCell" owner:nil options:nil][0];
 }
 
-- (void)updateCellWithDataDict:(NSDictionary *)dataDict {
-    [_nameButton setTitle:dataDict[@"itemTitle"] forState:UIControlStateNormal];
-    self.itemId = dataDict[@"itemId"];
+- (void)updateCellWithModel:(CommonItemModel *)model {
+    [_nameButton setTitle:model.itemName forState:UIControlStateNormal];
+    self.itemId = model.itemId;
+    [self tap2SelectItem:model.selected];
+}
+
+- (void)tap2SelectItem:(BOOL)selected {
+    if (selected) {
+        [self setBackgroundColor:BACKGROUND_COLOR_SELECTED];
+        [_nameButton setTitleColor:TEXT_COLOR_SELECTED forState:UIControlStateNormal];
+    } else {
+        [self setBackgroundColor:BACKGROUND_COLOR_NORMAL];
+        [_nameButton setTitleColor:TEXT_COLOR_NORMAL forState:UIControlStateNormal];
+    }
 }
 
 - (void)awakeFromNib {

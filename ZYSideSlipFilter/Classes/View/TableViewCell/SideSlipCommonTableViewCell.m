@@ -9,6 +9,7 @@
 #import "SideSlipCommonTableViewCell.h"
 #import "FilterCommonCollectionViewCell.h"
 #import "UIView+Utils.h"
+#import "CommonItemModel.h"
 
 #define LINE_SPACE_COLLECTION_ITEM 8
 #define GAP_COLLECTION_ITEM 8
@@ -70,6 +71,13 @@ const int BRIEF_ROW = 2;
     [_mainCollectionView updateHeight:collectionViewHeight];
 }
 
+- (BOOL)tap2SelectItem:(NSIndexPath *)indexPath {
+    NSArray *itemArray = [_itemModel.dataDict objectForKey:@"content"];
+    CommonItemModel *model = [itemArray objectAtIndex:indexPath.row];
+    model.selected = !model.selected;
+    return model.selected;
+}
+
 #pragma mark - DataSource Delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _dataList.count;
@@ -77,8 +85,8 @@ const int BRIEF_ROW = 2;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FilterCommonCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FilterCommonCollectionViewCell cellReuseIdentifier] forIndexPath:indexPath];
-    NSDictionary *dataDict = [_dataList objectAtIndex:indexPath.row];
-    [cell updateCellWithDataDict:dataDict];
+    CommonItemModel *model = [_dataList objectAtIndex:indexPath.row];
+    [cell updateCellWithModel:model];
     return cell;
 }
 
@@ -94,8 +102,13 @@ const int BRIEF_ROW = 2;
     return GAP_COLLECTION_ITEM;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:NO];
+    FilterCommonCollectionViewCell *cell = (FilterCommonCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [cell tap2SelectItem:[self tap2SelectItem:indexPath]];
+}
+
 - (IBAction)clickShowMoreButton:(id)sender {
-    NSLog(@"show more");
     _itemModel.isShowAll = !_itemModel.isShowAll;
     [self fitCollectonViewHeight];
     [self.delegate sideSlipTableViewCellNeedsReload:self];
@@ -103,7 +116,6 @@ const int BRIEF_ROW = 2;
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 

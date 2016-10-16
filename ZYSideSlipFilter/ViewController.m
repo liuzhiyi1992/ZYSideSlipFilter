@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ZYSideSlipFilterController.h"
 #import "ZYSideSlipFilterItemModel.h"
+#import "CommonItemModel.h"
 
 @interface ViewController ()
 @end
@@ -44,16 +45,29 @@
 - (ZYSideSlipFilterItemModel *)commonFilterItemModelWithKeywork:(NSString *)keywork {
     ZYSideSlipFilterItemModel *model = [[ZYSideSlipFilterItemModel alloc] init];
     model.containerCellClass = @"SideSlipCommonTableViewCell";
-    model.dataDict = @{@"title":keywork, @"content":@[@{@"itemTitle":@"first", @"itemId":@"0000"},
-                                                         @{@"itemTitle":@"second", @"itemId":@"0001"},
-                                                         @{@"itemTitle":@"third", @"itemId":@"0002"},
-                                                         @{@"itemTitle":@"fourth", @"itemId":@"0003"},
-                                                         @{@"itemTitle":@"fifth", @"itemId":@"0004"},
-                                                         @{@"itemTitle":@"sixth", @"itemId":@"0005"},
-                                                         @{@"itemTitle":@"seventh", @"itemId":@"0006"},
-                                                         @{@"itemTitle":@"eighth", @"itemId":@"0007"},
-                                                         @{@"itemTitle":@"ninth", @"itemId":@"0008"},
-                                                         @{@"itemTitle":@"tenth", @"itemId":@"0009"}]};
+    [self createItemModelWithTitle:@"first" itemId:@"0000" selected:NO];
+    model.dataDict = @{@"title":keywork,
+                       @"content":@[[self createItemModelWithTitle:@"first" itemId:@"0000" selected:NO],
+                                    [self createItemModelWithTitle:@"second" itemId:@"0001" selected:NO],
+                                    [self createItemModelWithTitle:@"third" itemId:@"0002" selected:NO],
+                                    [self createItemModelWithTitle:@"fourth" itemId:@"0003" selected:NO],
+                                    [self createItemModelWithTitle:@"fifth" itemId:@"0004" selected:NO],
+                                    [self createItemModelWithTitle:@"sixth" itemId:@"0005" selected:NO],
+                                    [self createItemModelWithTitle:@"seventh" itemId:@"0006" selected:NO],
+                                    [self createItemModelWithTitle:@"eighth" itemId:@"0007" selected:NO],
+                                    [self createItemModelWithTitle:@"ninth" itemId:@"0008" selected:NO],
+                                    [self createItemModelWithTitle:@"tenth" itemId:@"0009" selected:NO]
+                                    ]};
+    return model;
+}
+
+- (CommonItemModel *)createItemModelWithTitle:(NSString *)itemTitle
+                                       itemId:(NSString *)itemId
+                                     selected:(BOOL)selected {
+    CommonItemModel *model = [[CommonItemModel alloc] init];
+    model.itemId = itemId;
+    model.itemName = itemTitle;
+    model.selected = selected;
     return model;
 }
 
