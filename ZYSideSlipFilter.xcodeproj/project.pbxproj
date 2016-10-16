@@ -11,6 +11,7 @@
 		486B76711DB22BC0000A7B53 /* FilterCommonCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B766F1DB22BC0000A7B53 /* FilterCommonCollectionViewCell.m */; };
 		486B76721DB22BC0000A7B53 /* FilterCommonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486B76701DB22BC0000A7B53 /* FilterCommonCollectionViewCell.xib */; };
 		486B76751DB22C89000A7B53 /* FilterBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B76741DB22C89000A7B53 /* FilterBaseCollectionViewCell.m */; };
+		486B76791DB283EE000A7B53 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B76781DB283EE000A7B53 /* UIView+Utils.m */; };
 		553B4F971DB0C1B3007A2374 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F961DB0C1B3007A2374 /* main.m */; };
 		553B4F9A1DB0C1B3007A2374 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F991DB0C1B3007A2374 /* AppDelegate.m */; };
 		553B4F9D1DB0C1B3007A2374 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F9C1DB0C1B3007A2374 /* ViewController.m */; };
@@ -48,6 +49,8 @@
 		486B76701DB22BC0000A7B53 /* FilterCommonCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FilterCommonCollectionViewCell.xib; path = ZYSideSlipFilter/Classes/Model/FilterCommonCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		486B76731DB22C89000A7B53 /* FilterBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilterBaseCollectionViewCell.h; path = ZYSideSlipFilter/Classes/Model/FilterBaseCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
 		486B76741DB22C89000A7B53 /* FilterBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilterBaseCollectionViewCell.m; path = ZYSideSlipFilter/Classes/Model/FilterBaseCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
+		486B76771DB283EE000A7B53 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
+		486B76781DB283EE000A7B53 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
 		553B4F921DB0C1B3007A2374 /* ZYSideSlipFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYSideSlipFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553B4F961DB0C1B3007A2374 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		553B4F981DB0C1B3007A2374 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,6 +107,15 @@
 				486B766C1DB2008D000A7B53 /* ZYSideSlipFilterItemModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		486B76761DB283BC000A7B53 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				486B76771DB283EE000A7B53 /* UIView+Utils.h */,
+				486B76781DB283EE000A7B53 /* UIView+Utils.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		553B4F891DB0C1B3007A2374 = {
@@ -164,6 +176,7 @@
 				486B766A1DB20042000A7B53 /* Model */,
 				553B4FBE1DB0C23F007A2374 /* Controller */,
 				553B4FC11DB0C23F007A2374 /* View */,
+				486B76761DB283BC000A7B53 /* Utils */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -328,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				486B76791DB283EE000A7B53 /* UIView+Utils.m in Sources */,
 				553B4FDB1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m in Sources */,
 				553B4F9D1DB0C1B3007A2374 /* ViewController.m in Sources */,
 				486B76711DB22BC0000A7B53 /* FilterCommonCollectionViewCell.m in Sources */,
