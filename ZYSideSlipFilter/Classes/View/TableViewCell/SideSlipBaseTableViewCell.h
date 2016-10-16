@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZYSideSlipFilterItemModel.h"
+
+@class SideSlipBaseTableViewCell;
+@protocol SideSlipBaseTableViewCellDelegate <NSObject>
+- (void)sideSlipTableViewCellNeedsReload:(SideSlipBaseTableViewCell *)cell;
+@end
 
 @interface SideSlipBaseTableViewCell : UITableViewCell
+@property (weak, nonatomic) id<SideSlipBaseTableViewCellDelegate> delegate;
 + (NSString *)cellReuseIdentifier;
 + (instancetype)createCell;
-- (void)updateCellWithDataDict:(NSDictionary *)dataDict;
+- (void)updateCellWithModel:(ZYSideSlipFilterItemModel **)model;
 @end
+

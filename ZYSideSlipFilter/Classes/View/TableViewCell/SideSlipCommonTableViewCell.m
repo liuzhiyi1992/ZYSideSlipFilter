@@ -16,7 +16,7 @@
 #define ITEM_WIDTH ((self.frame.size.width - (NUM_OF_ITEM_ONCE_ROW+1)*GAP_COLLECTION_ITEM)/NUM_OF_ITEM_ONCE_ROW)
 #define ITEM_HEIGHT 20
 
-const int BRIEF_ROW = 1;
+const int BRIEF_ROW = 2;
 
 @interface SideSlipCommonTableViewCell () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -25,7 +25,7 @@ const int BRIEF_ROW = 1;
 @property (weak, nonatomic) IBOutlet UICollectionView *mainCollectionView;
 @property (strong, nonatomic) NSArray *dataList;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
-@property (assign, nonatomic) BOOL isShowAll;
+@property (strong, nonatomic) ZYSideSlipFilterItemModel *itemModel;
 @end
 
 @implementation SideSlipCommonTableViewCell
@@ -44,14 +44,14 @@ const int BRIEF_ROW = 1;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-//    [self fitCollectonViewHeight];
 }
 
-- (void)updateCellWithDataDict:(NSDictionary *)dataDict {
+- (void)updateCellWithModel:(ZYSideSlipFilterItemModel **)model {
+    self.itemModel = *model;
     //title
-    [self.titleLabel setText:dataDict[@"title"]];
+    [self.titleLabel setText:_itemModel.dataDict[@"title"]];
     //content
-    NSArray *itemsArray = dataDict[@"content"];
+    NSArray *itemsArray = _itemModel.dataDict[@"content"];
     self.dataList = itemsArray;
     [_mainCollectionView reloadData];
     [self fitCollectonViewHeight];
@@ -60,7 +60,7 @@ const int BRIEF_ROW = 1;
 //根据数据源个数决定collectionView高度
 - (void)fitCollectonViewHeight {
     CGFloat displayNumOfRow;
-    if (_isShowAll) {
+    if (_itemModel.isShowAll) {
         displayNumOfRow = ceil(_dataList.count/NUM_OF_ITEM_ONCE_ROW);
     } else {
         displayNumOfRow = BRIEF_ROW;
@@ -96,8 +96,9 @@ const int BRIEF_ROW = 1;
 
 - (IBAction)clickShowMoreButton:(id)sender {
     NSLog(@"show more");
-    self.isShowAll = !_isShowAll;
+    _itemModel.isShowAll = !_itemModel.isShowAll;
     [self fitCollectonViewHeight];
+    [self.delegate sideSlipTableViewCellNeedsReload:self];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
