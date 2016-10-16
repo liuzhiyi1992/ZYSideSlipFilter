@@ -29,6 +29,7 @@ id (*objc_msgSendCreateCell)(id self, SEL _cmd) = (void *)objc_msgSend;
 @property (strong, nonatomic) UITableView *mainTableView;
 @property (strong, nonatomic) UIView *backCover;
 @property (weak, nonatomic) UIViewController *sponsor;
+@property (strong, nonatomic) NSMutableDictionary *templateCellDict;
 @end
 
 @implementation ZYSideSlipFilterController
@@ -136,7 +137,22 @@ id (*objc_msgSendCreateCell)(id self, SEL _cmd) = (void *)objc_msgSend;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 200;
+    ZYSideSlipFilterItemModel *model = _dataList[indexPath.row];
+    Class cellClazz =  NSClassFromString(model.containerCellClass);
+    NSString *identifier = objc_msgSendGetCellIdentifier(cellClazz, NSSelectorFromString(@"cellReuseIdentifier"));
+    SideSlipBaseTableViewCell *templateCell = [self.templateCellDict objectForKey:identifier];
+    if (!templateCell) {
+        templateCell = objc_msgSendCreateCell(cellClazz, NSSelectorFromString(@"createCell"));
+        [self.templateCellDict setObject:templateCell forKey:identifier];
+    }
+    //update
+    [templateCell updateCellWithDataDict:model.dataDict];
+    //calculate
+    NSLayoutConstraint *calculateCellConstraint = [NSLayoutConstraint constraintWithItem:templateCell.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:self.view.bounds.size.width];
+    [templateCell.contentView addConstraint:calculateCellConstraint];
+    CGSize cellSize = [templateCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    [templateCell.contentView removeConstraint:calculateCellConstraint];
+    return cellSize.height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -150,6 +166,14 @@ id (*objc_msgSendCreateCell)(id self, SEL _cmd) = (void *)objc_msgSend;
     //update
     [cell updateCellWithDataDict:model.dataDict];
     return cell;
+}
+
+#pragma mark - GetSet
+- (NSMutableDictionary *)templateCellDict {
+    if (!_templateCellDict) {
+        _templateCellDict = [NSMutableDictionary dictionary];
+    }
+    return _templateCellDict;
 }
 
 @end
