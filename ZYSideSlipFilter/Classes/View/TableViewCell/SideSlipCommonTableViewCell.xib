@@ -17,26 +17,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqK-EA-JiO">
-                        <rect key="frame" x="10" y="12" width="28" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="10" y="12" width="26" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_up" translatesAutoresizingMaskIntoConstraints="NO" id="1Y8-as-n4L">
-                        <rect key="frame" x="295" y="12" width="17" height="17"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_down" translatesAutoresizingMaskIntoConstraints="NO" id="1Y8-as-n4L">
+                        <rect key="frame" x="297.5" y="15" width="14.5" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="1Y8-as-n4L" secondAttribute="height" multiplier="1:1" id="4UH-0E-8jp"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="900" text="全部" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38I-02-wdR">
-                        <rect key="frame" x="265" y="12" width="28" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <rect key="frame" x="271" y="15" width="24" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eeV-5C-Bih">
                         <rect key="frame" x="0.0" y="42" width="320" height="49.5"/>
-                        <color key="backgroundColor" red="0.35686274509999999" green="0.45098039220000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="49.5" id="CMs-cS-etT"/>
                         </constraints>
@@ -48,7 +48,7 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpk-fT-CBc">
-                        <rect key="frame" x="38" y="8" width="274" height="34"/>
+                        <rect key="frame" x="36" y="8" width="276" height="34"/>
                         <connections>
                             <action selector="clickShowMoreButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Xmv-90-k8q"/>
                         </connections>
@@ -68,12 +68,14 @@
                     <constraint firstItem="LqK-EA-JiO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="Uhs-lQ-Mav"/>
                     <constraint firstAttribute="trailingMargin" secondItem="eeV-5C-Bih" secondAttribute="trailing" id="VDJ-60-YXL"/>
                     <constraint firstItem="eeV-5C-Bih" firstAttribute="top" secondItem="Hpk-fT-CBc" secondAttribute="bottom" id="YGt-5i-bQJ"/>
+                    <constraint firstItem="1Y8-as-n4L" firstAttribute="centerY" secondItem="LqK-EA-JiO" secondAttribute="centerY" id="b9E-en-b2Y"/>
                     <constraint firstItem="eeV-5C-Bih" firstAttribute="top" secondItem="LqK-EA-JiO" secondAttribute="bottom" constant="10" id="eg8-bw-LPF"/>
                     <constraint firstAttribute="trailingMargin" secondItem="eeV-5C-Bih" secondAttribute="trailing" constant="-8" id="fNH-72-kxB"/>
                     <constraint firstItem="eeV-5C-Bih" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="hSC-Uw-omF"/>
                     <constraint firstItem="1Y8-as-n4L" firstAttribute="top" secondItem="LqK-EA-JiO" secondAttribute="top" id="iAb-aK-41r"/>
                     <constraint firstItem="1Y8-as-n4L" firstAttribute="leading" secondItem="38I-02-wdR" secondAttribute="trailing" constant="2" id="o4z-s1-ybn"/>
                     <constraint firstItem="Hpk-fT-CBc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="o8d-qn-JaC"/>
+                    <constraint firstItem="38I-02-wdR" firstAttribute="centerY" secondItem="LqK-EA-JiO" secondAttribute="centerY" id="uj5-IL-ujY"/>
                     <constraint firstItem="LqK-EA-JiO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="whE-qL-kHJ"/>
                 </constraints>
                 <variation key="default">
@@ -83,6 +85,8 @@
                         <exclude reference="Nb1-pQ-mDf"/>
                         <exclude reference="Tir-Ra-qmT"/>
                         <exclude reference="VDJ-60-YXL"/>
+                        <exclude reference="Qla-Tv-bTu"/>
+                        <exclude reference="iAb-aK-41r"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
@@ -96,6 +100,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_up" width="21" height="21"/>
+        <image name="icon_down" width="21" height="21"/>
     </resources>
 </document>

@@ -13,7 +13,7 @@
 #define TEXT_COLOR_SELECTED [UIColor hexColor:@"c11c11"]
 #define TEXT_COLOR_NORMAL [UIColor hexColor:@"333333"]
 #define BACKGROUND_COLOR_SELECTED [UIColor whiteColor]
-#define BACKGROUND_COLOR_NORMAL [UIColor hexColor:@"dddddd"]
+#define BACKGROUND_COLOR_NORMAL [UIColor hexColor:@"eeeeee"]
 
 
 @interface FilterCommonCollectionViewCell ()

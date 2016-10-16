@@ -15,7 +15,7 @@
 #define GAP_COLLECTION_ITEM 8
 #define NUM_OF_ITEM_ONCE_ROW 3
 #define ITEM_WIDTH ((self.frame.size.width - (NUM_OF_ITEM_ONCE_ROW+1)*GAP_COLLECTION_ITEM)/NUM_OF_ITEM_ONCE_ROW)
-#define ITEM_HEIGHT 20
+#define ITEM_HEIGHT 25
 
 const int BRIEF_ROW = 2;
 
@@ -112,6 +112,17 @@ const int BRIEF_ROW = 2;
     _itemModel.isShowAll = !_itemModel.isShowAll;
     [self fitCollectonViewHeight];
     [self.delegate sideSlipTableViewCellNeedsReload:self];
+    if (_itemModel.isShowAll) {
+//        [UIView animateWithDuration:0.2 animations:^{
+//            [_controlIcon setTransform:CGAffineTransformMakeRotation(M_PI)];
+//        }];
+        NSLog(@"show");
+    } else {
+//        [UIView animateWithDuration:0.2 animations:^{
+//            [_controlIcon setTransform:CGAffineTransformMakeRotation(0)];
+//        }];
+        NSLog(@"close");
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

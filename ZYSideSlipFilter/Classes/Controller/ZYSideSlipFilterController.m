@@ -11,7 +11,7 @@
 #import "SideSlipBaseTableViewCell.h"
 #import "objc/message.h"
 
-#define SIDE_SLIP_LEADING 80
+#define SIDE_SLIP_LEADING 60
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 
