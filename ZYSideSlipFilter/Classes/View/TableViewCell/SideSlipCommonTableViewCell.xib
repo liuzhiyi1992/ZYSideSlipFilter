@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqK-EA-JiO">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqK-EA-JiO">
                         <rect key="frame" x="10" y="12" width="28" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -37,6 +37,9 @@
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eeV-5C-Bih">
                         <rect key="frame" x="0.0" y="42" width="320" height="49.5"/>
                         <color key="backgroundColor" red="0.35686274509999999" green="0.45098039220000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="49.5" id="CMs-cS-etT"/>
+                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VV3-i9-efz">
                             <size key="itemSize" width="60" height="20"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -56,7 +59,7 @@
                     <constraint firstItem="1Y8-as-n4L" firstAttribute="height" secondItem="38I-02-wdR" secondAttribute="height" id="6F7-Ch-rbf"/>
                     <constraint firstItem="eeV-5C-Bih" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="7aN-NN-Lw9"/>
                     <constraint firstAttribute="bottomMargin" secondItem="eeV-5C-Bih" secondAttribute="bottom" id="C9j-TJ-qmN"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="eeV-5C-Bih" secondAttribute="bottom" id="M49-Jm-Wwu"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="eeV-5C-Bih" secondAttribute="bottom" priority="700" id="M49-Jm-Wwu"/>
                     <constraint firstAttribute="trailingMargin" secondItem="eeV-5C-Bih" secondAttribute="trailing" id="Nb1-pQ-mDf"/>
                     <constraint firstItem="38I-02-wdR" firstAttribute="top" secondItem="LqK-EA-JiO" secondAttribute="top" id="Qla-Tv-bTu"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1Y8-as-n4L" secondAttribute="trailing" id="R7l-BA-b3N"/>
@@ -84,6 +87,7 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="collectionViewHeightConstraint" destination="CMs-cS-etT" id="Qkg-QX-dyG"/>
                 <outlet property="controlIcon" destination="1Y8-as-n4L" id="XxA-ep-dYn"/>
                 <outlet property="controlLabel" destination="38I-02-wdR" id="kEg-Qm-jZx"/>
                 <outlet property="mainCollectionView" destination="eeV-5C-Bih" id="Cfa-Je-FB5"/>

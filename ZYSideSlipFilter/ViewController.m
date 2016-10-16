@@ -50,7 +50,10 @@
                                                          @{@"itemTitle":@"fourth", @"itemId":@"0003"},
                                                          @{@"itemTitle":@"fifth", @"itemId":@"0004"},
                                                          @{@"itemTitle":@"sixth", @"itemId":@"0005"},
-                                                         @{@"itemTitle":@"seventh", @"itemId":@"0006"}]};
+                                                         @{@"itemTitle":@"seventh", @"itemId":@"0006"},
+                                                         @{@"itemTitle":@"eighth", @"itemId":@"0007"},
+                                                         @{@"itemTitle":@"ninth", @"itemId":@"0008"},
+                                                         @{@"itemTitle":@"tenth", @"itemId":@"0009"}]};
     return model;
 }
 

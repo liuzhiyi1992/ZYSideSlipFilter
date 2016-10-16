@@ -8,11 +8,15 @@
 
 #import "SideSlipCommonTableViewCell.h"
 #import "FilterCommonCollectionViewCell.h"
+#import "UIView+Utils.h"
 
+#define LINE_SPACE_COLLECTION_ITEM 8
 #define GAP_COLLECTION_ITEM 8
 #define NUM_OF_ITEM_ONCE_ROW 3
 #define ITEM_WIDTH ((self.frame.size.width - (NUM_OF_ITEM_ONCE_ROW+1)*GAP_COLLECTION_ITEM)/NUM_OF_ITEM_ONCE_ROW)
 #define ITEM_HEIGHT 20
+
+const int BRIEF_ROW = 1;
 
 @interface SideSlipCommonTableViewCell () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -20,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *controlLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *mainCollectionView;
 @property (strong, nonatomic) NSArray *dataList;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
+@property (assign, nonatomic) BOOL isShowAll;
 @end
 
 @implementation SideSlipCommonTableViewCell
@@ -36,6 +42,11 @@
     return cell;
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+//    [self fitCollectonViewHeight];
+}
+
 - (void)updateCellWithDataDict:(NSDictionary *)dataDict {
     //title
     [self.titleLabel setText:dataDict[@"title"]];
@@ -43,8 +54,23 @@
     NSArray *itemsArray = dataDict[@"content"];
     self.dataList = itemsArray;
     [_mainCollectionView reloadData];
+    [self fitCollectonViewHeight];
 }
 
+//根据数据源个数决定collectionView高度
+- (void)fitCollectonViewHeight {
+    CGFloat displayNumOfRow;
+    if (_isShowAll) {
+        displayNumOfRow = ceil(_dataList.count/NUM_OF_ITEM_ONCE_ROW);
+    } else {
+        displayNumOfRow = BRIEF_ROW;
+    }
+    CGFloat collectionViewHeight = displayNumOfRow*ITEM_HEIGHT + (displayNumOfRow - 1)*LINE_SPACE_COLLECTION_ITEM;
+    _collectionViewHeightConstraint.constant = collectionViewHeight;
+    [_mainCollectionView updateHeight:collectionViewHeight];
+}
+
+#pragma mark - DataSource Delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _dataList.count;
 }
@@ -61,7 +87,7 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 10.f;
+    return LINE_SPACE_COLLECTION_ITEM;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
@@ -70,17 +96,8 @@
 
 - (IBAction)clickShowMoreButton:(id)sender {
     NSLog(@"show more");
-}
-
-
-
-
-
-
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+    self.isShowAll = !_isShowAll;
+    [self fitCollectonViewHeight];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
