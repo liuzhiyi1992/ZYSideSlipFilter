@@ -11,4 +11,5 @@
 @interface ZYSideSlipFilterItemModel : NSObject
 @property (copy, nonatomic) NSString *containerCellClass;
 @property (strong, nonatomic) NSDictionary *dataDict;
+@property (assign, nonatomic) BOOL isShowAll;
 @end

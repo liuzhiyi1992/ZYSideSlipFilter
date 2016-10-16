@@ -23,7 +23,7 @@ const CGFloat ANIMATION_DURATION_DEFAULT = 0.3f;
 id (*objc_msgSendGetCellIdentifier)(id self, SEL _cmd) = (void *)objc_msgSend;
 id (*objc_msgSendCreateCell)(id self, SEL _cmd) = (void *)objc_msgSend;
 
-@interface ZYSideSlipFilterController () <UITableViewDelegate, UITableViewDataSource>
+@interface ZYSideSlipFilterController () <UITableViewDelegate, UITableViewDataSource, SideSlipBaseTableViewCellDelegate>
 @property (copy, nonatomic) SideSlipFilterCommitBlock commitBlock;
 @property (strong, nonatomic) UINavigationController *navController;//强引用着self.navigationController
 @property (strong, nonatomic) UITableView *mainTableView;
@@ -146,7 +146,7 @@ id (*objc_msgSendCreateCell)(id self, SEL _cmd) = (void *)objc_msgSend;
         [self.templateCellDict setObject:templateCell forKey:identifier];
     }
     //update
-    [templateCell updateCellWithDataDict:model.dataDict];
+    [templateCell updateCellWithModel:&model];
     //calculate
     NSLayoutConstraint *calculateCellConstraint = [NSLayoutConstraint constraintWithItem:templateCell.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:self.view.bounds.size.width];
     [templateCell.contentView addConstraint:calculateCellConstraint];
@@ -162,10 +162,17 @@ id (*objc_msgSendCreateCell)(id self, SEL _cmd) = (void *)objc_msgSend;
     SideSlipBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = objc_msgSendCreateCell(cellClazz, NSSelectorFromString(@"createCell"));
+        cell.delegate = self;
     }
     //update
-    [cell updateCellWithDataDict:model.dataDict];
+    [cell updateCellWithModel:&model];
     return cell;
+}
+
+- (void)sideSlipTableViewCellNeedsReload:(SideSlipBaseTableViewCell *)cell {
+    NSIndexPath *indexPath = [_mainTableView indexPathForCell:cell];
+    [_mainTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//    [_mainTableView reloadData];
 }
 
 #pragma mark - GetSet
