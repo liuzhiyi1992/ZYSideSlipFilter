@@ -11,7 +11,8 @@
 
 @class SideSlipBaseTableViewCell;
 @protocol SideSlipBaseTableViewCellDelegate <NSObject>
-- (void)sideSlipTableViewCellNeedsReload:(SideSlipBaseTableViewCell *)cell;
+//- (void)sideSlipTableViewCellNeedsReload:(SideSlipBaseTableViewCell *)cell;
+- (void)sideSlipTableViewCellNeedsReload:(NSIndexPath *)indexPath;
 @end
 
 @interface SideSlipBaseTableViewCell : UITableViewCell

@@ -25,6 +25,7 @@ const int BRIEF_ROW = 2;
 @property (weak, nonatomic) IBOutlet UILabel *controlLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *mainCollectionView;
 @property (strong, nonatomic) NSArray *dataList;
+@property (strong, nonatomic) NSIndexPath *indexPath;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
 @property (strong, nonatomic) ZYSideSlipFilterItemModel *itemModel;
 @end
@@ -111,7 +112,7 @@ const int BRIEF_ROW = 2;
 - (IBAction)clickShowMoreButton:(id)sender {
     _itemModel.isShowAll = !_itemModel.isShowAll;
     [self fitCollectonViewHeight];
-    [self.delegate sideSlipTableViewCellNeedsReload:self];
+//    [self.delegate - (void)sideSlipTableViewCellNeedsReload:
     if (_itemModel.isShowAll) {
 //        [UIView animateWithDuration:0.2 animations:^{
 //            [_controlIcon setTransform:CGAffineTransformMakeRotation(M_PI)];
