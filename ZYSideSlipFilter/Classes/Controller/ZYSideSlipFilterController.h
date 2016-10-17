@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^SideSlipFilterCommitBlock)(NSDictionary *commitDict);
+typedef void (^SideSlipFilterCommitBlock)(NSArray *dataList);
 
 @interface ZYSideSlipFilterController : UIViewController
 @property (assign, nonatomic) CGFloat animationDuration;

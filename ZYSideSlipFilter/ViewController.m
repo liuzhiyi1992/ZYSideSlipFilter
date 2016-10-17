@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.filterController = [[ZYSideSlipFilterController alloc] initWithSponsor:self commitBlock:^(NSDictionary *commitDict) {
+    self.filterController = [[ZYSideSlipFilterController alloc] initWithSponsor:self commitBlock:^(NSArray *dataList) {
         NSLog(@"commit");
     }];
     _filterController.animationDuration = .3f;
