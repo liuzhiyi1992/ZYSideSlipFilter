@@ -29,7 +29,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 
 @interface ZYSideSlipFilterController () <UITableViewDelegate, UITableViewDataSource, SideSlipBaseTableViewCellDelegate>
 @property (copy, nonatomic) SideSlipFilterCommitBlock commitBlock;
-@property (strong, nonatomic) UINavigationController *navController;//强引用着self.navigationController
+@property (strong, nonatomic) UINavigationController *navController;//强引用着self.navigationController(注意循环引用)
 @property (strong, nonatomic) UITableView *mainTableView;
 @property (strong, nonatomic) UIView *backCover;
 @property (weak, nonatomic) UIViewController *sponsor;
@@ -127,6 +127,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         [_backCover removeFromSuperview];
         [self.navigationController.view removeFromSuperview];
         [self.navigationController removeFromParentViewController];
+        _navController = nil;
     }];
 }
 
