@@ -24,6 +24,9 @@
     NSAssert(NO, @"\nERROR: Must realize this function in subClass %s", __func__);
 }
 
+/**
+ reset data which belong this cell here while resetButton be click
+ */
 - (void)resetData {
     NSAssert(NO, @"\nERROR: Must realize this function in subClass %s", __func__);
 }
