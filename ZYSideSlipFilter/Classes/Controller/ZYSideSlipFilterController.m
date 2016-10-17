@@ -10,6 +10,8 @@
 #import "ZYSideSlipFilterRegionModel.h"
 #import "SideSlipBaseTableViewCell.h"
 #import "objc/message.h"
+#import "ZYSideSlipFilterConfig.h"
+#import "UIColor+hexColor.h"
 
 #define SIDE_SLIP_LEADING 60
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
@@ -17,6 +19,8 @@
 
 #define SLIP_ORIGIN_FRAME CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH - SIDE_SLIP_LEADING, SCREEN_HEIGHT)
 #define SLIP_DISTINATION_FRAME CGRectMake(SIDE_SLIP_LEADING, 0, SCREEN_WIDTH - SIDE_SLIP_LEADING, SCREEN_HEIGHT)
+
+#define BOTTOM_VIEW_FONT [UIFont systemFontOfSize:14.f]
 
 const CGFloat ANIMATION_DURATION_DEFAULT = 0.3f;
 
@@ -81,45 +85,35 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     }];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+
 - (void)configureUI {
+    //mainTableView
     self.mainTableView = [[UITableView alloc] init];
     _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _mainTableView.delegate = self;
     _mainTableView.dataSource = self;
-    NSDictionary *views = @{@"mainTableView":_mainTableView};
     [_mainTableView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.view addSubview:_mainTableView];
     
+    //bottomView
+    UIView *bottomView = [self createBottomView];
+    [self.view addSubview:bottomView];
+    
+    NSDictionary *views = @{@"mainTableView":_mainTableView, @"bottomView":bottomView};
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bottomView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:SCREEN_WIDTH - SIDE_SLIP_LEADING]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bottomView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:0.05*self.view.bounds.size.height]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[mainTableView]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[mainTableView]|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bottomView]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[mainTableView][bottomView]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
 }
 
 - (void)configureStatic {
     if (_animationDuration == 0) {
         self.animationDuration = ANIMATION_DURATION_DEFAULT;
     }
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (UIView *)backCover {
-    if (!_backCover) {
-        _backCover = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-        [_backCover setBackgroundColor:[UIColor colorWithRed:30/255.0 green:30/255.0 blue:30/255.0 alpha:0.8]];
-        [_backCover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickBackCover:)]];
-    }
-    return _backCover;
-}
-
-- (void)clickBackCover:(id)sender {
-    [self dismiss];
 }
 
 - (void)dismiss {
@@ -130,6 +124,48 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         [self.navigationController.view removeFromSuperview];
         [self.navigationController removeFromParentViewController];
     }];
+}
+
+- (UIView *)createBottomView {
+    UIView *bottomView = [[UIView alloc] init];
+    [bottomView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    //resetButton
+    UIButton *resetButton = [[UIButton alloc] init];
+    [resetButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [resetButton addTarget:self action:@selector(clickResetButton:) forControlEvents:UIControlEventTouchUpInside];
+    [resetButton.titleLabel setFont:BOTTOM_VIEW_FONT];
+    [resetButton setTitleColor:[UIColor hexColor:FILTER_BLACK_STRING] forState:UIControlStateNormal];
+    [resetButton setTitle:LocalString(@"sReset") forState:UIControlStateNormal];
+    [resetButton setBackgroundColor:[UIColor whiteColor]];
+    [bottomView addSubview:resetButton];
+    //commitButton
+    UIButton *commitButton = [[UIButton alloc] init];
+    [commitButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [commitButton addTarget:self action:@selector(clickCommitButton:) forControlEvents:UIControlEventTouchUpInside];
+    [commitButton.titleLabel setFont:BOTTOM_VIEW_FONT];
+    [commitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [commitButton setTitle:LocalString(@"sCommit") forState:UIControlStateNormal];
+    [commitButton setBackgroundColor:[UIColor hexColor:FILTER_RED_STRING]];
+    [bottomView addSubview:commitButton];
+    //constraints
+    NSDictionary *views = NSDictionaryOfVariableBindings(resetButton, commitButton);
+    [bottomView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[resetButton][commitButton]|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
+    [bottomView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[resetButton]|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
+    [bottomView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[commitButton]|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
+    [bottomView addConstraint:[NSLayoutConstraint constraintWithItem:resetButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:commitButton attribute:NSLayoutAttributeWidth multiplier:1.f constant:0.f]];
+    return bottomView;
+}
+
+- (void)clickResetButton:(id)sender {
+    
+}
+
+- (void)clickCommitButton:(id)sender {
+    
+}
+
+- (void)clickBackCover:(id)sender {
+    [self dismiss];
 }
 
 #pragma mark - DataSource Delegate
@@ -171,8 +207,12 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 }
 
 - (void)sideSlipTableViewCellNeedsReload:(NSIndexPath *)indexPath {
-//    [_mainTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [_mainTableView reloadData];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - GetSet
@@ -181,6 +221,15 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         _templateCellDict = [NSMutableDictionary dictionary];
     }
     return _templateCellDict;
+}
+
+- (UIView *)backCover {
+    if (!_backCover) {
+        _backCover = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        [_backCover setBackgroundColor:[UIColor colorWithRed:30/255.0 green:30/255.0 blue:30/255.0 alpha:0.8]];
+        [_backCover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickBackCover:)]];
+    }
+    return _backCover;
 }
 
 @end
