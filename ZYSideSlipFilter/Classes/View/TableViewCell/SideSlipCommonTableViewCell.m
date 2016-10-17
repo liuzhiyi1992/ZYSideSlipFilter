@@ -56,6 +56,17 @@ const int BRIEF_ROW = 2;
     //content
     NSArray *itemsArray = _itemModel.dataDict[@"content"];
     self.dataList = itemsArray;
+    //icon
+    CGFloat angle = 0;
+    if (_itemModel.isShowAll) {
+        angle = M_PI;
+        [_controlIcon setImage:[UIImage imageNamed:@"icon_up"]];
+    } else {
+        [_controlIcon setImage:[UIImage imageNamed:@"icon_down"]];
+    }
+//    [_controlIcon setTransform:CGAffineTransformMakeRotation(angle)];
+    
+    //UI
     [_mainCollectionView reloadData];
     [self fitCollectonViewHeight];
 }
@@ -114,17 +125,6 @@ const int BRIEF_ROW = 2;
     _itemModel.isShowAll = !_itemModel.isShowAll;
     [self fitCollectonViewHeight];
     [self.delegate sideSlipTableViewCellNeedsReload:_indexPath];
-    if (_itemModel.isShowAll) {
-//        [UIView animateWithDuration:0.2 animations:^{
-//            [_controlIcon setTransform:CGAffineTransformMakeRotation(M_PI)];
-//        }];
-        NSLog(@"show");
-    } else {
-//        [UIView animateWithDuration:0.2 animations:^{
-//            [_controlIcon setTransform:CGAffineTransformMakeRotation(0)];
-//        }];
-        NSLog(@"close");
-    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
