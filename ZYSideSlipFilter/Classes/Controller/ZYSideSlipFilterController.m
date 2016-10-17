@@ -7,7 +7,7 @@
 //
 
 #import "ZYSideSlipFilterController.h"
-#import "ZYSideSlipFilterItemModel.h"
+#import "ZYSideSlipFilterRegionModel.h"
 #import "SideSlipBaseTableViewCell.h"
 #import "objc/message.h"
 
@@ -138,7 +138,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZYSideSlipFilterItemModel *model = _dataList[indexPath.row];
+    ZYSideSlipFilterRegionModel *model = _dataList[indexPath.row];
     Class cellClazz =  NSClassFromString(model.containerCellClass);
     NSString *identifier = objc_msgSendGetCellIdentifier(cellClazz, NSSelectorFromString(@"cellReuseIdentifier"));
     SideSlipBaseTableViewCell *templateCell = [self.templateCellDict objectForKey:identifier];
@@ -157,7 +157,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZYSideSlipFilterItemModel *model = _dataList[indexPath.row];
+    ZYSideSlipFilterRegionModel *model = _dataList[indexPath.row];
     Class cellClazz =  NSClassFromString(model.containerCellClass);
     NSString *identifier = objc_msgSendGetCellIdentifier(cellClazz, NSSelectorFromString(@"cellReuseIdentifier"));
     SideSlipBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];

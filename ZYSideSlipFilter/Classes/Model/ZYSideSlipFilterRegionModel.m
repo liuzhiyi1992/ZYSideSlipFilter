@@ -1,13 +1,13 @@
 //
-//  ZYSideSlipFilterItemModel.m
+//  ZYSideSlipFilterRegionModel.m
 //  ZYSideSlipFilter
 //
 //  Created by lzy on 16/10/15.
 //  Copyright © 2016年 zhiyi. All rights reserved.
 //
 
-#import "ZYSideSlipFilterItemModel.h"
+#import "ZYSideSlipFilterRegionModel.h"
 
-@implementation ZYSideSlipFilterItemModel
+@implementation ZYSideSlipFilterRegionModel
 
 @end

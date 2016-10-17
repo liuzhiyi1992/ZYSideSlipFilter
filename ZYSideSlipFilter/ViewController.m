@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "ZYSideSlipFilterController.h"
-#import "ZYSideSlipFilterItemModel.h"
+#import "ZYSideSlipFilterRegionModel.h"
 #import "CommonItemModel.h"
 
 @interface ViewController ()
@@ -43,8 +43,8 @@
     return dataArray;
 }
 
-- (ZYSideSlipFilterItemModel *)commonFilterItemModelWithKeywork:(NSString *)keywork {
-    ZYSideSlipFilterItemModel *model = [[ZYSideSlipFilterItemModel alloc] init];
+- (ZYSideSlipFilterRegionModel *)commonFilterItemModelWithKeywork:(NSString *)keywork {
+    ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
     model.containerCellClass = @"SideSlipCommonTableViewCell";
     [self createItemModelWithTitle:@"first" itemId:@"0000" selected:NO];
     //弃用

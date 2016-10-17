@@ -27,7 +27,7 @@ const int BRIEF_ROW = 2;
 @property (strong, nonatomic) NSArray *dataList;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
-@property (strong, nonatomic) ZYSideSlipFilterItemModel *itemModel;
+@property (strong, nonatomic) ZYSideSlipFilterRegionModel *itemModel;
 @end
 
 @implementation SideSlipCommonTableViewCell
@@ -50,7 +50,7 @@ const int BRIEF_ROW = 2;
     [super awakeFromNib];
 }
 
-- (void)updateCellWithModel:(ZYSideSlipFilterItemModel **)model {
+- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model {
     self.itemModel = *model;
     //title
     [self.titleLabel setText:_itemModel.regionTitle];

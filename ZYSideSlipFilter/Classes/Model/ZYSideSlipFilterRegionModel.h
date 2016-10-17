@@ -1,5 +1,5 @@
 //
-//  ZYSideSlipFilterItemModel.h
+//  ZYSideSlipFilterRegionModel.h
 //  ZYSideSlipFilter
 //
 //  Created by lzy on 16/10/15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ZYSideSlipFilterItemModel : NSObject
+@interface ZYSideSlipFilterRegionModel : NSObject
 @property (copy, nonatomic) NSString *containerCellClass;
 //@property (strong, nonatomic) NSDictionary *dataDict;//title. content
 @property (copy, nonatomic) NSString *regionTitle;
