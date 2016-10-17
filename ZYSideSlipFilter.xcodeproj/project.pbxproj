@@ -14,6 +14,8 @@
 		486B76791DB283EE000A7B53 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B76781DB283EE000A7B53 /* UIView+Utils.m */; };
 		486B767F1DB3841D000A7B53 /* CommonItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B767E1DB3841D000A7B53 /* CommonItemModel.m */; };
 		486B76821DB38A0D000A7B53 /* UIColor+hexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B76811DB38A0D000A7B53 /* UIColor+hexColor.m */; };
+		552E79351DB4AFA90054EEA2 /* ZYSideSlipFilterConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 552E79341DB4AFA90054EEA2 /* ZYSideSlipFilterConfig.m */; };
+		552E79431DB4BB2E0054EEA2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 552E79451DB4BB2E0054EEA2 /* Localizable.strings */; };
 		553B4F971DB0C1B3007A2374 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F961DB0C1B3007A2374 /* main.m */; };
 		553B4F9A1DB0C1B3007A2374 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F991DB0C1B3007A2374 /* AppDelegate.m */; };
 		553B4F9D1DB0C1B3007A2374 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F9C1DB0C1B3007A2374 /* ViewController.m */; };
@@ -57,6 +59,11 @@
 		486B767E1DB3841D000A7B53 /* CommonItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonItemModel.m; sourceTree = "<group>"; };
 		486B76801DB38A0D000A7B53 /* UIColor+hexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+hexColor.h"; sourceTree = "<group>"; };
 		486B76811DB38A0D000A7B53 /* UIColor+hexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+hexColor.m"; sourceTree = "<group>"; };
+		552E79331DB4AFA90054EEA2 /* ZYSideSlipFilterConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSideSlipFilterConfig.h; sourceTree = "<group>"; };
+		552E79341DB4AFA90054EEA2 /* ZYSideSlipFilterConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSideSlipFilterConfig.m; sourceTree = "<group>"; };
+		552E79441DB4BB2E0054EEA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		552E79461DB4BB300054EEA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		552E79471DB4BB9C0054EEA2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		553B4F921DB0C1B3007A2374 /* ZYSideSlipFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYSideSlipFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553B4F961DB0C1B3007A2374 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		553B4F981DB0C1B3007A2374 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -128,6 +135,23 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		552E79321DB4AF8D0054EEA2 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				552E79331DB4AFA90054EEA2 /* ZYSideSlipFilterConfig.h */,
+				552E79341DB4AFA90054EEA2 /* ZYSideSlipFilterConfig.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		552E793A1DB4B77F0054EEA2 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				552E79451DB4BB2E0054EEA2 /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
 		553B4F891DB0C1B3007A2374 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +207,8 @@
 		553B4FBA1DB0C1E3007A2374 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				552E793A1DB4B77F0054EEA2 /* Localizable */,
+				552E79321DB4AF8D0054EEA2 /* Config */,
 				486B766A1DB20042000A7B53 /* Model */,
 				553B4FBE1DB0C23F007A2374 /* Controller */,
 				553B4FC11DB0C23F007A2374 /* View */,
@@ -309,6 +335,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 553B4F891DB0C1B3007A2374;
 			productRefGroup = 553B4F931DB0C1B3007A2374 /* Products */;
@@ -330,6 +357,7 @@
 				553B4FA51DB0C1B3007A2374 /* LaunchScreen.storyboard in Resources */,
 				553B4FC91DB0C759007A2374 /* SideSlipCommonTableViewCell.xib in Resources */,
 				553B4FD81DB0C846007A2374 /* SideSlipServiceTableViewCell.xib in Resources */,
+				552E79431DB4BB2E0054EEA2 /* Localizable.strings in Resources */,
 				553B4FA21DB0C1B3007A2374 /* Assets.xcassets in Resources */,
 				486B76721DB22BC0000A7B53 /* FilterCommonCollectionViewCell.xib in Resources */,
 				553B4FA01DB0C1B3007A2374 /* Main.storyboard in Resources */,
@@ -366,6 +394,7 @@
 				553B4FCD1DB0C796007A2374 /* SideSlipAllCategoryTableViewCell.m in Sources */,
 				486B76821DB38A0D000A7B53 /* UIColor+hexColor.m in Sources */,
 				553B4F971DB0C1B3007A2374 /* main.m in Sources */,
+				552E79351DB4AFA90054EEA2 /* ZYSideSlipFilterConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +417,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		552E79451DB4BB2E0054EEA2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				552E79441DB4BB2E0054EEA2 /* Base */,
+				552E79461DB4BB300054EEA2 /* en */,
+				552E79471DB4BB9C0054EEA2 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		553B4F9E1DB0C1B3007A2374 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -411,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -459,6 +499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
