@@ -51,6 +51,10 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     return self;
 }
 
+- (void)dealloc {
+    NSLog(@"asd");
+}
+
 //todo 考虑不用 不方便配置各种参数
 + (void)showSideSlipFilterWithSponsor:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock {
     NSAssert(sponsor.navigationController, @"ERROR: sponsor must have the navigationController");
@@ -69,19 +73,6 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         [navController.view setFrame:SLIP_DISTINATION_FRAME];
     } completion:^(BOOL finished) {
         [sideSlipFilterController.backCover setAlpha:1.f];
-    }];
-}
-
-- (void)show {
-    [_sponsor.navigationController.view addSubview:self.backCover];
-    [_sponsor.navigationController addChildViewController:self.navigationController];
-    [_sponsor.navigationController.view addSubview:self.navigationController.view];
-    
-    [_backCover setAlpha:0.f];
-    [UIView animateWithDuration:_animationDuration animations:^{
-        [self.navigationController.view setFrame:SLIP_DISTINATION_FRAME];
-    } completion:^(BOOL finished) {
-        [_backCover setAlpha:1.f];
     }];
 }
 
@@ -114,6 +105,19 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     if (_animationDuration == 0) {
         self.animationDuration = ANIMATION_DURATION_DEFAULT;
     }
+}
+
+- (void)show {
+    [_sponsor.navigationController.view addSubview:self.backCover];
+    [_sponsor.navigationController addChildViewController:self.navigationController];
+    [_sponsor.navigationController.view addSubview:self.navigationController.view];
+    
+    [_backCover setAlpha:0.f];
+    [UIView animateWithDuration:_animationDuration animations:^{
+        [self.navigationController.view setFrame:SLIP_DISTINATION_FRAME];
+    } completion:^(BOOL finished) {
+        [_backCover setAlpha:1.f];
+    }];
 }
 
 - (void)dismiss {
@@ -157,11 +161,12 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 }
 
 - (void)clickResetButton:(id)sender {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:FILTER_NOTIFICATION_NAME_RESET_DATA object:nil];
+    NSLog(@"重置");
 }
 
 - (void)clickCommitButton:(id)sender {
-    
+    NSLog(@"提交");
 }
 
 - (void)clickBackCover:(id)sender {

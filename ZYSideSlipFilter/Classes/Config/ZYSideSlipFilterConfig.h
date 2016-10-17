@@ -15,4 +15,5 @@
 extern NSString * const FILTER_RED_STRING;
 extern NSString * const FILTER_BLACK_STRING;
 
+extern NSString * const FILTER_NOTIFICATION_NAME_RESET_DATA;
 @end

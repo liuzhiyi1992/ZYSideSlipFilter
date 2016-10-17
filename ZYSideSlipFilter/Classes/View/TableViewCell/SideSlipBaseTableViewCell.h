@@ -19,5 +19,6 @@
 + (NSString *)cellReuseIdentifier;
 + (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath;
 - (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model;
+- (void)resetData;
 @end
 

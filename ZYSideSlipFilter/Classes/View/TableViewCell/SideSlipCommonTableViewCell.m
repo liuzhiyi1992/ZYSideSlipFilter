@@ -53,6 +53,16 @@ const int BRIEF_ROW = 2;
     [super awakeFromNib];
 }
 
+- (void)dealloc {
+    NSLog(@"sad");
+}
+
+- (void)resetData {
+    for (CommonItemModel *model in _dataList) {
+        [model setSelected:NO];
+    }
+}
+
 - (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model {
     self.itemModel = *model;
     //title

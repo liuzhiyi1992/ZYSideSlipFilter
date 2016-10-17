@@ -24,6 +24,12 @@
     }];
     _filterController.animationDuration = .3f;
     _filterController.dataList = [self packageDataList];
+    
+    __weak __typeof(&*self)weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        weakSelf.filterController = nil;
+        NSLog(@"到");
+    });
 }
 
 - (IBAction)clickFilterButton:(id)sender {
@@ -40,26 +46,13 @@
     [dataArray addObject:[self commonFilterItemModelWithKeywork:@"种类"]];
     [dataArray addObject:[self commonFilterItemModelWithKeywork:@"特性"]];
     [dataArray addObject:[self commonFilterItemModelWithKeywork:@"适用场景"]];
-    return dataArray;
+    return [dataArray mutableCopy];
 }
 
 - (ZYSideSlipFilterRegionModel *)commonFilterItemModelWithKeywork:(NSString *)keywork {
     ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
     model.containerCellClass = @"SideSlipCommonTableViewCell";
     [self createItemModelWithTitle:@"first" itemId:@"0000" selected:NO];
-    //弃用
-//    model.dataDict = @{@"title":keywork,
-//                       @"content":@[[self createItemModelWithTitle:@"first" itemId:@"0000" selected:NO],
-//                                    [self createItemModelWithTitle:@"second" itemId:@"0001" selected:NO],
-//                                    [self createItemModelWithTitle:@"third" itemId:@"0002" selected:NO],
-//                                    [self createItemModelWithTitle:@"fourth" itemId:@"0003" selected:NO],
-//                                    [self createItemModelWithTitle:@"fifth" itemId:@"0004" selected:NO],
-//                                    [self createItemModelWithTitle:@"sixth" itemId:@"0005" selected:NO],
-//                                    [self createItemModelWithTitle:@"seventh" itemId:@"0006" selected:NO],
-//                                    [self createItemModelWithTitle:@"eighth" itemId:@"0007" selected:NO],
-//                                    [self createItemModelWithTitle:@"ninth" itemId:@"0008" selected:NO],
-//                                    [self createItemModelWithTitle:@"tenth" itemId:@"0009" selected:NO]
-//                                    ]};
     model.regionTitle = keywork;
     model.itemList = @[[self createItemModelWithTitle:@"first" itemId:@"0000" selected:NO],
                        [self createItemModelWithTitle:@"second" itemId:@"0001" selected:NO],
