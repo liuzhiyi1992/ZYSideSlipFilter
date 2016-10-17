@@ -24,12 +24,6 @@
     }];
     _filterController.animationDuration = .3f;
     _filterController.dataList = [self packageDataList];
-    
-    __weak __typeof(&*self)weakSelf = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        weakSelf.filterController = nil;
-        NSLog(@"到");
-    });
 }
 
 - (IBAction)clickFilterButton:(id)sender {

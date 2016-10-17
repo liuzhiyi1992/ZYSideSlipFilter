@@ -49,14 +49,6 @@ const int BRIEF_ROW = 2;
     return cell;
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
-- (void)dealloc {
-    NSLog(@"sad");
-}
-
 - (void)resetData {
     for (CommonItemModel *model in _dataList) {
         [model setSelected:NO];

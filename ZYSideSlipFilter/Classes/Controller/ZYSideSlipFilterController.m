@@ -51,10 +51,6 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     return self;
 }
 
-- (void)dealloc {
-    NSLog(@"asd");
-}
-
 //todo 考虑不用 不方便配置各种参数
 + (void)showSideSlipFilterWithSponsor:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock {
     NSAssert(sponsor.navigationController, @"ERROR: sponsor must have the navigationController");
@@ -163,7 +159,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 
 - (void)clickResetButton:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:FILTER_NOTIFICATION_NAME_RESET_DATA object:nil];
-    NSLog(@"重置");
+    [_mainTableView reloadData];
 }
 
 - (void)clickCommitButton:(id)sender {
