@@ -10,6 +10,7 @@
 #import "FilterCommonCollectionViewCell.h"
 #import "UIView+Utils.h"
 #import "CommonItemModel.h"
+#import "UIColor+hexColor.h"
 
 #define LINE_SPACE_COLLECTION_ITEM 8
 #define GAP_COLLECTION_ITEM 8
@@ -28,6 +29,7 @@ const int BRIEF_ROW = 2;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
 @property (strong, nonatomic) ZYSideSlipFilterRegionModel *itemModel;
+@property (strong, nonatomic) NSMutableArray *selectedItemList;
 @end
 
 @implementation SideSlipCommonTableViewCell
@@ -63,6 +65,14 @@ const int BRIEF_ROW = 2;
     } else {
         [_controlIcon setImage:[UIImage imageNamed:@"icon_down"]];
     }
+    //controlLabel
+    [self.selectedItemList removeAllObjects];
+    for (CommonItemModel *model in _itemModel.itemList) {
+        if (model.selected) {
+            [self.selectedItemList addObject:model];
+        }
+    }
+    [self updateControlLabelText];
     
     //UI
     [_mainCollectionView reloadData];
@@ -86,7 +96,40 @@ const int BRIEF_ROW = 2;
     NSArray *itemArray = _itemModel.itemList;
     CommonItemModel *model = [itemArray objectAtIndex:indexPath.row];
     model.selected = !model.selected;
+    [self updateSelectedItemListWithItem:model];
     return model.selected;
+}
+
+- (void)updateSelectedItemListWithItem:(CommonItemModel *)model {
+    if (model.selected) {
+        [self.selectedItemList addObject:model];
+    } else {
+        [self.selectedItemList removeObject:model];
+    }
+    [self updateControlLabelText];
+}
+
+- (NSString *)packageSelectedNameString {
+    NSMutableArray *mutArray = [NSMutableArray array];
+    for (CommonItemModel *model in _selectedItemList) {
+        [mutArray addObject:model.itemName];
+    }
+    return [mutArray componentsJoinedByString:@","];
+}
+
+- (void)updateControlLabelText {
+    NSString *selectedString = [self packageSelectedNameString];
+    UIColor *textColor;
+    NSString *labelContent;
+    if (selectedString.length > 0) {
+        labelContent = selectedString;
+        textColor = FILTER_RED;
+    } else {
+        labelContent = @"全部";
+        textColor = [UIColor hexColor:@"999999"];
+    }
+    [_controlLabel setText:labelContent];
+    [_controlLabel setTextColor:textColor];
 }
 
 #pragma mark - DataSource Delegate
@@ -128,6 +171,13 @@ const int BRIEF_ROW = 2;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     // Configure the view for the selected state
+}
+
+- (NSMutableArray *)selectedItemList {
+    if (!_selectedItemList) {
+        _selectedItemList = [NSMutableArray array];
+    }
+    return _selectedItemList;
 }
 
 @end
