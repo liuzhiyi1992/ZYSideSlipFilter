@@ -11,6 +11,7 @@
 #import "UIView+Utils.h"
 #import "CommonItemModel.h"
 #import "UIColor+hexColor.h"
+#import "ZYSideSlipFilterConfig.h"
 
 #define LINE_SPACE_COLLECTION_ITEM 8
 #define GAP_COLLECTION_ITEM 8
@@ -123,7 +124,7 @@ const int BRIEF_ROW = 2;
     NSString *labelContent;
     if (selectedString.length > 0) {
         labelContent = selectedString;
-        textColor = FILTER_RED;
+        textColor = [UIColor hexColor:FILTER_RED_STRING];
     } else {
         labelContent = @"全部";
         textColor = [UIColor hexColor:@"999999"];

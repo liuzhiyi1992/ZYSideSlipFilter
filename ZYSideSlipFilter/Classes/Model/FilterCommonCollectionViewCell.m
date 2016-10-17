@@ -9,8 +9,9 @@
 #import "FilterCommonCollectionViewCell.h"
 #import "CommonItemModel.h"
 #import "UIColor+hexColor.h"
+#import "ZYSideSlipFilterConfig.h"
 
-#define TEXT_COLOR_SELECTED FILTER_RED
+#define TEXT_COLOR_SELECTED [UIColor hexColor:FILTER_RED_STRING]
 #define TEXT_COLOR_NORMAL [UIColor hexColor:@"333333"]
 #define BACKGROUND_COLOR_SELECTED [UIColor whiteColor]
 #define BACKGROUND_COLOR_NORMAL [UIColor hexColor:@"eeeeee"]

@@ -9,7 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "FilterBaseCollectionViewCell.h"
 
-#define FILTER_RED [UIColor hexColor:@"c11c11"]
-
 @interface FilterCommonCollectionViewCell : FilterBaseCollectionViewCell
 @end
