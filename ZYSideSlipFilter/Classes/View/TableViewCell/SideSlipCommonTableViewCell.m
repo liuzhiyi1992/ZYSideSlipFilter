@@ -35,8 +35,9 @@ const int BRIEF_ROW = 2;
     return @"SideSlipCommonTableViewCell";
 }
 
-+ (instancetype)createCell {
++ (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath {
     SideSlipCommonTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:@"SideSlipCommonTableViewCell" owner:nil options:nil][0];
+    cell.indexPath = indexPath;
     cell.mainCollectionView.delegate = cell;
     cell.mainCollectionView.dataSource = cell;
     cell.mainCollectionView.contentInset = UIEdgeInsetsMake(0, GAP_COLLECTION_ITEM, 0, GAP_COLLECTION_ITEM);
@@ -112,7 +113,7 @@ const int BRIEF_ROW = 2;
 - (IBAction)clickShowMoreButton:(id)sender {
     _itemModel.isShowAll = !_itemModel.isShowAll;
     [self fitCollectonViewHeight];
-//    [self.delegate - (void)sideSlipTableViewCellNeedsReload:
+    [self.delegate sideSlipTableViewCellNeedsReload:_indexPath];
     if (_itemModel.isShowAll) {
 //        [UIView animateWithDuration:0.2 animations:^{
 //            [_controlIcon setTransform:CGAffineTransformMakeRotation(M_PI)];

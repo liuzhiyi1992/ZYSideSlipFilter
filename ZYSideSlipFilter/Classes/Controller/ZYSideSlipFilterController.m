@@ -21,7 +21,7 @@
 const CGFloat ANIMATION_DURATION_DEFAULT = 0.3f;
 
 id (*objc_msgSendGetCellIdentifier)(id self, SEL _cmd) = (void *)objc_msgSend;
-id (*objc_msgSendCreateCell)(id self, SEL _cmd) = (void *)objc_msgSend;
+id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (void *)objc_msgSend;
 
 @interface ZYSideSlipFilterController () <UITableViewDelegate, UITableViewDataSource, SideSlipBaseTableViewCellDelegate>
 @property (copy, nonatomic) SideSlipFilterCommitBlock commitBlock;
@@ -142,7 +142,7 @@ id (*objc_msgSendCreateCell)(id self, SEL _cmd) = (void *)objc_msgSend;
     NSString *identifier = objc_msgSendGetCellIdentifier(cellClazz, NSSelectorFromString(@"cellReuseIdentifier"));
     SideSlipBaseTableViewCell *templateCell = [self.templateCellDict objectForKey:identifier];
     if (!templateCell) {
-        templateCell = objc_msgSendCreateCell(cellClazz, NSSelectorFromString(@"createCell"));
+        templateCell = objc_msgSendCreateCellWithIndexPath(cellClazz, NSSelectorFromString(@"createCellWithIndexPath:"), indexPath);
         [self.templateCellDict setObject:templateCell forKey:identifier];
     }
     //update
@@ -161,7 +161,7 @@ id (*objc_msgSendCreateCell)(id self, SEL _cmd) = (void *)objc_msgSend;
     NSString *identifier = objc_msgSendGetCellIdentifier(cellClazz, NSSelectorFromString(@"cellReuseIdentifier"));
     SideSlipBaseTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = objc_msgSendCreateCell(cellClazz, NSSelectorFromString(@"createCell"));
+        cell = objc_msgSendCreateCellWithIndexPath(cellClazz, NSSelectorFromString(@"createCellWithIndexPath:"), indexPath);
         cell.delegate = self;
     }
     //update
