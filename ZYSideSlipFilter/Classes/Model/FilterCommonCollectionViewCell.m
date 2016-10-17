@@ -41,9 +41,12 @@
     if (selected) {
         [self setBackgroundColor:BACKGROUND_COLOR_SELECTED];
         [_nameButton setTitleColor:TEXT_COLOR_SELECTED forState:UIControlStateNormal];
+        self.layer.borderWidth = .5f;
+        self.layer.borderColor = TEXT_COLOR_SELECTED.CGColor;
     } else {
         [self setBackgroundColor:BACKGROUND_COLOR_NORMAL];
         [_nameButton setTitleColor:TEXT_COLOR_NORMAL forState:UIControlStateNormal];
+        self.layer.borderWidth = 0;
     }
 }
 

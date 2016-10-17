@@ -42,6 +42,7 @@ const int BRIEF_ROW = 2;
     cell.mainCollectionView.dataSource = cell;
     cell.mainCollectionView.contentInset = UIEdgeInsetsMake(0, GAP_COLLECTION_ITEM, 0, GAP_COLLECTION_ITEM);
     [cell.mainCollectionView registerClass:[FilterCommonCollectionViewCell class] forCellWithReuseIdentifier:[FilterCommonCollectionViewCell cellReuseIdentifier]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -57,14 +58,11 @@ const int BRIEF_ROW = 2;
     NSArray *itemsArray = _itemModel.dataDict[@"content"];
     self.dataList = itemsArray;
     //icon
-    CGFloat angle = 0;
     if (_itemModel.isShowAll) {
-        angle = M_PI;
         [_controlIcon setImage:[UIImage imageNamed:@"icon_up"]];
     } else {
         [_controlIcon setImage:[UIImage imageNamed:@"icon_down"]];
     }
-//    [_controlIcon setTransform:CGAffineTransformMakeRotation(angle)];
     
     //UI
     [_mainCollectionView reloadData];

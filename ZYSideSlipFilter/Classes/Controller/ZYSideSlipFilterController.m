@@ -37,6 +37,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     self = [super init];
     if (self) {
         _sponsor = sponsor;
+        _commitBlock = commitBlock;
         _navController = [[UINavigationController alloc] initWithRootViewController:self];
         [_navController setNavigationBarHidden:YES];
         [_navController.view setFrame:SLIP_ORIGIN_FRAME];

@@ -12,24 +12,25 @@
 #import "CommonItemModel.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) ZYSideSlipFilterController *filterController;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.filterController = [[ZYSideSlipFilterController alloc] initWithSponsor:self commitBlock:^(NSDictionary *commitDict) {
+        NSLog(@"commit");
+    }];
+    _filterController.animationDuration = .3f;
+    _filterController.dataList = [self packageDataList];
 }
 
 - (IBAction)clickFilterButton:(id)sender {
 //    [ZYSideSlipFilterController showSideSlipFilterWithSponsor:self commitBlock:^(NSDictionary *commitDict) {
 //        NSLog(@"");
 //    }];
-    ZYSideSlipFilterController *filterController =[[ZYSideSlipFilterController alloc] initWithSponsor:self commitBlock:^(NSDictionary *commitDict) {
-        NSLog(@"");
-    }];
-    filterController.animationDuration = .3f;
-    filterController.dataList = [self packageDataList];
-    [filterController show];
+    [_filterController show];
 }
 
 #pragma mark - 模拟数据源
