@@ -11,21 +11,21 @@
 
 @implementation SideSlipBaseTableViewCell
 + (NSString *)cellReuseIdentifier {
-    NSAssert(NO, @"\nERROR: Must realize this function in subClass");
+    NSAssert(NO, @"\nERROR: Must realize this function in subClass %s", __func__);
     return nil;
 }
 
 + (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath {
-    NSAssert(NO, @"\nERROR: Must realize this function in subClass");
+    NSAssert(NO, @"\nERROR: Must realize this function in subClass %s", __func__);
     return nil;
 }
 
 - (void)updateCellWithModel:(ZYSideSlipFilterRegionModel *__autoreleasing *)model {
-    NSAssert(NO, @"\nERROR: Must realize this function in subClass");
+    NSAssert(NO, @"\nERROR: Must realize this function in subClass %s", __func__);
 }
 
 - (void)resetData {
-    NSAssert(NO, @"\nERROR: Must realize this function in subClass");
+    NSAssert(NO, @"\nERROR: Must realize this function in subClass %s", __func__);
 }
 
 - (void)awakeFromNib {
