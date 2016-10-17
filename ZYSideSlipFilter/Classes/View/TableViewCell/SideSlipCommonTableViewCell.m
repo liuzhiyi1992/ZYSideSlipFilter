@@ -53,9 +53,9 @@ const int BRIEF_ROW = 2;
 - (void)updateCellWithModel:(ZYSideSlipFilterItemModel **)model {
     self.itemModel = *model;
     //title
-    [self.titleLabel setText:_itemModel.dataDict[@"title"]];
+    [self.titleLabel setText:_itemModel.regionTitle];
     //content
-    NSArray *itemsArray = _itemModel.dataDict[@"content"];
+    NSArray *itemsArray = _itemModel.itemList;
     self.dataList = itemsArray;
     //icon
     if (_itemModel.isShowAll) {
@@ -83,7 +83,7 @@ const int BRIEF_ROW = 2;
 }
 
 - (BOOL)tap2SelectItem:(NSIndexPath *)indexPath {
-    NSArray *itemArray = [_itemModel.dataDict objectForKey:@"content"];
+    NSArray *itemArray = _itemModel.itemList;
     CommonItemModel *model = [itemArray objectAtIndex:indexPath.row];
     model.selected = !model.selected;
     return model.selected;
