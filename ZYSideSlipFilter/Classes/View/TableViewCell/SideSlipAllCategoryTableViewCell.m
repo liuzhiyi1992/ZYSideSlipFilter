@@ -7,6 +7,7 @@
 //
 
 #import "SideSlipAllCategoryTableViewCell.h"
+#import "FilterAllCategoryViewController.h"
 
 @interface SideSlipAllCategoryTableViewCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -29,5 +30,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     NSLog(@"push");
+    FilterAllCategoryViewController *controller = [[FilterAllCategoryViewController alloc] init];
+    [self.delegate sideSlipTableViewCellNeedsPushViewController:controller animated:YES];
 }
 @end

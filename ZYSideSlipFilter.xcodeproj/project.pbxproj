@@ -14,6 +14,7 @@
 		486B76791DB283EE000A7B53 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B76781DB283EE000A7B53 /* UIView+Utils.m */; };
 		486B767F1DB3841D000A7B53 /* CommonItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B767E1DB3841D000A7B53 /* CommonItemModel.m */; };
 		486B76821DB38A0D000A7B53 /* UIColor+hexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 486B76811DB38A0D000A7B53 /* UIColor+hexColor.m */; };
+		48DBE8501DB659430008AB47 /* FilterAllCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DBE84F1DB659430008AB47 /* FilterAllCategoryViewController.m */; };
 		552E79351DB4AFA90054EEA2 /* ZYSideSlipFilterConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 552E79341DB4AFA90054EEA2 /* ZYSideSlipFilterConfig.m */; };
 		552E79431DB4BB2E0054EEA2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 552E79451DB4BB2E0054EEA2 /* Localizable.strings */; };
 		553B4F971DB0C1B3007A2374 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4F961DB0C1B3007A2374 /* main.m */; };
@@ -59,6 +60,8 @@
 		486B767E1DB3841D000A7B53 /* CommonItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonItemModel.m; sourceTree = "<group>"; };
 		486B76801DB38A0D000A7B53 /* UIColor+hexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+hexColor.h"; sourceTree = "<group>"; };
 		486B76811DB38A0D000A7B53 /* UIColor+hexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+hexColor.m"; sourceTree = "<group>"; };
+		48DBE84E1DB659430008AB47 /* FilterAllCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterAllCategoryViewController.h; sourceTree = "<group>"; };
+		48DBE84F1DB659430008AB47 /* FilterAllCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterAllCategoryViewController.m; sourceTree = "<group>"; };
 		552E79331DB4AFA90054EEA2 /* ZYSideSlipFilterConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSideSlipFilterConfig.h; sourceTree = "<group>"; };
 		552E79341DB4AFA90054EEA2 /* ZYSideSlipFilterConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSideSlipFilterConfig.m; sourceTree = "<group>"; };
 		552E79441DB4BB2E0054EEA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 			children = (
 				553B4FBF1DB0C23F007A2374 /* ZYSideSlipFilterController.h */,
 				553B4FC01DB0C23F007A2374 /* ZYSideSlipFilterController.m */,
+				48DBE84E1DB659430008AB47 /* FilterAllCategoryViewController.h */,
+				48DBE84F1DB659430008AB47 /* FilterAllCategoryViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -389,6 +394,7 @@
 				486B767F1DB3841D000A7B53 /* CommonItemModel.m in Sources */,
 				553B4FC81DB0C759007A2374 /* SideSlipCommonTableViewCell.m in Sources */,
 				553B4FC21DB0C23F007A2374 /* ZYSideSlipFilterController.m in Sources */,
+				48DBE8501DB659430008AB47 /* FilterAllCategoryViewController.m in Sources */,
 				553B4F9A1DB0C1B3007A2374 /* AppDelegate.m in Sources */,
 				486B76751DB22C89000A7B53 /* FilterBaseCollectionViewCell.m in Sources */,
 				553B4FCD1DB0C796007A2374 /* SideSlipAllCategoryTableViewCell.m in Sources */,
