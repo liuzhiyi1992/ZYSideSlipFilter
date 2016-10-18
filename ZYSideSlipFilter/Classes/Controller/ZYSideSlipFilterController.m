@@ -29,6 +29,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 
 @interface ZYSideSlipFilterController () <UITableViewDelegate, UITableViewDataSource, SideSlipBaseTableViewCellDelegate>
 @property (copy, nonatomic) SideSlipFilterCommitBlock commitBlock;
+@property (copy, nonatomic) SideSlipFilterResetBlock resetBlock;
 @property (strong, nonatomic) UINavigationController *navController;//强引用着self.navigationController(注意循环引用)
 @property (strong, nonatomic) UITableView *mainTableView;
 @property (strong, nonatomic) UIView *backCover;
@@ -37,10 +38,13 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 @end
 
 @implementation ZYSideSlipFilterController
-- (instancetype)initWithSponsor:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock {
+- (instancetype)initWithSponsor:(UIViewController *)sponsor
+                    resetBlock:(SideSlipFilterResetBlock)resetBlock
+                    commitBlock:(SideSlipFilterCommitBlock)commitBlock {
     self = [super init];
     if (self) {
         _sponsor = sponsor;
+        _resetBlock = resetBlock;
         _commitBlock = commitBlock;
         _navController = [[UINavigationController alloc] initWithRootViewController:self];
         [_navController setNavigationBarHidden:YES];
@@ -158,7 +162,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 }
 
 - (void)clickResetButton:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:FILTER_NOTIFICATION_NAME_RESET_DATA object:nil];
+    _resetBlock(_dataList);
     [_mainTableView reloadData];
 }
 

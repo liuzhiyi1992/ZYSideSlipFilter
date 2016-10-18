@@ -19,7 +19,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.filterController = [[ZYSideSlipFilterController alloc] initWithSponsor:self commitBlock:^(NSArray *dataList) {
+    self.filterController = [[ZYSideSlipFilterController alloc] initWithSponsor:self resetBlock:^(NSArray *dataList) {
+        for (ZYSideSlipFilterRegionModel *model in dataList) {
+            //selectedStatus
+            for (CommonItemModel *itemModel in model.itemList) {
+                [itemModel setSelected:NO];
+            }
+            //selectedItem
+            model.selectedItemList = nil;
+        }
+    } commitBlock:^(NSArray *dataList) {
         NSLog(@"commit");
     }];
     _filterController.animationDuration = .3f;

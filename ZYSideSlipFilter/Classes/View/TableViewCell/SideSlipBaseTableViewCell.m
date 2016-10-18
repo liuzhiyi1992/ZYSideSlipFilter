@@ -24,27 +24,20 @@
     NSAssert(NO, @"\nERROR: Must realize this function in subClass %s", __func__);
 }
 
-/**
- reset data which belong this cell here while resetButton be click
- */
-- (void)resetData {
-    NSAssert(NO, @"\nERROR: Must realize this function in subClass %s", __func__);
-}
-
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self registerNotification];
+//    [self registerNotification];
 }
 
 - (void)dealloc {
-    [self resignNotification];
+//    [self resignNotification];
 }
 
-- (void)registerNotification {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetData) name:FILTER_NOTIFICATION_NAME_RESET_DATA object:nil];
-}
-
-- (void)resignNotification {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+//- (void)registerNotification {
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetData) name:FILTER_NOTIFICATION_NAME_RESET_DATA object:nil];
+//}
+//
+//- (void)resignNotification {
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//}
 @end

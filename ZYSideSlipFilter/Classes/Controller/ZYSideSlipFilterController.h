@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 
 typedef void (^SideSlipFilterCommitBlock)(NSArray *dataList);
+typedef void (^SideSlipFilterResetBlock)(NSArray *dataList);
 
 @interface ZYSideSlipFilterController : UIViewController
 @property (assign, nonatomic) CGFloat animationDuration;
 @property (strong, nonatomic) NSArray *dataList;
 + (void)showSideSlipFilterWithSponsor:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock;
-- (instancetype)initWithSponsor:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock;
+- (instancetype)initWithSponsor:(UIViewController *)sponsor
+                     resetBlock:(SideSlipFilterResetBlock)resetBlock
+                    commitBlock:(SideSlipFilterCommitBlock)commitBlock;
 - (void)show;
 @end
