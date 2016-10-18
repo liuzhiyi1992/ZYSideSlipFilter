@@ -40,6 +40,11 @@
     [dataArray addObject:[self commonFilterItemModelWithKeywork:@"种类"]];
     [dataArray addObject:[self commonFilterItemModelWithKeywork:@"特性"]];
     [dataArray addObject:[self commonFilterItemModelWithKeywork:@"适用场景"]];
+    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"附加1"]];
+    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"附加2"]];
+    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"附加3"]];
+    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"附加4"]];
+    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"附加5"]];
     return [dataArray mutableCopy];
 }
 
@@ -57,7 +62,8 @@
                        [self createItemModelWithTitle:@"seventh" itemId:@"0006" selected:NO],
                        [self createItemModelWithTitle:@"eighth" itemId:@"0007" selected:NO],
                        [self createItemModelWithTitle:@"ninth" itemId:@"0008" selected:NO],
-                       [self createItemModelWithTitle:@"tenth" itemId:@"0009" selected:NO]
+                       [self createItemModelWithTitle:@"tenth" itemId:@"0009" selected:NO],
+                       [self createItemModelWithTitle:@"eleventh" itemId:@"0010" selected:NO]
                        ];
     return model;
 }

@@ -75,7 +75,7 @@ const int BRIEF_ROW = 2;
             [self.selectedItemList addObject:model];
         }
     }
-    [self updateControlLabelText];
+    [self generateControlLabelText];
     
     //UI
     [_mainCollectionView reloadData];
@@ -109,7 +109,7 @@ const int BRIEF_ROW = 2;
     } else {
         [self.selectedItemList removeObject:model];
     }
-    [self updateControlLabelText];
+    [self generateControlLabelText];
 }
 
 - (NSString *)packageSelectedNameString {
@@ -120,7 +120,7 @@ const int BRIEF_ROW = 2;
     return [mutArray componentsJoinedByString:@","];
 }
 
-- (void)updateControlLabelText {
+- (void)generateControlLabelText {
     NSString *selectedString = [self packageSelectedNameString];
     UIColor *textColor;
     NSString *labelContent;
