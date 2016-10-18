@@ -14,6 +14,7 @@
 @optional
 - (void)sideSlipTableViewCellNeedsReload:(NSIndexPath *)indexPath;
 - (void)sideSlipTableViewCellNeedsPushViewController:(UIViewController *)viewController animated:(BOOL)animated;
+- (void)sideSlipTableViewCellNeedsScrollToIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated;
 @end
 
 @interface SideSlipBaseTableViewCell : UITableViewCell

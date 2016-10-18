@@ -25,12 +25,12 @@
 }
 
 - (void)updateCellWithModel:(ZYSideSlipFilterRegionModel *__autoreleasing *)model {
-    
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    NSLog(@"push");
+- (IBAction)clickBackgroundButton:(id)sender {
     FilterAllCategoryViewController *controller = [[FilterAllCategoryViewController alloc] init];
-    [self.delegate sideSlipTableViewCellNeedsPushViewController:controller animated:YES];
+    if ([self.delegate respondsToSelector:@selector(sideSlipTableViewCellNeedsPushViewController:animated:)]) {
+        [self.delegate sideSlipTableViewCellNeedsPushViewController:controller animated:YES];
+    }
 }
 @end

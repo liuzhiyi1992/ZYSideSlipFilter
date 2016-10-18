@@ -163,7 +163,14 @@ const int BRIEF_ROW = 2;
 - (IBAction)clickShowMoreButton:(id)sender {
     _itemModel.isShowAll = !_itemModel.isShowAll;
     [self fitCollectonViewHeight];
-    [self.delegate sideSlipTableViewCellNeedsReload:_indexPath];
+    //reload
+    if ([self.delegate respondsToSelector:@selector(sideSlipTableViewCellNeedsReload:)]) {
+        [self.delegate sideSlipTableViewCellNeedsReload:_indexPath];
+    }
+    //scroll
+    if (_itemModel.isShowAll && [self.delegate respondsToSelector:@selector(sideSlipTableViewCellNeedsScrollToIndexPath:atScrollPosition:animated:)]) {
+        [self.delegate sideSlipTableViewCellNeedsScrollToIndexPath:_indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

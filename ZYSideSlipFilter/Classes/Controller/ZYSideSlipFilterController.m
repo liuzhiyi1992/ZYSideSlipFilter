@@ -44,6 +44,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
                     commitBlock:(SideSlipFilterCommitBlock)commitBlock {
     self = [super init];
     if (self) {
+        NSAssert(sponsor.navigationController, @"ERROR: sponsor must have the navigationController");
         _sponsor = sponsor;
         _resetBlock = resetBlock;
         _commitBlock = commitBlock;
@@ -56,27 +57,6 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         [self configureUI];
     }
     return self;
-}
-
-//todo 考虑不用 不方便配置各种参数
-+ (void)showSideSlipFilterWithSponsor:(UIViewController *)sponsor commitBlock:(SideSlipFilterCommitBlock)commitBlock {
-    NSAssert(sponsor.navigationController, @"ERROR: sponsor must have the navigationController");
-    //ZYSideSlipFilterController
-    ZYSideSlipFilterController *sideSlipFilterController = [[ZYSideSlipFilterController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:sideSlipFilterController];
-    [navController setNavigationBarHidden:YES];
-    [navController.view setFrame:SLIP_ORIGIN_FRAME];
-    //show
-    [sponsor.navigationController.view addSubview:sideSlipFilterController.backCover];
-    [sponsor.navigationController addChildViewController:navController];
-    [sponsor.navigationController.view addSubview:navController.view];
-    
-    [sideSlipFilterController.backCover setAlpha:0.f];
-    [UIView animateWithDuration:sideSlipFilterController.animationDuration animations:^{
-        [navController.view setFrame:SLIP_DISTINATION_FRAME];
-    } completion:^(BOOL finished) {
-        [sideSlipFilterController.backCover setAlpha:1.f];
-    }];
 }
 
 - (void)viewDidLoad {
@@ -220,6 +200,10 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 
 - (void)sideSlipTableViewCellNeedsPushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [self.navigationController pushViewController:viewController animated:animated];
+}
+
+- (void)sideSlipTableViewCellNeedsScrollToIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(id)animated {
+    [_mainTableView scrollToRowAtIndexPath:indexPath atScrollPosition:scrollPosition animated:animated];
 }
 
 - (void)didReceiveMemoryWarning {
