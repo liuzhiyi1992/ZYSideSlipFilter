@@ -45,21 +45,22 @@
 #pragma mark - 模拟数据源
 - (NSArray *)packageDataList {
     NSMutableArray *dataArray = [NSMutableArray array];
-    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"品牌"]];
-    [dataArray addObject:[self serviceFilterItemModel]];
-    [dataArray addObject:[self priceFilterItemModel]];
-    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"种类"]];
-    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"特性"]];
-    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"适用场景"]];
-    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"附加1"]];
-    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"附加2"]];
-    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"附加3"]];
-    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"附加4"]];
-    [dataArray addObject:[self commonFilterItemModelWithKeywork:@"附加5"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"品牌"]];
+    [dataArray addObject:[self serviceFilterRegionModel]];
+    [dataArray addObject:[self priceFilterRegionModel]];
+    [dataArray addObject:[self allCategoryFilterRegionModel]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"种类"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"特性"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"适用场景"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"附加1"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"附加2"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"附加3"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"附加4"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"附加5"]];
     return [dataArray mutableCopy];
 }
 
-- (ZYSideSlipFilterRegionModel *)commonFilterItemModelWithKeywork:(NSString *)keywork {
+- (ZYSideSlipFilterRegionModel *)commonFilterRegionModelWithKeywork:(NSString *)keywork {
     ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
     model.containerCellClass = @"SideSlipCommonTableViewCell";
     model.regionTitle = keywork;
@@ -87,7 +88,7 @@
     return model;
 }
 
-- (ZYSideSlipFilterRegionModel *)serviceFilterItemModel {
+- (ZYSideSlipFilterRegionModel *)serviceFilterRegionModel {
     ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
     model.containerCellClass = @"SideSlipServiceTableViewCell";
     model.regionTitle = @"配送服务";
@@ -100,11 +101,19 @@
     return model;
 }
 
-- (ZYSideSlipFilterRegionModel *)priceFilterItemModel {
+- (ZYSideSlipFilterRegionModel *)priceFilterRegionModel {
     ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
     model.containerCellClass = @"SideSlipPriceTableViewCell";
     model.regionTitle = @"价格区间";
     return model;
+}
+
+- (ZYSideSlipFilterRegionModel *)allCategoryFilterRegionModel {
+    ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
+    model.containerCellClass = @"SideSlipAllCategoryTableViewCell";
+    model.regionTitle = @"全部分类";
+    return model;
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SideSlipAllCategoryTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SideSlipAllCategoryTableViewCell" id="KGk-i7-Jjw" customClass="SideSlipAllCategoryTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -35,13 +35,14 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="t6F-Ef-oTT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1aL-mV-E4l"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="hS0-BR-W3q" secondAttribute="bottom" constant="6" id="LIl-at-9u1"/>
                     <constraint firstAttribute="trailingMargin" secondItem="C1Y-TL-TbQ" secondAttribute="trailing" constant="2" id="Lax-6S-g6j"/>
                     <constraint firstItem="hS0-BR-W3q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="PoD-bZ-hCk"/>
                     <constraint firstItem="C1Y-TL-TbQ" firstAttribute="height" secondItem="t6F-Ef-oTT" secondAttribute="height" id="XrM-Sa-D9T"/>
                     <constraint firstItem="C1Y-TL-TbQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="aFJ-YY-UU3"/>
                     <constraint firstItem="C1Y-TL-TbQ" firstAttribute="leading" secondItem="t6F-Ef-oTT" secondAttribute="trailing" constant="2" id="eMY-ql-HtB"/>
                     <constraint firstItem="t6F-Ef-oTT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hS0-BR-W3q" secondAttribute="trailing" constant="15" id="jaJ-dP-yWE"/>
-                    <constraint firstItem="hS0-BR-W3q" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pA6-Vs-Xha"/>
+                    <constraint firstItem="hS0-BR-W3q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="tIc-4R-Tvh"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

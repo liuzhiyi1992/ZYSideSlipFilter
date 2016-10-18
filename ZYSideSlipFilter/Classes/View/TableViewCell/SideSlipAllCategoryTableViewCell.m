@@ -14,16 +14,20 @@
 @end
 
 @implementation SideSlipAllCategoryTableViewCell
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
++ (NSString *)cellReuseIdentifier {
+    return @"SideSlipAllCategoryTableViewCell";
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
++ (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath {
+    SideSlipAllCategoryTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:@"SideSlipAllCategoryTableViewCell" owner:nil options:nil][0];
+    return cell;
 }
 
+- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel *__autoreleasing *)model {
+    
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    NSLog(@"push");
+}
 @end

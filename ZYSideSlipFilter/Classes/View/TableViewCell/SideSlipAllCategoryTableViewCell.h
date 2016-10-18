@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SideSlipCommonTableViewCell.h"
 
-@interface SideSlipAllCategoryTableViewCell : UITableViewCell
+@interface SideSlipAllCategoryTableViewCell : SideSlipCommonTableViewCell
 
 @end
