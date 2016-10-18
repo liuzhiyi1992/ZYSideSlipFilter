@@ -15,7 +15,7 @@
 
 #define LINE_SPACE_COLLECTION_ITEM 8
 #define GAP_COLLECTION_ITEM 8
-#define NUM_OF_ITEM_ONCE_ROW 3
+#define NUM_OF_ITEM_ONCE_ROW 3.f
 #define ITEM_WIDTH ((self.frame.size.width - (NUM_OF_ITEM_ONCE_ROW+1)*GAP_COLLECTION_ITEM)/NUM_OF_ITEM_ONCE_ROW)
 #define ITEM_HEIGHT 25
 
@@ -57,8 +57,6 @@ const int BRIEF_ROW = 2;
     }
     //selectedItem
     _itemModel.selectedItemList = nil;
-    //selectedString
-//    self.selectedItemString = nil;
 }
 
 - (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model {
@@ -75,19 +73,8 @@ const int BRIEF_ROW = 2;
         [_controlIcon setImage:[UIImage imageNamed:@"icon_down"]];
     }
     //controlLabel
-//    [self.selectedItemList removeAllObjects];
     self.selectedItemList = [NSMutableArray arrayWithArray:_itemModel.selectedItemList];
     [self generateControlLabelText];
-//    for (CommonItemModel *model in _itemModel.itemList) {
-//        if (model.selected) {
-//            [self.selectedItemList addObject:model];
-//        }
-//    }
-//    if (_selectedItemString.length > 0) {
-//        [_controlLabel setText:_selectedItemString];
-//    } else {
-//        [self generateControlLabelText];
-//    }
     //UI
     [_mainCollectionView reloadData];
     [self fitCollectonViewHeight];

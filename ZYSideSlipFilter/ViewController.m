@@ -71,8 +71,7 @@
                        [self createItemModelWithTitle:@"seventh" itemId:@"0006" selected:NO],
                        [self createItemModelWithTitle:@"eighth" itemId:@"0007" selected:NO],
                        [self createItemModelWithTitle:@"ninth" itemId:@"0008" selected:NO],
-                       [self createItemModelWithTitle:@"tenth" itemId:@"0009" selected:NO],
-                       [self createItemModelWithTitle:@"eleventh" itemId:@"0010" selected:NO]
+                       [self createItemModelWithTitle:@"tenth" itemId:@"0009" selected:NO]
                        ];
     return model;
 }

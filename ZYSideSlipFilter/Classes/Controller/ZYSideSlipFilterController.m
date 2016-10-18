@@ -167,7 +167,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 }
 
 - (void)clickCommitButton:(id)sender {
-    NSLog(@"提交");
+    _commitBlock(_dataList);
 }
 
 - (void)clickBackCover:(id)sender {
