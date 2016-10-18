@@ -31,6 +31,7 @@ const int BRIEF_ROW = 2;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
 @property (strong, nonatomic) ZYSideSlipFilterRegionModel *itemModel;
 @property (strong, nonatomic) NSMutableArray *selectedItemList;
+@property (copy, nonatomic) NSString *selectedItemString;
 @end
 
 @implementation SideSlipCommonTableViewCell
@@ -50,9 +51,14 @@ const int BRIEF_ROW = 2;
 }
 
 - (void)resetData {
+    //selectedStatus
     for (CommonItemModel *model in _dataList) {
         [model setSelected:NO];
     }
+    //selectedItem
+    _itemModel.selectedItemList = nil;
+    //selectedString
+//    self.selectedItemString = nil;
 }
 
 - (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model {
@@ -69,14 +75,19 @@ const int BRIEF_ROW = 2;
         [_controlIcon setImage:[UIImage imageNamed:@"icon_down"]];
     }
     //controlLabel
-    [self.selectedItemList removeAllObjects];
-    for (CommonItemModel *model in _itemModel.itemList) {
-        if (model.selected) {
-            [self.selectedItemList addObject:model];
-        }
-    }
+//    [self.selectedItemList removeAllObjects];
+    self.selectedItemList = [NSMutableArray arrayWithArray:_itemModel.selectedItemList];
     [self generateControlLabelText];
-    
+//    for (CommonItemModel *model in _itemModel.itemList) {
+//        if (model.selected) {
+//            [self.selectedItemList addObject:model];
+//        }
+//    }
+//    if (_selectedItemString.length > 0) {
+//        [_controlLabel setText:_selectedItemString];
+//    } else {
+//        [self generateControlLabelText];
+//    }
     //UI
     [_mainCollectionView reloadData];
     [self fitCollectonViewHeight];
@@ -109,6 +120,8 @@ const int BRIEF_ROW = 2;
     } else {
         [self.selectedItemList removeObject:model];
     }
+    //update Data
+    _itemModel.selectedItemList = _selectedItemList;
     [self generateControlLabelText];
 }
 
@@ -121,11 +134,11 @@ const int BRIEF_ROW = 2;
 }
 
 - (void)generateControlLabelText {
-    NSString *selectedString = [self packageSelectedNameString];
+    self.selectedItemString = [self packageSelectedNameString];
     UIColor *textColor;
     NSString *labelContent;
-    if (selectedString.length > 0) {
-        labelContent = selectedString;
+    if (_selectedItemString.length > 0) {
+        labelContent = _selectedItemString;
         textColor = [UIColor hexColor:FILTER_RED_STRING];
     } else {
         labelContent = @"全部";
