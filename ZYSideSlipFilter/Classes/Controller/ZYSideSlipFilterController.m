@@ -12,6 +12,7 @@
 #import "objc/message.h"
 #import "ZYSideSlipFilterConfig.h"
 #import "UIColor+hexColor.h"
+#import "objc/runtime.h"
 
 #define SIDE_SLIP_LEADING 60
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
@@ -30,7 +31,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 @interface ZYSideSlipFilterController () <UITableViewDelegate, UITableViewDataSource, SideSlipBaseTableViewCellDelegate>
 @property (copy, nonatomic) SideSlipFilterCommitBlock commitBlock;
 @property (copy, nonatomic) SideSlipFilterResetBlock resetBlock;
-@property (strong, nonatomic) UINavigationController *navController;//强引用着self.navigationController(注意循环引用)
+@property (weak, nonatomic) UINavigationController *filterNavigation;
 @property (strong, nonatomic) UITableView *mainTableView;
 @property (strong, nonatomic) UIView *backCover;
 @property (weak, nonatomic) UIViewController *sponsor;
@@ -46,9 +47,11 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         _sponsor = sponsor;
         _resetBlock = resetBlock;
         _commitBlock = commitBlock;
-        _navController = [[UINavigationController alloc] initWithRootViewController:self];
-        [_navController setNavigationBarHidden:YES];
-        [_navController.view setFrame:SLIP_ORIGIN_FRAME];
+        UINavigationController *filterNavigation = [[UINavigationController alloc] initWithRootViewController:self];
+        [filterNavigation setNavigationBarHidden:YES];
+        [filterNavigation.view setFrame:SLIP_ORIGIN_FRAME];
+        self.filterNavigation = filterNavigation;
+        
         [self configureStatic];
         [self configureUI];
     }
@@ -127,7 +130,6 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         [_backCover removeFromSuperview];
         [self.navigationController.view removeFromSuperview];
         [self.navigationController removeFromParentViewController];
-        _navController = nil;//todo 不可以在这里
     }];
 }
 
@@ -238,4 +240,12 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     return _backCover;
 }
 
+- (UINavigationController *)filterNavigation {
+    return objc_getAssociatedObject(_sponsor, _cmd);
+}
+
+- (void)setFilterNavigation:(UINavigationController *)filterNavigation {
+    //让sponsor持有filterNavigation
+    objc_setAssociatedObject(_sponsor, @selector(filterNavigation), filterNavigation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 @end
