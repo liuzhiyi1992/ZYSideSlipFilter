@@ -46,6 +46,7 @@
 - (NSArray *)packageDataList {
     NSMutableArray *dataArray = [NSMutableArray array];
     [dataArray addObject:[self commonFilterItemModelWithKeywork:@"品牌"]];
+    [dataArray addObject:[self serviceFilterItemModel]];
     [dataArray addObject:[self priceFilterItemModel]];
     [dataArray addObject:[self commonFilterItemModelWithKeywork:@"种类"]];
     [dataArray addObject:[self commonFilterItemModelWithKeywork:@"特性"]];
@@ -86,9 +87,23 @@
     return model;
 }
 
+- (ZYSideSlipFilterRegionModel *)serviceFilterItemModel {
+    ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
+    model.containerCellClass = @"SideSlipServiceTableViewCell";
+    model.regionTitle = @"配送服务";
+    model.itemList = @[[self createItemModelWithTitle:@"商城配送" itemId:@"0000" selected:NO],
+                       [self createItemModelWithTitle:@"货到付款" itemId:@"0001" selected:NO],
+                       [self createItemModelWithTitle:@"包邮" itemId:@"0002" selected:NO],
+                       [self createItemModelWithTitle:@"移动专享" itemId:@"0003" selected:NO],
+                       [self createItemModelWithTitle:@"全球购" itemId:@"0004" selected:NO]
+                       ];
+    return model;
+}
+
 - (ZYSideSlipFilterRegionModel *)priceFilterItemModel {
     ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
     model.containerCellClass = @"SideSlipPriceTableViewCell";
+    model.regionTitle = @"价格区间";
     return model;
 }
 

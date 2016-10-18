@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="99.5"/>
+                <frame key="frameInset" width="320" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LqK-EA-JiO">
@@ -75,13 +76,13 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="iAb-aK-41r"/>
+                        <exclude reference="Qla-Tv-bTu"/>
                         <exclude reference="7aN-NN-Lw9"/>
                         <exclude reference="C9j-TJ-qmN"/>
                         <exclude reference="Nb1-pQ-mDf"/>
                         <exclude reference="Tir-Ra-qmT"/>
                         <exclude reference="VDJ-60-YXL"/>
-                        <exclude reference="Qla-Tv-bTu"/>
-                        <exclude reference="iAb-aK-41r"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

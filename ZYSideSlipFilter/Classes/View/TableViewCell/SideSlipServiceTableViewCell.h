@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SideSlipBaseTableViewCell.h"
 
-@interface SideSlipServiceTableViewCell : UITableViewCell
+@interface SideSlipServiceTableViewCell : SideSlipBaseTableViewCell
 
 @end

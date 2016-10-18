@@ -15,6 +15,7 @@
 
 + (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath {
     SideSlipPriceTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:@"SideSlipPriceTableViewCell" owner:nil options:nil][0];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
