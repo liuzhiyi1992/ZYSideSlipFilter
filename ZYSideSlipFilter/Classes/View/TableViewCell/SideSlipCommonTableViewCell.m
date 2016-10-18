@@ -42,21 +42,16 @@ const int BRIEF_ROW = 2;
 + (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath {
     SideSlipCommonTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:@"SideSlipCommonTableViewCell" owner:nil options:nil][0];
     cell.indexPath = indexPath;
-    cell.mainCollectionView.delegate = cell;
-    cell.mainCollectionView.dataSource = cell;
-    cell.mainCollectionView.contentInset = UIEdgeInsetsMake(0, GAP_COLLECTION_ITEM, 0, GAP_COLLECTION_ITEM);
-    [cell.mainCollectionView registerClass:[FilterCommonCollectionViewCell class] forCellWithReuseIdentifier:[FilterCommonCollectionViewCell cellReuseIdentifier]];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell configureCell];
     return cell;
 }
 
-- (void)resetData {
-    //selectedStatus
-    for (CommonItemModel *model in _dataList) {
-        [model setSelected:NO];
-    }
-    //selectedItem
-    _itemModel.selectedItemList = nil;
+- (void)configureCell {
+    _mainCollectionView.delegate = self;
+    _mainCollectionView.dataSource = self;
+    _mainCollectionView.contentInset = UIEdgeInsetsMake(0, GAP_COLLECTION_ITEM, 0, GAP_COLLECTION_ITEM);
+    [_mainCollectionView registerClass:[FilterCommonCollectionViewCell class] forCellWithReuseIdentifier:[FilterCommonCollectionViewCell cellReuseIdentifier]];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model {

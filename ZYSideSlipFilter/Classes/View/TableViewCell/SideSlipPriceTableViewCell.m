@@ -9,6 +9,18 @@
 #import "SideSlipPriceTableViewCell.h"
 
 @implementation SideSlipPriceTableViewCell
++ (NSString *)cellReuseIdentifier {
+    return @"SideSlipPriceTableViewCell";
+}
+
++ (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath {
+    SideSlipPriceTableViewCell *cell = [[NSBundle mainBundle] loadNibNamed:@"SideSlipPriceTableViewCell" owner:nil options:nil][0];
+    return cell;
+}
+
+- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel *__autoreleasing *)model {
+    
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

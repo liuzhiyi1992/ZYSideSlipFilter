@@ -46,6 +46,7 @@
 - (NSArray *)packageDataList {
     NSMutableArray *dataArray = [NSMutableArray array];
     [dataArray addObject:[self commonFilterItemModelWithKeywork:@"品牌"]];
+    [dataArray addObject:[self priceFilterItemModel]];
     [dataArray addObject:[self commonFilterItemModelWithKeywork:@"种类"]];
     [dataArray addObject:[self commonFilterItemModelWithKeywork:@"特性"]];
     [dataArray addObject:[self commonFilterItemModelWithKeywork:@"适用场景"]];
@@ -60,7 +61,6 @@
 - (ZYSideSlipFilterRegionModel *)commonFilterItemModelWithKeywork:(NSString *)keywork {
     ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
     model.containerCellClass = @"SideSlipCommonTableViewCell";
-    [self createItemModelWithTitle:@"first" itemId:@"0000" selected:NO];
     model.regionTitle = keywork;
     model.itemList = @[[self createItemModelWithTitle:@"first" itemId:@"0000" selected:NO],
                        [self createItemModelWithTitle:@"second" itemId:@"0001" selected:NO],
@@ -86,10 +86,15 @@
     return model;
 }
 
+- (ZYSideSlipFilterRegionModel *)priceFilterItemModel {
+    ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
+    model.containerCellClass = @"SideSlipPriceTableViewCell";
+    return model;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

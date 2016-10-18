@@ -20,4 +20,3 @@
 + (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath;
 - (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model;
 @end
-

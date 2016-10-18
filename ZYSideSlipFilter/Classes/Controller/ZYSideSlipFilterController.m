@@ -127,7 +127,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         [_backCover removeFromSuperview];
         [self.navigationController.view removeFromSuperview];
         [self.navigationController removeFromParentViewController];
-        _navController = nil;
+        _navController = nil;//todo 不可以在这里
     }];
 }
 
