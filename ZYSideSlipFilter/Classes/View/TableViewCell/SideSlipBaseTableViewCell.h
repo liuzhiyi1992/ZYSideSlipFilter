@@ -14,12 +14,13 @@
 @optional
 - (void)sideSlipTableViewCellNeedsReload:(NSIndexPath *)indexPath;
 - (void)sideSlipTableViewCellNeedsPushViewController:(UIViewController *)viewController animated:(BOOL)animated;
-- (void)sideSlipTableViewCellNeedsScrollToIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated;
+- (void)sideSlipTableViewCellNeedsScrollToCell:(UITableViewCell *)cell atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated;
 @end
 
 @interface SideSlipBaseTableViewCell : UITableViewCell
 @property (weak, nonatomic) id<SideSlipBaseTableViewCellDelegate> delegate;
 + (NSString *)cellReuseIdentifier;
 + (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath;
-- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model;
+//- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model;
+- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model indexPath:(NSIndexPath *)indexPath;
 @end

@@ -20,7 +20,8 @@
     return nil;
 }
 
-- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel *__autoreleasing *)model {
+- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel *__autoreleasing *)model
+                  indexPath:(NSIndexPath *)indexPath {
     NSAssert(NO, @"\nERROR: Must realize this function in subClass %s", __func__);
 }
 

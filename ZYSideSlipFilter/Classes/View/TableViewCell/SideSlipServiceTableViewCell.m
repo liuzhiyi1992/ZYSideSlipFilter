@@ -47,7 +47,8 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel *__autoreleasing *)model {
+- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel *__autoreleasing *)model
+                  indexPath:(NSIndexPath *)indexPath {
     self.regionModel = *model;
     //title
     [_titleLabel setText:_regionModel.regionTitle];

@@ -24,7 +24,8 @@
     return cell;
 }
 
-- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel *__autoreleasing *)model {
+- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel *__autoreleasing *)model
+                  indexPath:(NSIndexPath *)indexPath {
 }
 
 - (IBAction)clickBackgroundButton:(id)sender {

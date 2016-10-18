@@ -54,7 +54,9 @@ const int BRIEF_ROW = 2;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model {
+- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model
+                  indexPath:(NSIndexPath *)indexPath {
+    self.indexPath = indexPath;
     self.itemModel = *model;
     //title
     [self.titleLabel setText:_itemModel.regionTitle];
@@ -168,8 +170,8 @@ const int BRIEF_ROW = 2;
         [self.delegate sideSlipTableViewCellNeedsReload:_indexPath];
     }
     //scroll
-    if (_itemModel.isShowAll && [self.delegate respondsToSelector:@selector(sideSlipTableViewCellNeedsScrollToIndexPath:atScrollPosition:animated:)]) {
-        [self.delegate sideSlipTableViewCellNeedsScrollToIndexPath:_indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    if (_itemModel.isShowAll && [self.delegate respondsToSelector:@selector(sideSlipTableViewCellNeedsScrollToCell:atScrollPosition:animated:)]) {
+        [self.delegate sideSlipTableViewCellNeedsScrollToCell:self atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     }
 }
 

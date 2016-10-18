@@ -171,7 +171,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         [self.templateCellDict setObject:templateCell forKey:identifier];
     }
     //update
-    [templateCell updateCellWithModel:&model];
+    [templateCell updateCellWithModel:&model indexPath:indexPath];
     //calculate
     NSLayoutConstraint *calculateCellConstraint = [NSLayoutConstraint constraintWithItem:templateCell.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:self.view.bounds.size.width];
     [templateCell.contentView addConstraint:calculateCellConstraint];
@@ -190,7 +190,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         cell.delegate = self;
     }
     //update
-    [cell updateCellWithModel:&model];
+    [cell updateCellWithModel:&model indexPath:indexPath];
     return cell;
 }
 
@@ -202,7 +202,8 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     [self.navigationController pushViewController:viewController animated:animated];
 }
 
-- (void)sideSlipTableViewCellNeedsScrollToIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(id)animated {
+- (void)sideSlipTableViewCellNeedsScrollToCell:(UITableViewCell *)cell atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated {
+    NSIndexPath *indexPath = [_mainTableView indexPathForRowAtPoint:cell.center];
     [_mainTableView scrollToRowAtIndexPath:indexPath atScrollPosition:scrollPosition animated:animated];
 }
 
