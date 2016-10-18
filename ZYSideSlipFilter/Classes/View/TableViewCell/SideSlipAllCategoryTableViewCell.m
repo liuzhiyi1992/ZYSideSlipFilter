@@ -8,6 +8,11 @@
 
 #import "SideSlipAllCategoryTableViewCell.h"
 
+@interface SideSlipAllCategoryTableViewCell ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *controlLabel;
+@end
+
 @implementation SideSlipAllCategoryTableViewCell
 
 - (void)awakeFromNib {
