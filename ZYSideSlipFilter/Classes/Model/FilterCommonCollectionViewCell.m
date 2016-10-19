@@ -11,11 +11,6 @@
 #import "UIColor+hexColor.h"
 #import "ZYSideSlipFilterConfig.h"
 
-#define TEXT_COLOR_SELECTED [UIColor hexColor:FILTER_RED_STRING]
-#define TEXT_COLOR_NORMAL [UIColor hexColor:@"333333"]
-#define BACKGROUND_COLOR_SELECTED [UIColor whiteColor]
-#define BACKGROUND_COLOR_NORMAL [UIColor hexColor:@"eeeeee"]
-
 @interface FilterCommonCollectionViewCell ()
 @property (weak, nonatomic) IBOutlet UIButton *nameButton;
 @property (copy, nonatomic) NSString *itemId;
@@ -39,13 +34,13 @@
 
 - (void)tap2SelectItem:(BOOL)selected {
     if (selected) {
-        [self setBackgroundColor:BACKGROUND_COLOR_SELECTED];
-        [_nameButton setTitleColor:TEXT_COLOR_SELECTED forState:UIControlStateNormal];
+        [self setBackgroundColor:[UIColor hexColor:FILTER_COLLECTION_ITEM_COLOR_SELECTED_STRING]];
+        [_nameButton setTitleColor:[UIColor hexColor:FILTER_RED_STRING] forState:UIControlStateNormal];
         self.layer.borderWidth = .5f;
-        self.layer.borderColor = TEXT_COLOR_SELECTED.CGColor;
+        self.layer.borderColor = [UIColor hexColor:FILTER_RED_STRING].CGColor;
     } else {
-        [self setBackgroundColor:BACKGROUND_COLOR_NORMAL];
-        [_nameButton setTitleColor:TEXT_COLOR_NORMAL forState:UIControlStateNormal];
+        [self setBackgroundColor:[UIColor hexColor:FILTER_COLLECTION_ITEM_COLOR_NORMAL_STRING]];
+        [_nameButton setTitleColor:[UIColor hexColor:FILTER_BLACK_STRING] forState:UIControlStateNormal];
         self.layer.borderWidth = 0;
     }
 }

@@ -45,10 +45,10 @@
 #pragma mark - 模拟数据源
 - (NSArray *)packageDataList {
     NSMutableArray *dataArray = [NSMutableArray array];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"品牌"]];
     [dataArray addObject:[self serviceFilterRegionModel]];
     [dataArray addObject:[self priceFilterRegionModel]];
     [dataArray addObject:[self allCategoryFilterRegionModel]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"品牌"]];
     [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"种类"]];
     [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"特性"]];
     [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"适用场景"]];

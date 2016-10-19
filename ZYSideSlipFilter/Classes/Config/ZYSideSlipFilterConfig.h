@@ -14,6 +14,8 @@
 
 extern NSString * const FILTER_RED_STRING;
 extern NSString * const FILTER_BLACK_STRING;
+extern NSString * const FILTER_COLLECTION_ITEM_COLOR_NORMAL_STRING;
+extern NSString * const FILTER_COLLECTION_ITEM_COLOR_SELECTED_STRING;
 
 extern NSString * const FILTER_NOTIFICATION_NAME_RESET_DATA;
 @end

@@ -34,7 +34,7 @@
 }
 
 - (void)clickBackButton:(id)sender {
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navigationController setNavigationBarHidden:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
