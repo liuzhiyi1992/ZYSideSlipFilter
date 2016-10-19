@@ -24,7 +24,7 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXV-n6-pjg">
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <state key="normal" title="Button">
-                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="titleColor" red="0.95294117647058818" green="0.3529411764705882" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xSe-YQ-o97">

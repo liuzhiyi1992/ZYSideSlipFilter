@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SideSlipCommonTableViewCell.h"
 
-@interface SideSlipAllCategoryTableViewCell : SideSlipCommonTableViewCell
+@interface SideSlipAllCategoryTableViewCell : SideSlipBaseTableViewCell
 
 @end

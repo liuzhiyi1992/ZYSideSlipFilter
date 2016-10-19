@@ -26,6 +26,7 @@
 const CGFloat ANIMATION_DURATION_DEFAULT = 0.3f;
 
 id (*objc_msgSendGetCellIdentifier)(id self, SEL _cmd) = (void *)objc_msgSend;
+CGFloat (*objc_msgSendGetCellHeight)(id self, SEL _cmd) = (void *)objc_msgSend;
 id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (void *)objc_msgSend;
 
 @interface ZYSideSlipFilterController () <UITableViewDelegate, UITableViewDataSource, SideSlipBaseTableViewCellDelegate>
@@ -164,6 +165,10 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZYSideSlipFilterRegionModel *model = _dataList[indexPath.row];
     Class cellClazz =  NSClassFromString(model.containerCellClass);
+    if ([(id)cellClazz respondsToSelector:@selector(cellHeight)]) {
+        CGFloat cellHeight = objc_msgSendGetCellHeight(cellClazz, NSSelectorFromString(@"cellHeight"));
+        return cellHeight;
+    }
     NSString *identifier = objc_msgSendGetCellIdentifier(cellClazz, NSSelectorFromString(@"cellReuseIdentifier"));
     SideSlipBaseTableViewCell *templateCell = [self.templateCellDict objectForKey:identifier];
     if (!templateCell) {

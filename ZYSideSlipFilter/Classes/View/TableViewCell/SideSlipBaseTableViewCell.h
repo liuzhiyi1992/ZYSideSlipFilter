@@ -20,7 +20,7 @@
 @interface SideSlipBaseTableViewCell : UITableViewCell
 @property (weak, nonatomic) id<SideSlipBaseTableViewCellDelegate> delegate;
 + (NSString *)cellReuseIdentifier;
++ (CGFloat)cellHeight;
 + (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath;
-//- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model;
 - (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model indexPath:(NSIndexPath *)indexPath;
 @end
