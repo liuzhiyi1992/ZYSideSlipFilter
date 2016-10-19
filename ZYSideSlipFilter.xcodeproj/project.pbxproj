@@ -35,6 +35,7 @@
 		553B4FD81DB0C846007A2374 /* SideSlipServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553B4FD61DB0C846007A2374 /* SideSlipServiceTableViewCell.xib */; };
 		553B4FDB1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4FDA1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m */; };
 		553CC6A21DB7528400346FF6 /* SideSlipSpaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553CC6A11DB7528400346FF6 /* SideSlipSpaceTableViewCell.m */; };
+		553CC6A51DB774F200346FF6 /* FilterAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553CC6A41DB774F200346FF6 /* FilterAddressController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		553B4FDA1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideSlipBaseTableViewCell.m; sourceTree = "<group>"; };
 		553CC6A01DB7528400346FF6 /* SideSlipSpaceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideSlipSpaceTableViewCell.h; sourceTree = "<group>"; };
 		553CC6A11DB7528400346FF6 /* SideSlipSpaceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideSlipSpaceTableViewCell.m; sourceTree = "<group>"; };
+		553CC6A31DB774F200346FF6 /* FilterAddressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterAddressController.h; sourceTree = "<group>"; };
+		553CC6A41DB774F200346FF6 /* FilterAddressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterAddressController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +233,8 @@
 				553B4FC01DB0C23F007A2374 /* ZYSideSlipFilterController.m */,
 				48DBE84E1DB659430008AB47 /* FilterAllCategoryViewController.h */,
 				48DBE84F1DB659430008AB47 /* FilterAllCategoryViewController.m */,
+				553CC6A31DB774F200346FF6 /* FilterAddressController.h */,
+				553CC6A41DB774F200346FF6 /* FilterAddressController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				48DBE8501DB659430008AB47 /* FilterAllCategoryViewController.m in Sources */,
 				553B4F9A1DB0C1B3007A2374 /* AppDelegate.m in Sources */,
 				486B76751DB22C89000A7B53 /* FilterBaseCollectionViewCell.m in Sources */,
+				553CC6A51DB774F200346FF6 /* FilterAddressController.m in Sources */,
 				553B4FCD1DB0C796007A2374 /* SideSlipAllCategoryTableViewCell.m in Sources */,
 				486B76821DB38A0D000A7B53 /* UIColor+hexColor.m in Sources */,
 				553B4F971DB0C1B3007A2374 /* main.m in Sources */,

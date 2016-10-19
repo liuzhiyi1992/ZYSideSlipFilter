@@ -1,19 +1,19 @@
 //
-//  FilterAllCategoryViewController.m
+//  FilterAddressController.m
 //  ZYSideSlipFilter
 //
-//  Created by lzy on 16/10/18.
+//  Created by zhiyi on 16/10/19.
 //  Copyright © 2016年 zhiyi. All rights reserved.
 //
 
-#import "FilterAllCategoryViewController.h"
+#import "FilterAddressController.h"
 #import "UIColor+hexColor.h"
 
-@interface FilterAllCategoryViewController ()
+@interface FilterAddressController ()
 
 @end
 
-@implementation FilterAllCategoryViewController
+@implementation FilterAddressController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,7 +21,7 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.navigationController setNavigationBarHidden:NO];
     self.navigationController.navigationBar.translucent = NO;
-    self.title = @"全部分类";
+    self.title = @"配送地址";
 }
 
 - (void)configureNavigationItem {

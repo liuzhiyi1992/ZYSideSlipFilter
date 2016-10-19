@@ -40,6 +40,11 @@
     return YES;
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [_maxTextField resignFirstResponder];
+    [_minTextField resignFirstResponder];
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

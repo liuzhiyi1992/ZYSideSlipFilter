@@ -86,6 +86,14 @@
     _regionModel.selectedItemList = _selectedItemList;
 }
 
+- (IBAction)clickAddressButton:(id)sender {
+    UIViewController *controller = [[UIViewController alloc] init];
+    [controller.view setBackgroundColor:[UIColor whiteColor]];
+    if ([self.delegate respondsToSelector:@selector(sideSlipTableViewCellNeedsPushViewController:animated:)]) {
+        [self.delegate sideSlipTableViewCellNeedsPushViewController:controller animated:YES];
+    }
+}
+
 #pragma mark - DataSource Delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _dataList.count;
