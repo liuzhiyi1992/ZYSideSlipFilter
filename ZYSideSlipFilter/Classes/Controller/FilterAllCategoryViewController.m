@@ -20,12 +20,17 @@
     [self configureNavigationItem];
     [self.view setBackgroundColor:[UIColor yellowColor]];
     [self.navigationController setNavigationBarHidden:NO];
+    self.title = @"全部分类";
 }
 
 - (void)configureNavigationItem {
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_return"] style:UIBarButtonItemStylePlain target:self action:@selector(clickBackButton:)];
-    [backButton setTintColor:[UIColor hexColor:@"AAAAAA"]];
-    self.navigationItem.leftBarButtonItem = backButton;
+    UIButton *backButton = [[UIButton alloc] init];
+    [backButton setImage:[UIImage imageNamed:@"icon_return"] forState:UIControlStateNormal];
+    [backButton setFrame:CGRectMake(30, 0, 50, 50)];
+    [backButton addTarget:self action:@selector(clickBackButton:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    [backButtonItem setTintColor:[UIColor hexColor:@"AAAAAA"]];
+    self.navigationItem.leftBarButtonItem = backButtonItem;
 }
 
 - (void)clickBackButton:(id)sender {
