@@ -48,6 +48,7 @@
     [dataArray addObject:[self serviceFilterRegionModel]];
     [dataArray addObject:[self priceFilterRegionModel]];
     [dataArray addObject:[self allCategoryFilterRegionModel]];
+    [dataArray addObject:[self spaceFilterRegionModel]];
     [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"品牌"]];
     [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"种类"]];
     [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"特性"]];
@@ -113,7 +114,12 @@
     model.containerCellClass = @"SideSlipAllCategoryTableViewCell";
     model.regionTitle = @"全部分类";
     return model;
-    
+}
+
+- (ZYSideSlipFilterRegionModel *)spaceFilterRegionModel {
+    ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
+    model.containerCellClass = @"SideSlipSpaceTableViewCell";
+    return model;
 }
 
 - (void)didReceiveMemoryWarning {

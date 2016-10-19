@@ -25,20 +25,27 @@
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="最低价" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B1V-vE-T1h">
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="70a-dz-G7c"/>
+                            <constraint firstAttribute="height" constant="22" id="70a-dz-G7c"/>
                         </constraints>
                         <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="最高价" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVg-H1-PUA">
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="mP8-2Z-vPS"/>
-                        </constraints>
                         <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qd7-IQ-bEL">
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
@@ -48,6 +55,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="OVg-H1-PUA" firstAttribute="leading" secondItem="qd7-IQ-bEL" secondAttribute="trailing" constant="2" id="FCv-pv-1Vr"/>
+                    <constraint firstItem="OVg-H1-PUA" firstAttribute="height" secondItem="B1V-vE-T1h" secondAttribute="height" id="IQj-Ml-iqp"/>
                     <constraint firstItem="OVg-H1-PUA" firstAttribute="width" secondItem="B1V-vE-T1h" secondAttribute="width" id="Kvu-E2-YH3"/>
                     <constraint firstItem="OVg-H1-PUA" firstAttribute="top" secondItem="B1V-vE-T1h" secondAttribute="top" id="a4h-4s-7tB"/>
                     <constraint firstAttribute="bottomMargin" secondItem="B1V-vE-T1h" secondAttribute="bottom" constant="8" id="fVt-OG-uhd"/>
@@ -61,6 +69,10 @@
                     <constraint firstItem="B1V-vE-T1h" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.42" id="wgS-Hf-csH"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="maxTextField" destination="OVg-H1-PUA" id="TRl-EG-hWN"/>
+                <outlet property="minTextField" destination="B1V-vE-T1h" id="guG-9h-YPS"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

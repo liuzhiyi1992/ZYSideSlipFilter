@@ -34,6 +34,7 @@
 		553B4FD71DB0C846007A2374 /* SideSlipServiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4FD51DB0C846007A2374 /* SideSlipServiceTableViewCell.m */; };
 		553B4FD81DB0C846007A2374 /* SideSlipServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553B4FD61DB0C846007A2374 /* SideSlipServiceTableViewCell.xib */; };
 		553B4FDB1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4FDA1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m */; };
+		553CC6A21DB7528400346FF6 /* SideSlipSpaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553CC6A11DB7528400346FF6 /* SideSlipSpaceTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		553B4FD61DB0C846007A2374 /* SideSlipServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideSlipServiceTableViewCell.xib; sourceTree = "<group>"; };
 		553B4FD91DB0D22F007A2374 /* SideSlipBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideSlipBaseTableViewCell.h; sourceTree = "<group>"; };
 		553B4FDA1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideSlipBaseTableViewCell.m; sourceTree = "<group>"; };
+		553CC6A01DB7528400346FF6 /* SideSlipSpaceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideSlipSpaceTableViewCell.h; sourceTree = "<group>"; };
+		553CC6A11DB7528400346FF6 /* SideSlipSpaceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideSlipSpaceTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +270,8 @@
 				553B4FD41DB0C846007A2374 /* SideSlipServiceTableViewCell.h */,
 				553B4FD51DB0C846007A2374 /* SideSlipServiceTableViewCell.m */,
 				553B4FD61DB0C846007A2374 /* SideSlipServiceTableViewCell.xib */,
+				553CC6A01DB7528400346FF6 /* SideSlipSpaceTableViewCell.h */,
+				553CC6A11DB7528400346FF6 /* SideSlipSpaceTableViewCell.m */,
 				553B4FD91DB0D22F007A2374 /* SideSlipBaseTableViewCell.h */,
 				553B4FDA1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m */,
 			);
@@ -389,6 +394,7 @@
 				553B4F9D1DB0C1B3007A2374 /* ViewController.m in Sources */,
 				486B76711DB22BC0000A7B53 /* FilterCommonCollectionViewCell.m in Sources */,
 				486B766D1DB2008D000A7B53 /* ZYSideSlipFilterRegionModel.m in Sources */,
+				553CC6A21DB7528400346FF6 /* SideSlipSpaceTableViewCell.m in Sources */,
 				553B4FD21DB0C82B007A2374 /* SideSlipPriceTableViewCell.m in Sources */,
 				553B4FD71DB0C846007A2374 /* SideSlipServiceTableViewCell.m in Sources */,
 				486B767F1DB3841D000A7B53 /* CommonItemModel.m in Sources */,

@@ -20,6 +20,7 @@
     [self configureNavigationItem];
     [self.view setBackgroundColor:[UIColor yellowColor]];
     [self.navigationController setNavigationBarHidden:NO];
+    self.navigationController.navigationBar.translucent = NO;
     self.title = @"全部分类";
 }
 
