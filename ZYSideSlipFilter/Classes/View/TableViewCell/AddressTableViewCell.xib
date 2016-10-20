@@ -23,10 +23,7 @@
                             <constraint firstAttribute="width" secondItem="RTY-Er-a5e" secondAttribute="height" id="f75-1M-ZvI"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="987-91-zxi">
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="Grp-yP-GX2"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="地址" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="987-91-zxi">
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -43,7 +40,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="addressLabel" destination="987-91-zxi" id="rNk-hr-Ak6"/>
-                <outlet property="addressLabelHeightConstraint" destination="Grp-yP-GX2" id="lQD-gt-JeP"/>
                 <outlet property="iconImageView" destination="RTY-Er-a5e" id="K7L-Lc-6KZ"/>
             </connections>
         </tableViewCell>

@@ -29,7 +29,7 @@
 
 - (void)updateCellWithAddressModel:(AddressModel *)model isSelected:(BOOL)isSelected {
     [_addressLabel setText:model.addressString];
-    [self calculateContentLabelheight];
+//    [self calculateContentLabelheight];
     if (isSelected) {
         [_iconImageView setImage:[UIImage imageNamed:@"address_icon_sel"]];
     } else {
@@ -38,6 +38,7 @@
 }
 
 - (void)calculateContentLabelheight {
+    [self layoutIfNeeded];
     CGSize size = [_addressLabel.text sizeWithMyFont:_addressLabel.font constrainedToSize:CGSizeMake(_addressLabel.frame.size.width, CGFLOAT_MAX)];
     _addressLabelHeightConstraint.constant = size.height;
 }

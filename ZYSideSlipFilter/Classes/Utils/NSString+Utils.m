@@ -155,8 +155,9 @@
         NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
         [style setLineBreakMode:NSLineBreakByWordWrapping];
         
-        size = [self boundingRectWithSize:size options: NSStringDrawingUsesLineFragmentOrigin
-                                     attributes:@{ NSFontAttributeName:font, NSParagraphStyleAttributeName: style} context: nil].size;
+        size = [self boundingRectWithSize:size
+                                  options:NSStringDrawingUsesLineFragmentOrigin
+                               attributes:@{ NSFontAttributeName:font, NSParagraphStyleAttributeName: style} context: nil].size;
     } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
