@@ -13,12 +13,18 @@
 #import "UIView+Utils.h"
 #import "FilterAddressController.h"
 #import "AddressModel.h"
+#import "ZYSideSlipFilterController.h"
+
+#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
+#define FILTER_LEADING ((ZYSideSlipFilterController *)self.delegate).sideSlipLeading
+#define CELL_WIDTH SCREEN_WIDTH - FILTER_LEADING
 
 #define LINE_SPACE_COLLECTION_ITEM 8
 #define GAP_COLLECTION_ITEM 8
 #define NUM_OF_ITEM_ONCE_ROW 3.f
-#define ITEM_WIDTH ((self.frame.size.width - (NUM_OF_ITEM_ONCE_ROW+1)*GAP_COLLECTION_ITEM)/NUM_OF_ITEM_ONCE_ROW)
-#define ITEM_HEIGHT 25
+#define ITEM_WIDTH ((CELL_WIDTH - (NUM_OF_ITEM_ONCE_ROW+1)*GAP_COLLECTION_ITEM)/NUM_OF_ITEM_ONCE_ROW)
+#define ITEM_WIDTH_HEIGHT_RATIO 4.f
+#define ITEM_HEIGHT ceil(ITEM_WIDTH/ITEM_WIDTH_HEIGHT_RATIO)
 
 @interface SideSlipServiceTableViewCell () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FilterAddressControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -139,7 +145,7 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return GAP_COLLECTION_ITEM;
+    return 0.5*GAP_COLLECTION_ITEM;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

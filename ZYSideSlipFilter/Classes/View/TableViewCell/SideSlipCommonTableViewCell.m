@@ -159,7 +159,7 @@ const int BRIEF_ROW = 2;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return GAP_COLLECTION_ITEM;
+    return 0.5*GAP_COLLECTION_ITEM;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
