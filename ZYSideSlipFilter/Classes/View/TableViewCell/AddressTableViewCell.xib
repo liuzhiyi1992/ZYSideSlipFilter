@@ -19,19 +19,22 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RTY-Er-a5e">
                         <constraints>
-                            <constraint firstAttribute="width" constant="18" id="OBa-vg-u0I"/>
+                            <constraint firstAttribute="width" constant="13" id="OBa-vg-u0I"/>
                             <constraint firstAttribute="width" secondItem="RTY-Er-a5e" secondAttribute="height" id="f75-1M-ZvI"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="987-91-zxi">
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="987-91-zxi">
+                        <constraints>
+                            <constraint firstAttribute="height" priority="900" constant="20" id="WM3-UV-J31"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="987-91-zxi" secondAttribute="bottom" constant="3" id="7Uo-4p-lf0"/>
                     <constraint firstItem="987-91-zxi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="9XK-Kr-ipe"/>
-                    <constraint firstItem="987-91-zxi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OoP-Nc-rdd"/>
                     <constraint firstItem="RTY-Er-a5e" firstAttribute="top" secondItem="987-91-zxi" secondAttribute="top" id="PKO-aO-Rrh"/>
                     <constraint firstItem="RTY-Er-a5e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="itI-l0-7N6"/>
                     <constraint firstAttribute="trailingMargin" secondItem="987-91-zxi" secondAttribute="trailing" constant="2" id="wk2-Oy-hIZ"/>
@@ -40,6 +43,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="addressLabel" destination="987-91-zxi" id="rNk-hr-Ak6"/>
+                <outlet property="addressLabelHeightConstraint" destination="WM3-UV-J31" id="KmI-xO-zUB"/>
                 <outlet property="iconImageView" destination="RTY-Er-a5e" id="K7L-Lc-6KZ"/>
             </connections>
         </tableViewCell>

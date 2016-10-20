@@ -128,7 +128,7 @@
              [self createAddressModelWithAddress:@"广州市天河区珠江新城地铁站" addressId:@"0001"],
              [self createAddressModelWithAddress:@"广州市天河区潭村地铁站" addressId:@"0002"],
              [self createAddressModelWithAddress:@"广州市天河区黄埔大道西地铁站" addressId:@"0003"],
-             [self createAddressModelWithAddress:@"广州市天河区客村地铁站" addressId:@"0004"],
+             [self createAddressModelWithAddress:@"广州市天河区员村街道员村地铁站临江大道员村二横路自编25号" addressId:@"0004"],
              [self createAddressModelWithAddress:@"广州市天河区昌岗地铁站" addressId:@"0005"]];
 }
 

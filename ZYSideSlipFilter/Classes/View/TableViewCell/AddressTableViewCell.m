@@ -8,10 +8,12 @@
 
 #import "AddressTableViewCell.h"
 #import "AddressModel.h"
+#import "NSString+Utils.h"
 
 @interface AddressTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *addressLabelHeightConstraint;
 @end
 
 @implementation AddressTableViewCell
@@ -27,10 +29,16 @@
 
 - (void)updateCellWithAddressModel:(AddressModel *)model isSelected:(BOOL)isSelected {
     [_addressLabel setText:model.addressString];
+    [self calculateContentLabelheight];
     if (isSelected) {
         [_iconImageView setImage:[UIImage imageNamed:@"address_icon_sel"]];
     } else {
         [_iconImageView setImage:[UIImage imageNamed:@"address_icon_desel"]];
     }
+}
+
+- (void)calculateContentLabelheight {
+    CGSize size = [_addressLabel.text sizeWithMyFont:_addressLabel.font constrainedToSize:CGSizeMake(_addressLabel.frame.size.width, CGFLOAT_MAX)];
+    _addressLabelHeightConstraint.constant = size.height;
 }
 @end

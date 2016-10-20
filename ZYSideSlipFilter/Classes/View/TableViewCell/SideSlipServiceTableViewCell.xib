@@ -23,7 +23,8 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXV-n6-pjg">
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <state key="normal" title=" 广东省广州市天河区某某街道某某小区某某栋" image="address_icon_sel">
+                        <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title=" 广东省广州市天河区某某街道某某小区某某栋" image="contact_pick_location">
                             <color key="titleColor" red="0.95294117647058818" green="0.3529411764705882" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                         <connections>
@@ -64,6 +65,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="address_icon_sel" width="8" height="11"/>
+        <image name="contact_pick_location" width="20" height="27"/>
     </resources>
 </document>

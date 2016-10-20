@@ -40,6 +40,7 @@
 		55F6CF7E1DB86EE1004295B3 /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F6CF7C1DB86EE1004295B3 /* AddressTableViewCell.xib */; };
 		55F6CF811DB87139004295B3 /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F6CF801DB87139004295B3 /* AddressModel.m */; };
 		55F6CF831DB87346004295B3 /* FilterAddressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F6CF821DB87346004295B3 /* FilterAddressController.xib */; };
+		55F6CF861DB8A1C1004295B3 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F6CF851DB8A1C1004295B3 /* NSString+Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,8 @@
 		55F6CF7F1DB87139004295B3 /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
 		55F6CF801DB87139004295B3 /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
 		55F6CF821DB87346004295B3 /* FilterAddressController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterAddressController.xib; sourceTree = "<group>"; };
+		55F6CF841DB8A1C1004295B3 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
+		55F6CF851DB8A1C1004295B3 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +151,8 @@
 		486B76761DB283BC000A7B53 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				55F6CF841DB8A1C1004295B3 /* NSString+Utils.h */,
+				55F6CF851DB8A1C1004295B3 /* NSString+Utils.m */,
 				486B76801DB38A0D000A7B53 /* UIColor+hexColor.h */,
 				486B76811DB38A0D000A7B53 /* UIColor+hexColor.m */,
 				486B76771DB283EE000A7B53 /* UIView+Utils.h */,
@@ -427,6 +432,7 @@
 				553B4F9A1DB0C1B3007A2374 /* AppDelegate.m in Sources */,
 				55F6CF811DB87139004295B3 /* AddressModel.m in Sources */,
 				486B76751DB22C89000A7B53 /* FilterBaseCollectionViewCell.m in Sources */,
+				55F6CF861DB8A1C1004295B3 /* NSString+Utils.m in Sources */,
 				553CC6A51DB774F200346FF6 /* FilterAddressController.m in Sources */,
 				553B4FCD1DB0C796007A2374 /* SideSlipAllCategoryTableViewCell.m in Sources */,
 				486B76821DB38A0D000A7B53 /* UIColor+hexColor.m in Sources */,
