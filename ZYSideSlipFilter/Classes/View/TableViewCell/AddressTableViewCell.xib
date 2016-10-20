@@ -24,6 +24,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="987-91-zxi">
+                        <rect key="frame" x="26" y="12" width="284" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="WM3-UV-J31"/>
                         </constraints>
