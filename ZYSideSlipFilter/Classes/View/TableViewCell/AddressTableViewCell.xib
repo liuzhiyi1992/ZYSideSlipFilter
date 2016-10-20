@@ -26,7 +26,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="987-91-zxi">
                         <rect key="frame" x="26" y="12" width="284" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="WM3-UV-J31"/>
+                            <constraint firstAttribute="height" constant="21" id="kWc-lu-XGe"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,7 +44,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="addressLabel" destination="987-91-zxi" id="rNk-hr-Ak6"/>
-                <outlet property="addressLabelHeightConstraint" destination="WM3-UV-J31" id="KmI-xO-zUB"/>
                 <outlet property="iconImageView" destination="RTY-Er-a5e" id="K7L-Lc-6KZ"/>
             </connections>
         </tableViewCell>
