@@ -53,7 +53,6 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         self.filterNavigation = filterNavigation;
         
         [self configureStatic];
-        [self configureUI];
     }
     return self;
 }
@@ -89,6 +88,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 }
 
 - (void)show {
+    [self configureUI];
     [_sponsor.navigationController.view addSubview:self.backCover];
     [_sponsor.navigationController addChildViewController:self.navigationController];
     [_sponsor.navigationController.view addSubview:self.navigationController.view];
