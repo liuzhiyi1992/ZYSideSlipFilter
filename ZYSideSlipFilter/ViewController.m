@@ -49,31 +49,31 @@
     [dataArray addObject:[self priceFilterRegionModel]];
     [dataArray addObject:[self allCategoryFilterRegionModel]];
     [dataArray addObject:[self spaceFilterRegionModel]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"品牌"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"种类"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"特性"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"适用场景"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"重量"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"包装"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"存储方式"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"货仓"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"品牌"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"种类"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"特性"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"适用场景"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"重量"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"包装"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"存储方式"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"货仓"]];
     return [dataArray mutableCopy];
 }
 
-- (ZYSideSlipFilterRegionModel *)commonFilterRegionModelWithKeywork:(NSString *)keywork {
+- (ZYSideSlipFilterRegionModel *)commonFilterRegionModelWithKeyword:(NSString *)keyword {
     ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
     model.containerCellClass = @"SideSlipCommonTableViewCell";
-    model.regionTitle = keywork;
-    model.itemList = @[[self createItemModelWithTitle:@"first" itemId:@"0000" selected:NO],
-                       [self createItemModelWithTitle:@"second" itemId:@"0001" selected:NO],
-                       [self createItemModelWithTitle:@"third" itemId:@"0002" selected:NO],
-                       [self createItemModelWithTitle:@"fourth" itemId:@"0003" selected:NO],
-                       [self createItemModelWithTitle:@"fifth" itemId:@"0004" selected:NO],
-                       [self createItemModelWithTitle:@"sixth" itemId:@"0005" selected:NO],
-                       [self createItemModelWithTitle:@"seventh" itemId:@"0006" selected:NO],
-                       [self createItemModelWithTitle:@"eighth" itemId:@"0007" selected:NO],
-                       [self createItemModelWithTitle:@"ninth" itemId:@"0008" selected:NO],
-                       [self createItemModelWithTitle:@"tenth" itemId:@"0009" selected:NO]
+    model.regionTitle = keyword;
+    model.itemList = @[[self createItemModelWithTitle:[NSString stringWithFormat:@"%@一", keyword] itemId:@"0000" selected:NO],
+                       [self createItemModelWithTitle:[NSString stringWithFormat:@"%@二", keyword] itemId:@"0001" selected:NO],
+                       [self createItemModelWithTitle:[NSString stringWithFormat:@"%@三", keyword] itemId:@"0002" selected:NO],
+                       [self createItemModelWithTitle:[NSString stringWithFormat:@"%@四", keyword] itemId:@"0003" selected:NO],
+                       [self createItemModelWithTitle:[NSString stringWithFormat:@"%@五", keyword] itemId:@"0004" selected:NO],
+                       [self createItemModelWithTitle:[NSString stringWithFormat:@"%@六", keyword] itemId:@"0005" selected:NO],
+                       [self createItemModelWithTitle:[NSString stringWithFormat:@"%@七", keyword] itemId:@"0006" selected:NO],
+                       [self createItemModelWithTitle:[NSString stringWithFormat:@"%@八", keyword] itemId:@"0007" selected:NO],
+                       [self createItemModelWithTitle:[NSString stringWithFormat:@"%@九", keyword] itemId:@"0008" selected:NO],
+                       [self createItemModelWithTitle:[NSString stringWithFormat:@"%@十", keyword] itemId:@"0009" selected:NO]
                        ];
     return model;
 }
