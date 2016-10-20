@@ -25,7 +25,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="987-91-zxi">
                         <constraints>
-                            <constraint firstAttribute="height" priority="900" constant="20" id="WM3-UV-J31"/>
+                            <constraint firstAttribute="height" constant="20" id="WM3-UV-J31"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -33,7 +33,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="987-91-zxi" secondAttribute="bottom" constant="3" id="7Uo-4p-lf0"/>
+                    <constraint firstItem="987-91-zxi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6TR-gQ-2dz"/>
                     <constraint firstItem="987-91-zxi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="9XK-Kr-ipe"/>
                     <constraint firstItem="RTY-Er-a5e" firstAttribute="top" secondItem="987-91-zxi" secondAttribute="top" id="PKO-aO-Rrh"/>
                     <constraint firstItem="RTY-Er-a5e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="itI-l0-7N6"/>

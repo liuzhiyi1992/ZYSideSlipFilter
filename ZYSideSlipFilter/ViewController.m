@@ -53,11 +53,10 @@
     [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"种类"]];
     [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"特性"]];
     [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"适用场景"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"附加1"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"附加2"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"附加3"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"附加4"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"附加5"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"重量"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"包装"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"存储方式"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeywork:@"货仓"]];
     return [dataArray mutableCopy];
 }
 
