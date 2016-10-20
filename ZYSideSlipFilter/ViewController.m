@@ -32,6 +32,7 @@
         NSLog(@"commit");
     }];
     _filterController.animationDuration = .3f;
+    _filterController.sideSlipLeading = 0.15*[UIScreen mainScreen].bounds.size.width;
     _filterController.dataList = [self packageDataList];
 }
 

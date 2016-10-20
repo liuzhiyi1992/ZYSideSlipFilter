@@ -14,16 +14,14 @@
 #import "UIColor+hexColor.h"
 #import "objc/runtime.h"
 
-#define SIDE_SLIP_LEADING_DEFAULT 60
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 
 #define SLIP_ORIGIN_FRAME CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH - _sideSlipLeading, SCREEN_HEIGHT)
 #define SLIP_DISTINATION_FRAME CGRectMake(_sideSlipLeading, 0, SCREEN_WIDTH - _sideSlipLeading, SCREEN_HEIGHT)
 
-#define BOTTOM_VIEW_FONT [UIFont systemFontOfSize:14.f]
-
 const CGFloat ANIMATION_DURATION_DEFAULT = 0.3f;
+const CGFloat SIDE_SLIP_LEADING_DEFAULT = 60;
 
 id (*objc_msgSendGetCellIdentifier)(id self, SEL _cmd) = (void *)objc_msgSend;
 CGFloat (*objc_msgSendGetCellHeight)(id self, SEL _cmd) = (void *)objc_msgSend;
@@ -120,7 +118,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     UIButton *resetButton = [[UIButton alloc] init];
     [resetButton setTranslatesAutoresizingMaskIntoConstraints:NO];
     [resetButton addTarget:self action:@selector(clickResetButton:) forControlEvents:UIControlEventTouchUpInside];
-    [resetButton.titleLabel setFont:BOTTOM_VIEW_FONT];
+    [resetButton.titleLabel setFont:[UIFont systemFontOfSize:BOTTOM_BUTTON_FONT_SIZE]];
     [resetButton setTitleColor:[UIColor hexColor:FILTER_BLACK_STRING] forState:UIControlStateNormal];
     [resetButton setTitle:LocalString(@"sReset") forState:UIControlStateNormal];
     [resetButton setBackgroundColor:[UIColor whiteColor]];
@@ -129,7 +127,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     UIButton *commitButton = [[UIButton alloc] init];
     [commitButton setTranslatesAutoresizingMaskIntoConstraints:NO];
     [commitButton addTarget:self action:@selector(clickCommitButton:) forControlEvents:UIControlEventTouchUpInside];
-    [commitButton.titleLabel setFont:BOTTOM_VIEW_FONT];
+    [commitButton.titleLabel setFont:[UIFont systemFontOfSize:BOTTOM_BUTTON_FONT_SIZE]];
     [commitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [commitButton setTitle:LocalString(@"sCommit") forState:UIControlStateNormal];
     [commitButton setBackgroundColor:[UIColor hexColor:FILTER_RED_STRING]];
