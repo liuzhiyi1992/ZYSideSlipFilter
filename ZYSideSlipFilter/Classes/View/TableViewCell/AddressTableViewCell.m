@@ -28,9 +28,9 @@
 - (void)updateCellWithAddressModel:(AddressModel *)model isSelected:(BOOL)isSelected {
     [_addressLabel setText:model.addressString];
     if (isSelected) {
-        [_iconImageView setBackgroundColor:[UIColor redColor]];
+        [_iconImageView setImage:[UIImage imageNamed:@"address_icon_sel"]];
     } else {
-        [_iconImageView setBackgroundColor:[UIColor blackColor]];
+        [_iconImageView setImage:[UIImage imageNamed:@"address_icon_desel"]];
     }
 }
 @end
