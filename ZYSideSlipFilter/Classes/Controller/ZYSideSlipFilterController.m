@@ -172,6 +172,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     SideSlipBaseTableViewCell *templateCell = [self.templateCellDict objectForKey:identifier];
     if (!templateCell) {
         templateCell = objc_msgSendCreateCellWithIndexPath(cellClazz, NSSelectorFromString(@"createCellWithIndexPath:"), indexPath);
+        templateCell.delegate = self;
         [self.templateCellDict setObject:templateCell forKey:identifier];
     }
     //update
