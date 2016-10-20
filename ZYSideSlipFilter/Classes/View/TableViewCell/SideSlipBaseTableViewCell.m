@@ -27,18 +27,22 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-//    [self registerNotification];
+    [self registerNotification];
 }
 
 - (void)dealloc {
-//    [self resignNotification];
+    [self resignNotification];
 }
 
-//- (void)registerNotification {
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetData) name:FILTER_NOTIFICATION_NAME_RESET_DATA object:nil];
-//}
-//
-//- (void)resignNotification {
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
-//}
+- (void)resetData {
+    
+}
+
+- (void)registerNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetData) name:FILTER_NOTIFICATION_NAME_RESET_DATA object:nil];
+}
+
+- (void)resignNotification {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

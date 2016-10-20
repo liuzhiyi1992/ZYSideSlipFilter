@@ -23,4 +23,5 @@
 + (CGFloat)cellHeight;
 + (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath;
 - (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model indexPath:(NSIndexPath *)indexPath;
+- (void)resetData;
 @end

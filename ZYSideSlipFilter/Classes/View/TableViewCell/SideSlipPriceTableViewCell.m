@@ -33,6 +33,11 @@
     
 }
 
+- (void)resetData {
+    [_minTextField setText:@""];
+    [_maxTextField setText:@""];
+}
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if (textField.text.length >= TEXTFIELD_MAX_LENGTH && ![string isEqualToString:@""]) {
         return NO;

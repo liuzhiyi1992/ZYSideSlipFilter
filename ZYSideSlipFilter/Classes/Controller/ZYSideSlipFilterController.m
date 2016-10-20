@@ -51,7 +51,6 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         [filterNavigation setNavigationBarHidden:YES];
         [filterNavigation.view setFrame:SLIP_ORIGIN_FRAME];
         self.filterNavigation = filterNavigation;
-        
         [self configureStatic];
     }
     return self;
@@ -143,6 +142,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 
 - (void)clickResetButton:(id)sender {
     _resetBlock(_dataList);
+    [[NSNotificationCenter defaultCenter] postNotificationName:FILTER_NOTIFICATION_NAME_RESET_DATA object:nil];
     [_mainTableView reloadData];
 }
 
