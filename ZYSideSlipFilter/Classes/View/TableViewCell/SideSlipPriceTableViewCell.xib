@@ -17,16 +17,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格区间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CV-En-q6B">
-                        <rect key="frame" x="10" y="12" width="52" height="14.5"/>
+                        <rect key="frame" x="10" y="12" width="52" height="12.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="最低价" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B1V-vE-T1h">
-                        <rect key="frame" x="10" y="41.5" width="134.5" height="22"/>
+                        <rect key="frame" x="10" y="39.5" width="134.5" height="24"/>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="22" id="70a-dz-G7c"/>
+                            <constraint firstAttribute="height" constant="24" id="70a-dz-G7c"/>
                         </constraints>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -38,7 +38,7 @@
                         </userDefinedRuntimeAttributes>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="最高价" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVg-H1-PUA">
-                        <rect key="frame" x="175.5" y="41.5" width="134.5" height="22"/>
+                        <rect key="frame" x="175.5" y="39.5" width="134.5" height="24"/>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94901960784313721" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -50,7 +50,7 @@
                         </userDefinedRuntimeAttributes>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qd7-IQ-bEL">
-                        <rect key="frame" x="146.5" y="40.5" width="27" height="24"/>
+                        <rect key="frame" x="146.5" y="39.5" width="27" height="24"/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
