@@ -36,6 +36,10 @@
 		553B4FDB1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4FDA1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m */; };
 		553CC6A21DB7528400346FF6 /* SideSlipSpaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553CC6A11DB7528400346FF6 /* SideSlipSpaceTableViewCell.m */; };
 		553CC6A51DB774F200346FF6 /* FilterAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553CC6A41DB774F200346FF6 /* FilterAddressController.m */; };
+		55F6CF7D1DB86EE1004295B3 /* AddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F6CF7B1DB86EE1004295B3 /* AddressTableViewCell.m */; };
+		55F6CF7E1DB86EE1004295B3 /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F6CF7C1DB86EE1004295B3 /* AddressTableViewCell.xib */; };
+		55F6CF811DB87139004295B3 /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F6CF801DB87139004295B3 /* AddressModel.m */; };
+		55F6CF831DB87346004295B3 /* FilterAddressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F6CF821DB87346004295B3 /* FilterAddressController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +106,12 @@
 		553CC6A11DB7528400346FF6 /* SideSlipSpaceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideSlipSpaceTableViewCell.m; sourceTree = "<group>"; };
 		553CC6A31DB774F200346FF6 /* FilterAddressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterAddressController.h; sourceTree = "<group>"; };
 		553CC6A41DB774F200346FF6 /* FilterAddressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterAddressController.m; sourceTree = "<group>"; };
+		55F6CF7A1DB86EE1004295B3 /* AddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableViewCell.h; sourceTree = "<group>"; };
+		55F6CF7B1DB86EE1004295B3 /* AddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableViewCell.m; sourceTree = "<group>"; };
+		55F6CF7C1DB86EE1004295B3 /* AddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
+		55F6CF7F1DB87139004295B3 /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
+		55F6CF801DB87139004295B3 /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
+		55F6CF821DB87346004295B3 /* FilterAddressController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterAddressController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +139,8 @@
 				486B766C1DB2008D000A7B53 /* ZYSideSlipFilterRegionModel.m */,
 				486B767D1DB3841D000A7B53 /* CommonItemModel.h */,
 				486B767E1DB3841D000A7B53 /* CommonItemModel.m */,
+				55F6CF7F1DB87139004295B3 /* AddressModel.h */,
+				55F6CF801DB87139004295B3 /* AddressModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,6 +247,7 @@
 				48DBE84F1DB659430008AB47 /* FilterAllCategoryViewController.m */,
 				553CC6A31DB774F200346FF6 /* FilterAddressController.h */,
 				553CC6A41DB774F200346FF6 /* FilterAddressController.m */,
+				55F6CF821DB87346004295B3 /* FilterAddressController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -279,6 +292,9 @@
 				553CC6A11DB7528400346FF6 /* SideSlipSpaceTableViewCell.m */,
 				553B4FD91DB0D22F007A2374 /* SideSlipBaseTableViewCell.h */,
 				553B4FDA1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m */,
+				55F6CF7A1DB86EE1004295B3 /* AddressTableViewCell.h */,
+				55F6CF7B1DB86EE1004295B3 /* AddressTableViewCell.m */,
+				55F6CF7C1DB86EE1004295B3 /* AddressTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -368,12 +384,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55F6CF831DB87346004295B3 /* FilterAddressController.xib in Resources */,
 				553B4FD31DB0C82B007A2374 /* SideSlipPriceTableViewCell.xib in Resources */,
 				553B4FA51DB0C1B3007A2374 /* LaunchScreen.storyboard in Resources */,
 				553B4FC91DB0C759007A2374 /* SideSlipCommonTableViewCell.xib in Resources */,
 				553B4FD81DB0C846007A2374 /* SideSlipServiceTableViewCell.xib in Resources */,
 				552E79431DB4BB2E0054EEA2 /* Localizable.strings in Resources */,
 				553B4FA21DB0C1B3007A2374 /* Assets.xcassets in Resources */,
+				55F6CF7E1DB86EE1004295B3 /* AddressTableViewCell.xib in Resources */,
 				486B76721DB22BC0000A7B53 /* FilterCommonCollectionViewCell.xib in Resources */,
 				553B4FA01DB0C1B3007A2374 /* Main.storyboard in Resources */,
 				553B4FCE1DB0C796007A2374 /* SideSlipAllCategoryTableViewCell.xib in Resources */,
@@ -407,11 +425,13 @@
 				553B4FC21DB0C23F007A2374 /* ZYSideSlipFilterController.m in Sources */,
 				48DBE8501DB659430008AB47 /* FilterAllCategoryViewController.m in Sources */,
 				553B4F9A1DB0C1B3007A2374 /* AppDelegate.m in Sources */,
+				55F6CF811DB87139004295B3 /* AddressModel.m in Sources */,
 				486B76751DB22C89000A7B53 /* FilterBaseCollectionViewCell.m in Sources */,
 				553CC6A51DB774F200346FF6 /* FilterAddressController.m in Sources */,
 				553B4FCD1DB0C796007A2374 /* SideSlipAllCategoryTableViewCell.m in Sources */,
 				486B76821DB38A0D000A7B53 /* UIColor+hexColor.m in Sources */,
 				553B4F971DB0C1B3007A2374 /* main.m in Sources */,
+				55F6CF7D1DB86EE1004295B3 /* AddressTableViewCell.m in Sources */,
 				552E79351DB4AFA90054EEA2 /* ZYSideSlipFilterConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

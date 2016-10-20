@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FilterAddressController : UIViewController
+@class AddressModel;
+@protocol FilterAddressControllerDelegate <NSObject>
+- (void)addressControllerDidSelectedAddress:(AddressModel *)addressModel;
+@end
 
+@interface FilterAddressController : UIViewController
+@property (weak, nonatomic) id<FilterAddressControllerDelegate> delegate;
+- (instancetype)initWithDataList:(NSArray *)dataList selectedAddressId:(NSString *)selectedAddressId;
 @end

@@ -11,6 +11,8 @@
 #import "CommonItemModel.h"
 #import "FilterCommonCollectionViewCell.h"
 #import "UIView+Utils.h"
+#import "FilterAddressController.h"
+#import "AddressModel.h"
 
 #define LINE_SPACE_COLLECTION_ITEM 8
 #define GAP_COLLECTION_ITEM 8
@@ -18,7 +20,7 @@
 #define ITEM_WIDTH ((self.frame.size.width - (NUM_OF_ITEM_ONCE_ROW+1)*GAP_COLLECTION_ITEM)/NUM_OF_ITEM_ONCE_ROW)
 #define ITEM_HEIGHT 25
 
-@interface SideSlipServiceTableViewCell () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface SideSlipServiceTableViewCell () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FilterAddressControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addressButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *mainCollectionView;
@@ -26,6 +28,8 @@
 @property (strong, nonatomic) NSArray *dataList;
 @property (strong, nonatomic) NSMutableArray *selectedItemList;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
+@property (strong, nonatomic) AddressModel *addressModel;
+@property (strong, nonatomic) NSArray *addressList;
 @end
 
 @implementation SideSlipServiceTableViewCell
@@ -54,6 +58,10 @@
     [_titleLabel setText:_regionModel.regionTitle];
     //content
     self.dataList = _regionModel.itemList;
+    //address
+    self.addressList = _regionModel.customDict[@"addressList"];
+    self.addressModel = _addressList.firstObject;
+    [_addressButton setTitle:_addressModel.addressString forState:UIControlStateNormal];
     //UI
     [self fitCollectonViewHeight];
     [_mainCollectionView reloadData];
@@ -87,12 +95,28 @@
 }
 
 - (IBAction)clickAddressButton:(id)sender {
-    UIViewController *controller = [[UIViewController alloc] init];
-    [controller.view setBackgroundColor:[UIColor whiteColor]];
+    FilterAddressController *addressController = [[FilterAddressController alloc] initWithDataList:_addressList selectedAddressId:_addressModel.addressId];
+    addressController.delegate = self;
     if ([self.delegate respondsToSelector:@selector(sideSlipTableViewCellNeedsPushViewController:animated:)]) {
-        [self.delegate sideSlipTableViewCellNeedsPushViewController:controller animated:YES];
+        [self.delegate sideSlipTableViewCellNeedsPushViewController:addressController animated:YES];
     }
 }
+
+//- (NSArray *)generateAddressDataList {
+//    return @[[self createAddressModelWithAddress:@"广州市天河区" addressId:@"0000"],
+//             [self createAddressModelWithAddress:@"广州市天河区" addressId:@"0001"],
+//             [self createAddressModelWithAddress:@"广州市天河区" addressId:@"0002"],
+//             [self createAddressModelWithAddress:@"广州市天河区" addressId:@"0003"],
+//             [self createAddressModelWithAddress:@"广州市天河区" addressId:@"0004"],
+//             [self createAddressModelWithAddress:@"广州市天河区" addressId:@"0005"]];
+//}
+//
+//- (AddressModel *)createAddressModelWithAddress:(NSString *)address addressId:(NSString *)addressId {
+//    AddressModel *model = [[AddressModel alloc] init];
+//    model.addressString = address;
+//    model.addressId = addressId;
+//    return model;
+//}
 
 #pragma mark - DataSource Delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -122,5 +146,10 @@
     [collectionView deselectItemAtIndexPath:indexPath animated:NO];
     FilterCommonCollectionViewCell *cell = (FilterCommonCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     [cell tap2SelectItem:[self tap2SelectItem:indexPath]];
+}
+
+- (void)addressControllerDidSelectedAddress:(AddressModel *)addressModel {
+    _addressModel = addressModel;
+    [_addressButton setTitle:addressModel.addressString forState:UIControlStateNormal];
 }
 @end

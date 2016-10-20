@@ -10,13 +10,13 @@
 #import "ZYSideSlipFilterController.h"
 #import "ZYSideSlipFilterRegionModel.h"
 #import "CommonItemModel.h"
+#import "AddressModel.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) ZYSideSlipFilterController *filterController;
 @end
 
 @implementation ViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.filterController = [[ZYSideSlipFilterController alloc] initWithSponsor:self resetBlock:^(NSArray *dataList) {
@@ -99,6 +99,7 @@
                        [self createItemModelWithTitle:@"移动专享" itemId:@"0003" selected:NO],
                        [self createItemModelWithTitle:@"全球购" itemId:@"0004" selected:NO]
                        ];
+    model.customDict = @{@"addressList":[self generateAddressDataList]};
     return model;
 }
 
@@ -119,6 +120,22 @@
 - (ZYSideSlipFilterRegionModel *)spaceFilterRegionModel {
     ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
     model.containerCellClass = @"SideSlipSpaceTableViewCell";
+    return model;
+}
+
+- (NSArray *)generateAddressDataList {
+    return @[[self createAddressModelWithAddress:@"广州市天河区猎德地铁站" addressId:@"0000"],
+             [self createAddressModelWithAddress:@"广州市天河区珠江新城地铁站" addressId:@"0001"],
+             [self createAddressModelWithAddress:@"广州市天河区潭村地铁站" addressId:@"0002"],
+             [self createAddressModelWithAddress:@"广州市天河区黄埔大道西地铁站" addressId:@"0003"],
+             [self createAddressModelWithAddress:@"广州市天河区客村地铁站" addressId:@"0004"],
+             [self createAddressModelWithAddress:@"广州市天河区昌岗地铁站" addressId:@"0005"]];
+}
+
+- (AddressModel *)createAddressModelWithAddress:(NSString *)address addressId:(NSString *)addressId {
+    AddressModel *model = [[AddressModel alloc] init];
+    model.addressString = address;
+    model.addressId = addressId;
     return model;
 }
 
