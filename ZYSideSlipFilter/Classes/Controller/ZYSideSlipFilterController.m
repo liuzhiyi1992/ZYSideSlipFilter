@@ -74,8 +74,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     [self.view addSubview:bottomView];
     
     NSDictionary *views = @{@"mainTableView":_mainTableView, @"bottomView":bottomView};
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bottomView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:SCREEN_WIDTH - _sideSlipLeading]];
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bottomView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:0.05*self.view.bounds.size.height]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bottomView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:BOTTOM_BUTTON_HEIGHT]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[mainTableView]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bottomView]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[mainTableView][bottomView]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
@@ -92,11 +91,11 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     [_sponsor.navigationController addChildViewController:self.navigationController];
     [_sponsor.navigationController.view addSubview:self.navigationController.view];
     
-    [_backCover setAlpha:0.f];
+    [_backCover setHidden:YES];
     [UIView animateWithDuration:_animationDuration animations:^{
         [self.navigationController.view setFrame:SLIP_DISTINATION_FRAME];
     } completion:^(BOOL finished) {
-        [_backCover setAlpha:1.f];
+        [_backCover setHidden:NO];
     }];
 }
 
@@ -226,7 +225,8 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 - (UIView *)backCover {
     if (!_backCover) {
         _backCover = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-        [_backCover setBackgroundColor:[UIColor colorWithRed:30/255.0 green:30/255.0 blue:30/255.0 alpha:0.8]];
+        [_backCover setBackgroundColor:[UIColor hexColor:FILTER_BACKGROUND_COVER_COLOR]];
+        [_backCover setAlpha:FILTER_BACKGROUND_COVER_ALPHA];
         [_backCover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickBackCover:)]];
     }
     return _backCover;

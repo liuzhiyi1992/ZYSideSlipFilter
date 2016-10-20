@@ -36,7 +36,7 @@
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eeV-5C-Bih">
                         <rect key="frame" x="0.0" y="37" width="320" height="49.5"/>
-                        <color key="backgroundColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="49.5" id="CMs-cS-etT"/>
                         </constraints>
@@ -60,7 +60,7 @@
                     <constraint firstItem="eeV-5C-Bih" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="7aN-NN-Lw9"/>
                     <constraint firstItem="38I-02-wdR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LqK-EA-JiO" secondAttribute="trailing" constant="15" id="AwS-k9-lmV"/>
                     <constraint firstAttribute="bottomMargin" secondItem="eeV-5C-Bih" secondAttribute="bottom" id="C9j-TJ-qmN"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="eeV-5C-Bih" secondAttribute="bottom" constant="5" id="M49-Jm-Wwu"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="eeV-5C-Bih" secondAttribute="bottom" priority="900" constant="5" id="M49-Jm-Wwu"/>
                     <constraint firstAttribute="trailingMargin" secondItem="eeV-5C-Bih" secondAttribute="trailing" id="Nb1-pQ-mDf"/>
                     <constraint firstItem="38I-02-wdR" firstAttribute="top" secondItem="LqK-EA-JiO" secondAttribute="top" id="Qla-Tv-bTu"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1Y8-as-n4L" secondAttribute="trailing" id="R7l-BA-b3N"/>
