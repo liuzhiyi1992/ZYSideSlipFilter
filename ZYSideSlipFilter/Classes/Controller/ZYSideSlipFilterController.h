@@ -13,6 +13,7 @@ typedef void (^SideSlipFilterResetBlock)(NSArray *dataList);
 
 @interface ZYSideSlipFilterController : UIViewController
 @property (assign, nonatomic) CGFloat animationDuration;
+@property (assign, nonatomic) CGFloat sideSlipLeading;
 @property (strong, nonatomic) NSArray *dataList;
 - (instancetype)initWithSponsor:(UIViewController *)sponsor
                      resetBlock:(SideSlipFilterResetBlock)resetBlock

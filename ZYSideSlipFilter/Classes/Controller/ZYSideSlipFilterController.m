@@ -14,12 +14,12 @@
 #import "UIColor+hexColor.h"
 #import "objc/runtime.h"
 
-#define SIDE_SLIP_LEADING 60
+#define SIDE_SLIP_LEADING_DEFAULT 60
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 
-#define SLIP_ORIGIN_FRAME CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH - SIDE_SLIP_LEADING, SCREEN_HEIGHT)
-#define SLIP_DISTINATION_FRAME CGRectMake(SIDE_SLIP_LEADING, 0, SCREEN_WIDTH - SIDE_SLIP_LEADING, SCREEN_HEIGHT)
+#define SLIP_ORIGIN_FRAME CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH - _sideSlipLeading, SCREEN_HEIGHT)
+#define SLIP_DISTINATION_FRAME CGRectMake(_sideSlipLeading, 0, SCREEN_WIDTH - _sideSlipLeading, SCREEN_HEIGHT)
 
 #define BOTTOM_VIEW_FONT [UIFont systemFontOfSize:14.f]
 
@@ -78,7 +78,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     [self.view addSubview:bottomView];
     
     NSDictionary *views = @{@"mainTableView":_mainTableView, @"bottomView":bottomView};
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bottomView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:SCREEN_WIDTH - SIDE_SLIP_LEADING]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bottomView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:SCREEN_WIDTH - _sideSlipLeading]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bottomView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:0.05*self.view.bounds.size.height]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[mainTableView]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bottomView]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
@@ -86,9 +86,8 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 }
 
 - (void)configureStatic {
-    if (_animationDuration == 0) {
-        self.animationDuration = ANIMATION_DURATION_DEFAULT;
-    }
+    self.animationDuration = ANIMATION_DURATION_DEFAULT;
+    self.sideSlipLeading = SIDE_SLIP_LEADING_DEFAULT;
 }
 
 - (void)show {

@@ -12,14 +12,14 @@
 #import "CommonItemModel.h"
 #import "UIColor+hexColor.h"
 #import "ZYSideSlipFilterConfig.h"
-
+#import "ZYSideSlipFilterController.h"
 
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 
 #define LINE_SPACE_COLLECTION_ITEM 8
 #define GAP_COLLECTION_ITEM 8
 #define NUM_OF_ITEM_ONCE_ROW 3.f
-#define ITEM_WIDTH ((self.frame.size.width - (NUM_OF_ITEM_ONCE_ROW+1)*GAP_COLLECTION_ITEM)/NUM_OF_ITEM_ONCE_ROW)
+#define ITEM_WIDTH ((SCREEN_WIDTH - ((ZYSideSlipFilterController *)self.delegate).sideSlipLeading - (NUM_OF_ITEM_ONCE_ROW+1)*GAP_COLLECTION_ITEM)/NUM_OF_ITEM_ONCE_ROW)
 #define ITEM_WIDTH_HEIGHT_RATIO 4.f
 #define ITEM_HEIGHT ceil(ITEM_WIDTH/ITEM_WIDTH_HEIGHT_RATIO)
 
@@ -79,7 +79,7 @@ const int BRIEF_ROW = 2;
     //UI
     [_mainCollectionView reloadData];
     [self fitCollectonViewHeight];
-    [self setBackgroundColor:[UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1.f]];
+//    [self setBackgroundColor:[UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1.f]];
 }
 
 //根据数据源个数决定collectionView高度
