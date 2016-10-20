@@ -151,5 +151,8 @@
 - (void)addressControllerDidSelectedAddress:(AddressModel *)addressModel {
     _addressModel = addressModel;
     [_addressButton setTitle:addressModel.addressString forState:UIControlStateNormal];
+    NSMutableDictionary *mutDict = [NSMutableDictionary dictionaryWithDictionary:_regionModel.customDict];
+    [mutDict setValue:addressModel forKey:SELECTED_ADDRESS];
+    _regionModel.customDict = [mutDict copy];
 }
 @end

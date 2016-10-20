@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define SELECTED_ADDRESS @"SELECTED_ADDRESS"
+
 @interface AddressModel : NSObject
 @property (copy, nonatomic) NSString *addressId;
 @property (copy, nonatomic) NSString *addressString;
