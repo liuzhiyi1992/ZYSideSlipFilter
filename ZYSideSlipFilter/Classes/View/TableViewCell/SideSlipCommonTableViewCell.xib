@@ -56,7 +56,7 @@
                     <constraint firstItem="eeV-5C-Bih" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="7aN-NN-Lw9"/>
                     <constraint firstItem="38I-02-wdR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LqK-EA-JiO" secondAttribute="trailing" constant="15" id="AwS-k9-lmV"/>
                     <constraint firstAttribute="bottomMargin" secondItem="eeV-5C-Bih" secondAttribute="bottom" id="C9j-TJ-qmN"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="eeV-5C-Bih" secondAttribute="bottom" priority="700" id="M49-Jm-Wwu"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="eeV-5C-Bih" secondAttribute="bottom" constant="5" id="M49-Jm-Wwu"/>
                     <constraint firstAttribute="trailingMargin" secondItem="eeV-5C-Bih" secondAttribute="trailing" id="Nb1-pQ-mDf"/>
                     <constraint firstItem="38I-02-wdR" firstAttribute="top" secondItem="LqK-EA-JiO" secondAttribute="top" id="Qla-Tv-bTu"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1Y8-as-n4L" secondAttribute="trailing" id="R7l-BA-b3N"/>
@@ -77,13 +77,13 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="iAb-aK-41r"/>
+                        <exclude reference="Qla-Tv-bTu"/>
                         <exclude reference="7aN-NN-Lw9"/>
                         <exclude reference="C9j-TJ-qmN"/>
                         <exclude reference="Nb1-pQ-mDf"/>
                         <exclude reference="Tir-Ra-qmT"/>
                         <exclude reference="VDJ-60-YXL"/>
-                        <exclude reference="Qla-Tv-bTu"/>
-                        <exclude reference="iAb-aK-41r"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

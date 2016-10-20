@@ -13,11 +13,15 @@
 #import "UIColor+hexColor.h"
 #import "ZYSideSlipFilterConfig.h"
 
+
+#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
+
 #define LINE_SPACE_COLLECTION_ITEM 8
 #define GAP_COLLECTION_ITEM 8
 #define NUM_OF_ITEM_ONCE_ROW 3.f
 #define ITEM_WIDTH ((self.frame.size.width - (NUM_OF_ITEM_ONCE_ROW+1)*GAP_COLLECTION_ITEM)/NUM_OF_ITEM_ONCE_ROW)
-#define ITEM_HEIGHT 25
+#define ITEM_WIDTH_HEIGHT_RATIO 4.f
+#define ITEM_HEIGHT ceil(ITEM_WIDTH/ITEM_WIDTH_HEIGHT_RATIO)
 
 const int BRIEF_ROW = 2;
 
@@ -75,6 +79,7 @@ const int BRIEF_ROW = 2;
     //UI
     [_mainCollectionView reloadData];
     [self fitCollectonViewHeight];
+    [self setBackgroundColor:[UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1.f]];
 }
 
 //根据数据源个数决定collectionView高度
@@ -85,6 +90,7 @@ const int BRIEF_ROW = 2;
     } else {
         displayNumOfRow = BRIEF_ROW;
     }
+    NSLog(@"高度是什么1-%f", self.frame.size.width);
     CGFloat collectionViewHeight = displayNumOfRow*ITEM_HEIGHT + (displayNumOfRow - 1)*LINE_SPACE_COLLECTION_ITEM;
     _collectionViewHeightConstraint.constant = collectionViewHeight;
     [_mainCollectionView updateHeight:collectionViewHeight];
@@ -145,6 +151,7 @@ const int BRIEF_ROW = 2;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"高度是什么2-%f", self.frame.size.width);
     return CGSizeMake(ITEM_WIDTH, ITEM_HEIGHT);
 }
 
