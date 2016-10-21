@@ -38,10 +38,12 @@
         [_nameButton setTitleColor:[UIColor hexColor:FILTER_RED_STRING] forState:UIControlStateNormal];
         self.layer.borderWidth = .5f;
         self.layer.borderColor = [UIColor hexColor:FILTER_RED_STRING].CGColor;
+        [_nameButton setImage:[UIImage imageNamed:@"item_checked"] forState:UIControlStateNormal];
     } else {
         [self setBackgroundColor:[UIColor hexColor:FILTER_COLLECTION_ITEM_COLOR_NORMAL_STRING]];
         [_nameButton setTitleColor:[UIColor hexColor:FILTER_BLACK_STRING] forState:UIControlStateNormal];
         self.layer.borderWidth = 0;
+        [_nameButton setImage:nil forState:UIControlStateNormal];
     }
 }
 
