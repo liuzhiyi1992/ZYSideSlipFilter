@@ -37,9 +37,6 @@
 }
 
 - (IBAction)clickFilterButton:(id)sender {
-//    [ZYSideSlipFilterController showSideSlipFilterWithSponsor:self commitBlock:^(NSDictionary *commitDict) {
-//        NSLog(@"");
-//    }];
     [_filterController show];
 }
 
