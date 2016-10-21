@@ -36,6 +36,7 @@
 		553B4FDB1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B4FDA1DB0D22F007A2374 /* SideSlipBaseTableViewCell.m */; };
 		553CC6A21DB7528400346FF6 /* SideSlipSpaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553CC6A11DB7528400346FF6 /* SideSlipSpaceTableViewCell.m */; };
 		553CC6A51DB774F200346FF6 /* FilterAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553CC6A41DB774F200346FF6 /* FilterAddressController.m */; };
+		553DCBD31DBA22AC00DF73F5 /* PriceRangeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 553DCBD21DBA22AC00DF73F5 /* PriceRangeModel.m */; };
 		55F6CF7D1DB86EE1004295B3 /* AddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F6CF7B1DB86EE1004295B3 /* AddressTableViewCell.m */; };
 		55F6CF7E1DB86EE1004295B3 /* AddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F6CF7C1DB86EE1004295B3 /* AddressTableViewCell.xib */; };
 		55F6CF811DB87139004295B3 /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F6CF801DB87139004295B3 /* AddressModel.m */; };
@@ -107,6 +108,8 @@
 		553CC6A11DB7528400346FF6 /* SideSlipSpaceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideSlipSpaceTableViewCell.m; sourceTree = "<group>"; };
 		553CC6A31DB774F200346FF6 /* FilterAddressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterAddressController.h; sourceTree = "<group>"; };
 		553CC6A41DB774F200346FF6 /* FilterAddressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterAddressController.m; sourceTree = "<group>"; };
+		553DCBD11DBA22AC00DF73F5 /* PriceRangeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceRangeModel.h; sourceTree = "<group>"; };
+		553DCBD21DBA22AC00DF73F5 /* PriceRangeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceRangeModel.m; sourceTree = "<group>"; };
 		55F6CF7A1DB86EE1004295B3 /* AddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableViewCell.h; sourceTree = "<group>"; };
 		55F6CF7B1DB86EE1004295B3 /* AddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableViewCell.m; sourceTree = "<group>"; };
 		55F6CF7C1DB86EE1004295B3 /* AddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableViewCell.xib; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				486B767E1DB3841D000A7B53 /* CommonItemModel.m */,
 				55F6CF7F1DB87139004295B3 /* AddressModel.h */,
 				55F6CF801DB87139004295B3 /* AddressModel.m */,
+				553DCBD11DBA22AC00DF73F5 /* PriceRangeModel.h */,
+				553DCBD21DBA22AC00DF73F5 /* PriceRangeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 				48DBE8501DB659430008AB47 /* FilterAllCategoryViewController.m in Sources */,
 				553B4F9A1DB0C1B3007A2374 /* AppDelegate.m in Sources */,
 				55F6CF811DB87139004295B3 /* AddressModel.m in Sources */,
+				553DCBD31DBA22AC00DF73F5 /* PriceRangeModel.m in Sources */,
 				486B76751DB22C89000A7B53 /* FilterBaseCollectionViewCell.m in Sources */,
 				55F6CF861DB8A1C1004295B3 /* NSString+Utils.m in Sources */,
 				553CC6A51DB774F200346FF6 /* FilterAddressController.m in Sources */,

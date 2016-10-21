@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define SELECTED_ADDRESS @"SELECTED_ADDRESS"
+#define ADDRESS_LIST @"ADDRESS_LIST"
 
 @interface AddressModel : NSObject
 @property (copy, nonatomic) NSString *addressId;

@@ -65,7 +65,7 @@
     //content
     self.dataList = _regionModel.itemList;
     //address
-    self.addressList = _regionModel.customDict[@"addressList"];
+    self.addressList = _regionModel.customDict[ADDRESS_LIST];
     self.addressModel = _addressList.firstObject;
     [_addressButton setTitle:_addressModel.addressString forState:UIControlStateNormal];
     //UI

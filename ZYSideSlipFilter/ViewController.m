@@ -97,7 +97,7 @@
                        [self createItemModelWithTitle:@"移动专享" itemId:@"0003" selected:NO],
                        [self createItemModelWithTitle:@"全球购" itemId:@"0004" selected:NO]
                        ];
-    model.customDict = @{@"addressList":[self generateAddressDataList]};
+    model.customDict = @{ADDRESS_LIST:[self generateAddressDataList]};
     return model;
 }
 
