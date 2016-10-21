@@ -22,5 +22,8 @@ NSString * const FILTER_NOTIFICATION_NAME_RESET_DATA = @"FILTER_NOTIFICATION_NAM
 //UI
 CGFloat const BOTTOM_BUTTON_FONT_SIZE = 14.f;
 
+//class
+NSString * const FILTER_NAVIGATION_CONTROLLER_CLASS = @"UINavigationController";
+
 @implementation ZYSideSlipFilterConfig
 @end
