@@ -47,7 +47,6 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         _sponsor = sponsor;
         _resetBlock = resetBlock;
         _commitBlock = commitBlock;
-        //todo 抽取
         UINavigationController *filterNavigation = [[NSClassFromString(FILTER_NAVIGATION_CONTROLLER_CLASS) alloc] initWithRootViewController:self];
         [filterNavigation setNavigationBarHidden:YES];
         [filterNavigation.view setFrame:SLIP_ORIGIN_FRAME];
