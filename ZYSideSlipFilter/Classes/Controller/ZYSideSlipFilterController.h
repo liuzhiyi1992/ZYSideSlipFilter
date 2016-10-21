@@ -19,4 +19,5 @@ typedef void (^SideSlipFilterResetBlock)(NSArray *dataList);
                      resetBlock:(SideSlipFilterResetBlock)resetBlock
                     commitBlock:(SideSlipFilterCommitBlock)commitBlock;
 - (void)show;
+- (void)dismiss;
 @end

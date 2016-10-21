@@ -19,7 +19,8 @@
 @implementation ViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.filterController = [[ZYSideSlipFilterController alloc] initWithSponsor:self resetBlock:^(NSArray *dataList) {
+    self.filterController = [[ZYSideSlipFilterController alloc] initWithSponsor:self
+                                                                     resetBlock:^(NSArray *dataList) {
         for (ZYSideSlipFilterRegionModel *model in dataList) {
             //selectedStatus
             for (CommonItemModel *itemModel in model.itemList) {
@@ -28,7 +29,7 @@
             //selectedItem
             model.selectedItemList = nil;
         }
-    } commitBlock:^(NSArray *dataList) {
+    }                                                               commitBlock:^(NSArray *dataList) {
         NSLog(@"commit");
     }];
     _filterController.animationDuration = .3f;
@@ -142,3 +143,4 @@
 }
 
 @end
+
