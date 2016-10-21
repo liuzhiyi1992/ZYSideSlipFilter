@@ -35,6 +35,7 @@
     [self.navigationController setNavigationBarHidden:NO];
     self.navigationController.navigationBar.translucent = NO;
     self.title = @"配送地址";
+    _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)configureNavigationItem {

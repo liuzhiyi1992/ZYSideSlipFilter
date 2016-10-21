@@ -9,6 +9,8 @@
 #import "AddressTableViewCell.h"
 #import "AddressModel.h"
 #import "NSString+Utils.h"
+#import "UIColor+hexColor.h"
+#import "ZYSideSlipFilterConfig.h"
 
 @interface AddressTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -32,8 +34,10 @@
 //    [self calculateContentLabelheight];
     if (isSelected) {
         [_iconImageView setImage:[UIImage imageNamed:@"address_icon_sel"]];
+        [_addressLabel setTextColor:[UIColor hexColor:FILTER_RED_STRING]];
     } else {
         [_iconImageView setImage:[UIImage imageNamed:@"address_icon_desel"]];
+        [_addressLabel setTextColor:[UIColor hexColor:FILTER_BLACK_STRING]];
     }
 }
 

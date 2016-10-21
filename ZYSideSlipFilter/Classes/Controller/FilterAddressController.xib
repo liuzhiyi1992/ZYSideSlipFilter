@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterAddressController">
@@ -23,13 +24,24 @@
                         <outlet property="delegate" destination="-1" id="LLO-F1-7q2"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nn-Uj-whR">
+                    <color key="backgroundColor" red="0.95294117647058818" green="0.3529411764705882" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="JnX-1v-IEU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="添加更多地址"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Ykv-jQ-WU0" secondAttribute="trailing" id="Dog-ab-0pO"/>
-                <constraint firstAttribute="bottom" secondItem="Ykv-jQ-WU0" secondAttribute="bottom" id="NxP-bY-fNH"/>
                 <constraint firstItem="Ykv-jQ-WU0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ayc-65-xvQ"/>
+                <constraint firstItem="0nn-Uj-whR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fN7-VP-Uit"/>
+                <constraint firstItem="0nn-Uj-whR" firstAttribute="top" secondItem="Ykv-jQ-WU0" secondAttribute="bottom" id="hiZ-3V-eYS"/>
                 <constraint firstItem="Ykv-jQ-WU0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oFk-dN-PhC"/>
+                <constraint firstAttribute="bottom" secondItem="0nn-Uj-whR" secondAttribute="bottom" id="vAJ-rN-bHZ"/>
+                <constraint firstAttribute="trailing" secondItem="0nn-Uj-whR" secondAttribute="trailing" id="x1C-vx-XAo"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
