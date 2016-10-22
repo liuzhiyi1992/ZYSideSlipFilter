@@ -35,7 +35,7 @@ const int BRIEF_ROW = 2;
 @property (strong, nonatomic) NSArray *dataList;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
-@property (strong, nonatomic) ZYSideSlipFilterRegionModel *itemModel;
+@property (strong, nonatomic) ZYSideSlipFilterRegionModel *regionModel;
 @property (strong, nonatomic) NSMutableArray *selectedItemList;
 @property (copy, nonatomic) NSString *selectedItemString;
 @end
@@ -63,20 +63,20 @@ const int BRIEF_ROW = 2;
 - (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model
                   indexPath:(NSIndexPath *)indexPath {
     self.indexPath = indexPath;
-    self.itemModel = *model;
+    self.regionModel = *model;
     //title
-    [self.titleLabel setText:_itemModel.regionTitle];
+    [self.titleLabel setText:_regionModel.regionTitle];
     //content
-    NSArray *itemsArray = _itemModel.itemList;
+    NSArray *itemsArray = _regionModel.itemList;
     self.dataList = itemsArray;
     //icon
-    if (_itemModel.isShowAll) {
+    if (_regionModel.isShowAll) {
         [_controlIcon setImage:[UIImage imageNamed:@"icon_up"]];
     } else {
         [_controlIcon setImage:[UIImage imageNamed:@"icon_down"]];
     }
     //controlLabel
-    self.selectedItemList = [NSMutableArray arrayWithArray:_itemModel.selectedItemList];
+    self.selectedItemList = [NSMutableArray arrayWithArray:_regionModel.selectedItemList];
     [self generateControlLabelText];
     //UI
     [_mainCollectionView reloadData];
@@ -86,7 +86,7 @@ const int BRIEF_ROW = 2;
 //根据数据源个数决定collectionView高度
 - (void)fitCollectonViewHeight {
     CGFloat displayNumOfRow;
-    if (_itemModel.isShowAll) {
+    if (_regionModel.isShowAll) {
         displayNumOfRow = ceil(_dataList.count/NUM_OF_ITEM_ONCE_ROW);
     } else {
         displayNumOfRow = BRIEF_ROW;
@@ -97,7 +97,7 @@ const int BRIEF_ROW = 2;
 }
 
 - (BOOL)tap2SelectItem:(NSIndexPath *)indexPath {
-    NSArray *itemArray = _itemModel.itemList;
+    NSArray *itemArray = _regionModel.itemList;
     CommonItemModel *model = [itemArray objectAtIndex:indexPath.row];
     model.selected = !model.selected;
     [self updateSelectedItemListWithItem:model];
@@ -111,7 +111,7 @@ const int BRIEF_ROW = 2;
         [self.selectedItemList removeObject:model];
     }
     //update Data
-    _itemModel.selectedItemList = _selectedItemList;
+    _regionModel.selectedItemList = _selectedItemList;
     [self generateControlLabelText];
 }
 
@@ -169,14 +169,14 @@ const int BRIEF_ROW = 2;
 }
 
 - (IBAction)clickShowMoreButton:(id)sender {
-    _itemModel.isShowAll = !_itemModel.isShowAll;
+    _regionModel.isShowAll = !_regionModel.isShowAll;
     [self fitCollectonViewHeight];
     //reload
     if ([self.delegate respondsToSelector:@selector(sideSlipTableViewCellNeedsReload:)]) {
         [self.delegate sideSlipTableViewCellNeedsReload:_indexPath];
     }
     //scroll
-    if (_itemModel.isShowAll && [self.delegate respondsToSelector:@selector(sideSlipTableViewCellNeedsScrollToCell:atScrollPosition:animated:)]) {
+    if (_regionModel.isShowAll && [self.delegate respondsToSelector:@selector(sideSlipTableViewCellNeedsScrollToCell:atScrollPosition:animated:)]) {
         [self.delegate sideSlipTableViewCellNeedsScrollToCell:self atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     }
 }
