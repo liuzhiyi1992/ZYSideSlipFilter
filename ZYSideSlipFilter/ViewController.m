@@ -11,6 +11,7 @@
 #import "ZYSideSlipFilterRegionModel.h"
 #import "CommonItemModel.h"
 #import "AddressModel.h"
+#import "PriceRangeModel.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) ZYSideSlipFilterController *filterController;
@@ -30,21 +31,28 @@
             model.selectedItemList = nil;
         }
     }                                                               commitBlock:^(NSArray *dataList) {
-        NSLog(@"commit");
-        
         //配送服务
-        ZYSideSlipFilterRegionModel *serviceModel = dataList[0];
+        ZYSideSlipFilterRegionModel *serviceRegionModel = dataList[0];
         NSMutableString *serviceInfoString = [NSMutableString stringWithString:@"\n配送服务:\n"];
         NSMutableArray *serviceItemSelectedArray = [NSMutableArray array];
-        AddressModel *addressModel = [serviceModel.customDict objectForKey:SELECTED_ADDRESS];
+        AddressModel *addressModel = [serviceRegionModel.customDict objectForKey:SELECTED_ADDRESS];
         [serviceInfoString appendFormat:@"选中地址:%@-%@\n", addressModel.addressId, addressModel.addressString];
-        for (CommonItemModel *itemModel in serviceModel.itemList) {
+        for (CommonItemModel *itemModel in serviceRegionModel.itemList) {
             if (itemModel.selected) {
                 [serviceItemSelectedArray addObject:[NSString stringWithFormat:@"%@-%@", itemModel.itemId, itemModel.itemName]];
             }
         }
         [serviceInfoString appendString:[serviceItemSelectedArray componentsJoinedByString:@", "]];
         NSLog(@"%@", serviceInfoString);
+        
+        //价格区间
+        ZYSideSlipFilterRegionModel *priceRegionModel = dataList[1];
+        PriceRangeModel *priceRangeModel = [priceRegionModel.customDict objectForKey:PRICE_RANGE_MODEL];
+        NSMutableString *priceRangeString = [NSMutableString stringWithString:@"\n价格范围: "];
+        if (priceRangeModel) {
+            [priceRangeString appendFormat:@"%@ - %@", priceRangeModel.minPrice, priceRangeModel.maxPrice];
+        }
+        NSLog(@"%@", priceRangeString);
 
     }];
     _filterController.animationDuration = .3f;
