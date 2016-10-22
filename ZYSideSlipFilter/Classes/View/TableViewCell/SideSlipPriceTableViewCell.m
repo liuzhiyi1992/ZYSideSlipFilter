@@ -14,7 +14,7 @@
 @interface SideSlipPriceTableViewCell () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *minTextField;
 @property (weak, nonatomic) IBOutlet UITextField *maxTextField;
-@property (strong, nonatomic) ZYSideSlipFilterRegionModel *itemModel;
+@property (strong, nonatomic) ZYSideSlipFilterRegionModel *regionModel;
 @end
 
 @implementation SideSlipPriceTableViewCell 
@@ -32,7 +32,7 @@
 
 - (void)updateCellWithModel:(ZYSideSlipFilterRegionModel *__autoreleasing *)model
                   indexPath:(NSIndexPath *)indexPath {
-    self.itemModel = *model;
+    self.regionModel = *model;
 }
 
 - (void)resetData {
@@ -51,8 +51,9 @@
     PriceRangeModel *model = [[PriceRangeModel alloc] init];
     model.minPrice = [_minTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     model.maxPrice = [_maxTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSMutableDictionary *mutDict = [NSMutableDictionary dictionaryWithDictionary:_itemModel.customDict];
+    NSMutableDictionary *mutDict = [NSMutableDictionary dictionaryWithDictionary:_regionModel.customDict];
     [mutDict setValue:model forKey:PRICE_RANGE_MODEL];
+    _regionModel.customDict = [mutDict copy];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
