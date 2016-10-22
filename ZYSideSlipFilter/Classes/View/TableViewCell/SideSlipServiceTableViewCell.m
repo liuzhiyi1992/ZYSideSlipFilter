@@ -68,6 +68,11 @@
     self.addressList = _regionModel.customDict[ADDRESS_LIST];
     self.addressModel = _addressList.firstObject;
     [_addressButton setTitle:_addressModel.addressString forState:UIControlStateNormal];
+    //update selectedAddress
+    NSMutableDictionary *customDict = [NSMutableDictionary dictionaryWithDictionary:_regionModel.customDict];
+    [customDict setValue:_addressModel forKey:SELECTED_ADDRESS];
+    _regionModel.customDict = [customDict copy];
+    
     //UI
     [self fitCollectonViewHeight];
     [_mainCollectionView reloadData];
