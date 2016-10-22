@@ -48,11 +48,26 @@
         //价格区间
         ZYSideSlipFilterRegionModel *priceRegionModel = dataList[1];
         PriceRangeModel *priceRangeModel = [priceRegionModel.customDict objectForKey:PRICE_RANGE_MODEL];
-        NSMutableString *priceRangeString = [NSMutableString stringWithString:@"\n价格范围: "];
+        NSMutableString *priceRangeString = [NSMutableString stringWithString:@"\n价格区间: "];
         if (priceRangeModel) {
             [priceRangeString appendFormat:@"%@ - %@", priceRangeModel.minPrice, priceRangeModel.maxPrice];
         }
         NSLog(@"%@", priceRangeString);
+        
+        //Common Region
+        NSMutableString *commonRegionString = [NSMutableString string];
+        for (int i = 4; i < dataList.count; i ++) {
+            ZYSideSlipFilterRegionModel *commonRegionModel = dataList[i];
+            [commonRegionString appendFormat:@"\n%@:", commonRegionModel.regionTitle];
+            NSMutableArray *commonItemSelectedArray = [NSMutableArray array];
+            for (CommonItemModel *itemModel in commonRegionModel.itemList) {
+                if (itemModel.selected) {
+                    [commonItemSelectedArray addObject:[NSString stringWithFormat:@"%@-%@", itemModel.itemId, itemModel.itemName]];
+                }
+            }
+            [commonRegionString appendString:[commonItemSelectedArray componentsJoinedByString:@", "]];
+        }
+        NSLog(@"%@", commonRegionString);
 
     }];
     _filterController.animationDuration = .3f;
