@@ -12,7 +12,7 @@ side slip filter with your goods page, support custom action, support custom reg
 #Features  
 [ZYSideSlipFilter](https://github.com/liuzhiyi1992/ZYSideSlipFilter)是一个侧边栏条件筛选器，功能当然就是那个，选择条件，保存选择状态，重置条件。即插即拔，基本支持自定义任何内脏，Demo我做成了商城风格，其实怎样用全在于你自己。ZYSideSlipFilter的工作核心是数据源，它贯穿了整个工作流程。  
 
-一下是Demo做出来的效果，大致使用结构是这样的：
+以下是Demo做出来的效果，大致使用结构是这样的：
 ![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/SideSlipFilter%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BEedge%E6%96%B0.jpg)  
 
 <br>
