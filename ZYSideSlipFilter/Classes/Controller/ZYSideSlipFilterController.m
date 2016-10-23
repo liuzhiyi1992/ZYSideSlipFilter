@@ -141,12 +141,13 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 
 - (void)clickResetButton:(id)sender {
     _resetBlock(_dataList);
-    [[NSNotificationCenter defaultCenter] postNotificationName:FILTER_NOTIFICATION_NAME_RESET_DATA object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:FILTER_NOTIFICATION_NAME_DID_RESET_DATA object:nil];
     [_mainTableView reloadData];
 }
 
 - (void)clickCommitButton:(id)sender {
     _commitBlock(_dataList);
+    [[NSNotificationCenter defaultCenter] postNotificationName:FILTER_NOTIFICATION_NAME_DID_COMMIT_DATA object:nil];
 }
 
 - (void)clickBackCover:(id)sender {
