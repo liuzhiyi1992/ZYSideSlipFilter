@@ -9,7 +9,7 @@ side slip filter with your goods page, support custom action, support custom reg
 
 <br>
 <br>
-##Features:  
+##Features  
 [ZYSideSlipFilter](https://github.com/liuzhiyi1992/ZYSideSlipFilter)是一个侧边栏条件筛选器，功能当然就是那个，选择条件，保存选择状态，重置条件。即插即拔，基本支持自定义任何内脏，Demo我做成了商城风格，其实怎样用全在于你自己。ZYSideSlipFilter的工作核心是数据源，它贯穿了整个工作流程。  
 
 一下是Demo做出来的效果，大致使用结构是这样的：
@@ -30,34 +30,8 @@ side slip filter with your goods page, support custom action, support custom reg
 
 ![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89%E5%8C%BA%E5%9F%9Fcell%E7%B1%BB%E7%BB%93%E6%9E%84%E5%9B%BE.png)
 
-####**自定义筛选区域cell**
-- 继承自SideSlipBaseTableViewCell  
-- \+ (NSString *)cellReuseIdentifier;  
-返回cell的重用标识  
-- \+ (CGFloat)cellHeight;  
-返回cell固定高度(cell高度的其中一种方式，下面有详细讲解)  
-- \+ (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath;  
-返回cell实例对象  
-- \- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model indexPath:(NSIndexPath *)indexPath;  
-cell的更新方法，传入model对象地址指针，供cell获取用户交互后修改  
-- \- (void)resetData;  
-用户重置选项时会调用这个方法  
 
-####**SideSlipBaseTableViewCell代理**
-- delegate  
-ZYSideSlipFilterController对象  
-- \- sideSlipTableViewCellNeedsReload  
-该cell需要刷新  
-- \- sideSlipTableViewCellNeedsPushViewController:animated:  
-该cell触发条件后需要push页面  
-- \- sideSlipTableViewCellNeedsScrollToCell:atScrollPosition:animated:  
-该cell触发条件后需要滚动到tableView的中央位置  
-
-
-####**通知**
-- FILTER\_NOTIFICATION\_NAME\_DID\_RESET\_DATA  
-- FILTER\_NOTIFICATION\_NAME\_DID\_COMMIT\_DATA  
-
+##Config
 ####**配置文件ZYSideSlipFilterConfig**
 - FILTER\_NAVIGATION\_CONTROLLER\_CLASS  
 Filter的导航控制器Class(构造方法只支持- initWithRootViewController:)  
@@ -71,7 +45,7 @@ ZYSideSlipFilter会在每次reloadData时动态适配cell高度，前提是cell�
 如果需要设置固定高度，则可以重写父类SideSlipBaseTableViewCell的```+ cellHeight```方法即可。  
 
 
-###Usage:  
+##Usage  
 ==ZYSideSlipFilterController==  
 创建ZYSideSlipFilterController实例，让呼出者controller持有它，这样我们能够保持着Filter的状态并且能够多次呼出(我们要求呼出者必须有navigationController)  
 ```objc
