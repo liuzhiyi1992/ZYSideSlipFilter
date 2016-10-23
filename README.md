@@ -9,10 +9,70 @@ side slip filter with your goods page, support custom action, support custom reg
 
 <br>
 <br>
-![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/SideSlipFilter%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BEedge%E6%96%B0.jpg)
+##Features:  
+[ZYSideSlipFilter](https://github.com/liuzhiyi1992/ZYSideSlipFilter)是一个侧边栏条件筛选器，功能当然就是那个，选择条件，保存选择状态，重置条件。即插即拔，基本支持自定义任何内脏，Demo我做成了商城风格，其实怎样用全在于你自己。ZYSideSlipFilter的工作核心是数据源，它贯穿了整个工作流程。
+
+很久没做带效果的东西了，这次不上gif，我们来看结构图：
+![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/SideSlipFilter%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BEedge%E6%96%B0.jpg)  
+
+<br>
+以上截图来自[Demo](https://github.com/liuzhiyi1992/ZYSideSlipFilter)，我们看见的数据、筛选区域、UI结构全部都不是ZYSideSlipFilter决定的，all self-definition自定义。我们通过数据源(dataList)来跟Filter交流交换数据，包括我们的筛选条目的cell结构，我们的筛选条件，默认选择，和用户选择的结果。也就是说这是一个变化的数据源，像是一张调查问卷，进去是干净的，而出来是涂画过的。我们怎样通过Filter这个中间者去给用户填问卷呢？来看看数据源的结构图：  
+![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/ZYSideSlipFilterModel%E7%BB%93%E6%9E%84%E5%9B%BE%E6%88%AA%E5%9B%BE%E6%9B%B4%E6%96%B0.jpg)  
+
+###ZYSideSlipFilterRegionModel和containerCellClass
+图看起来有点复杂，没关系我们只需要认识最左边的```ZYSideSlipFilterRegionModel```，一个RegionModel代表一个筛选区域，也就是说我们需要在Filter里增加一个筛选区域，就创建一个RegionModel，Filter数据源里放的就是这个东西。而在RegionModel里面，最基本的我们只需要认识```containerCellClass```这个property, 它代表这个这个筛选区域的UI布局和逻辑代码所在的类(TableviewCell), 我们要求该自定义类继承自```SideSlipBaseTableViewCell```, ==自定义筛选区域tableViewCell，创建RegionModel，赋值containerCellClass，放进dataList，我们自己的Filter就能显示出来了==  
+
+###配置筛选项
+上图中我们可以看见Demo的3块筛选区域截图，下箭头对应了他们的RegionModel内容，最基本的containerCellClass配置好后，我们可以用```regionTitle```存储区域标题，用```itemList```来存储自定义的选项Model，```isShowAll```标识着是否展开全部选项，```selectedItemList```存储着用户选中的选项Model，这里再提一遍，用户发生交互后，我们是要修改RegionModel的，用户提交筛选时我们会拿到这些修改。对于以上这些property我们不用，或者不满足需求都没关系，```customDict```给你放任何附加内容。
+
+###SideSlipFilter数据交流的方法  
+> 上面了解完如何去创建自己的Filter后，以下就是主要协同工作的api:  
+
+![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89%E5%8C%BA%E5%9F%9Fcell%E7%B1%BB%E7%BB%93%E6%9E%84%E5%9B%BE.png)
+
+####**自定义筛选区域cell**
+- 继承自SideSlipBaseTableViewCell  
+- \+ (NSString *)cellReuseIdentifier;  
+返回cell的重用标识  
+- \+ (CGFloat)cellHeight;  
+返回cell固定高度(cell高度的其中一种方式，下面有详细讲解)  
+- \+ (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath;  
+返回cell实例对象  
+- \- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model indexPath:(NSIndexPath *)indexPath;  
+cell的更新方法，传入model对象地址指针，供cell获取用户交互后修改  
+- \- (void)resetData;  
+用户重置选项时会调用这个方法  
+
+####**SideSlipBaseTableViewCell代理**
+- delegate  
+ZYSideSlipFilterController对象  
+- \- sideSlipTableViewCellNeedsReload  
+该cell需要刷新  
+- \- sideSlipTableViewCellNeedsPushViewController:animated:  
+该cell触发条件后需要push页面  
+- \- sideSlipTableViewCellNeedsScrollToCell:atScrollPosition:animated:  
+该cell触发条件后需要滚动到tableView的中央位置  
 
 
-#**Usage：**  
+####**通知**
+- FILTER\_NOTIFICATION\_NAME\_DID\_RESET\_DATA  
+- FILTER\_NOTIFICATION\_NAME\_DID\_COMMIT\_DATA  
+
+####**配置文件ZYSideSlipFilterConfig**
+- FILTER\_NAVIGATION\_CONTROLLER\_CLASS  
+Filter的导航控制器Class(构造方法只支持- initWithRootViewController:)  
+- 各种UI参数
+
+####**语言本地化Localizable.strings**  
+<br>
+
+###自适应cell高度
+ZYSideSlipFilter会在每次reloadData时动态适配cell高度，前提是cell内subviews横向纵向都部署好了对tableViewContentView的自动约束，必须是对```ContentView```!!，对tableView无效!!  
+如果需要设置固定高度，则可以重写父类SideSlipBaseTableViewCell的```+ cellHeight```方法即可。  
+
+
+###Usage:  
+==ZYSideSlipFilterController==  
 创建ZYSideSlipFilterController实例，让呼出者controller持有它，这样我们能够保持着Filter的状态并且能够多次呼出(我们要求呼出者必须有navigationController)  
 ```objc
 self.filterController = [[ZYSideSlipFilterController alloc] initWithSponsor:self 
@@ -25,7 +85,6 @@ _filterController.animationDuration = .3f;
 _filterController.sideSlipLeading = 0.15*[UIScreen mainScreen].bounds.size.width;
 _filterController.dataList = [self packageDataList];
 ```
-
 就是这样，我们的filter可以投向使用了吗？并不是，最重要的是我们的数据源dataList。数据源的结构见数据源结构图，ZYSideSlipFilter会按照数据源结构规则去工作起来。  
 
 数据源准备好后, 让Filter显示出来
@@ -33,5 +92,36 @@ _filterController.dataList = [self packageDataList];
 [_filterController show];
 ```
 
-![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/ZYSideSlipFilterModel%E7%BB%93%E6%9E%84%E5%9B%BE%E6%88%AA%E5%9B%BE.png)  
+==自定义筛选RegionCell==  
+```objc
+@interface Custom***TableViewCell : SideSlipBaseTableViewCell
+```  
+```objc
++ (NSString *)cellReuseIdentifier {
+    //cellReuseIdentifier
+}
+
++ (CGFloat)cellHeight {
+    //option
+    //you can use autolayout to cellContentView Rather than this func
+}
+
++ (instancetype)createCellWithIndexPath:(NSIndexPath *)indexPath {
+    //cell instance object
+}
+
+- (void)updateCellWithModel:(ZYSideSlipFilterRegionModel **)model
+                  indexPath:(NSIndexPath *)indexPath {
+    //update your cell
+}
+
+- (void)resetData {
+    //option
+    //respond while user click resetButton
+```
+>详细使用方法请参照[Demo](https://github.com/liuzhiyi1992/ZYSideSlipFilter)
+
+<br>
+###Demo自定义Region示意图
+![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/Demo%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89%E5%8C%BA%E5%9F%9F%E7%A4%BA%E6%84%8F%E5%9B%BE%E8%A3%81%E5%89%AA.png)
 
