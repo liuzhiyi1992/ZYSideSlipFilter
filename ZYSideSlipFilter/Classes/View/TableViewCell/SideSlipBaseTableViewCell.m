@@ -39,7 +39,7 @@
 }
 
 - (void)registerNotification {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetData) name:FILTER_NOTIFICATION_NAME_RESET_DATA object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetData) name:FILTER_NOTIFICATION_NAME_DID_RESET_DATA object:nil];
 }
 
 - (void)resignNotification {
