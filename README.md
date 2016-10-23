@@ -9,7 +9,7 @@ side slip filter with your goods page, support custom action, support custom reg
 
 <br>
 <br>
-##Features  
+#Features  
 [ZYSideSlipFilter](https://github.com/liuzhiyi1992/ZYSideSlipFilter)是一个侧边栏条件筛选器，功能当然就是那个，选择条件，保存选择状态，重置条件。即插即拔，基本支持自定义任何内脏，Demo我做成了商城风格，其实怎样用全在于你自己。ZYSideSlipFilter的工作核心是数据源，它贯穿了整个工作流程。  
 
 一下是Demo做出来的效果，大致使用结构是这样的：
@@ -19,6 +19,7 @@ side slip filter with your goods page, support custom action, support custom reg
 上图中我们看见的数据、筛选区域、UI结构全部都不是ZYSideSlipFilter决定的，all self-definition自定义。我们通过数据源(dataList)来跟Filter交流交换数据，包括我们的筛选条目的cell结构，我们的筛选条件，默认选择，和用户选择的结果。也就是说这是一个变化的数据源，像是一张调查问卷，进去是干净的，而出来是涂画过的。我们怎样通过Filter这个中间者去给用户填问卷呢？来看看```数据源```的结构图：  
 ![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/ZYSideSlipFilterModel%E7%BB%93%E6%9E%84%E5%9B%BE%E6%88%AA%E5%9B%BE%E6%9B%B4%E6%96%B0.jpg)  
 
+#Structure
 ###ZYSideSlipFilterRegionModel和containerCellClass
 图看起来有点复杂，没关系我们只需要认识最左边的```ZYSideSlipFilterRegionModel```，一个RegionModel代表一个筛选区域，也就是说我们需要在Filter里增加一个筛选区域，就创建一个RegionModel，Filter数据源里放的就是这个东西。而在RegionModel里面，最基本的我们只需要认识```containerCellClass```这个property, 它代表这个这个筛选区域的UI布局和逻辑代码所在的类(TableviewCell), 我们要求该自定义类继承自```SideSlipBaseTableViewCell```, ==自定义筛选区域tableViewCell，创建RegionModel，赋值containerCellClass，放进dataList，我们自己的Filter就能显示出来了==  
 
@@ -35,7 +36,7 @@ ZYSideSlipFilter会在每次reloadData时动态适配cell高度，前提是cell�
 ![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89%E5%8C%BA%E5%9F%9Fcell%E7%B1%BB%E7%BB%93%E6%9E%84%E5%9B%BE.png)
 
 
-##Config
+#Config
 ####**配置文件ZYSideSlipFilterConfig**
 - FILTER\_NAVIGATION\_CONTROLLER\_CLASS  
 Filter的导航控制器Class(构造方法只支持- initWithRootViewController:)  
@@ -44,8 +45,8 @@ Filter的导航控制器Class(构造方法只支持- initWithRootViewController:
 ####**语言本地化Localizable.strings**  
 <br>
 
-##Usage  
-==ZYSideSlipFilterController==  
+#Usage  
+####ZYSideSlipFilterController  
 创建ZYSideSlipFilterController实例，让呼出者controller持有它，这样我们能够保持着Filter的状态并且能够多次呼出(我们要求呼出者必须有navigationController)  
 ```objc
 self.filterController = [[ZYSideSlipFilterController alloc] initWithSponsor:self 
@@ -65,7 +66,7 @@ _filterController.dataList = [self packageDataList];
 [_filterController show];
 ```
 
-==自定义筛选RegionCell==  
+####自定义筛选RegionCell  
 ```objc
 @interface Custom***TableViewCell : SideSlipBaseTableViewCell
 ```  
