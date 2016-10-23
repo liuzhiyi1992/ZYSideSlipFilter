@@ -25,6 +25,10 @@ side slip filter with your goods page, support custom action, support custom reg
 ###配置筛选项
 上图中我们可以看见Demo的3块筛选区域截图，下箭头对应了他们的RegionModel内容，最基本的containerCellClass配置好后，我们可以用```regionTitle```存储区域标题，用```itemList```来存储自定义的选项Model，```isShowAll```标识着是否展开全部选项，```selectedItemList```存储着用户选中的选项Model，这里再提一遍，用户发生交互后，我们是要修改RegionModel的，用户提交筛选时我们会拿到这些修改。对于以上这些property我们不用，或者不满足需求都没关系，```customDict```给你放任何附加内容。
 
+###自适应cell高度
+ZYSideSlipFilter会在每次reloadData时动态适配cell高度，前提是cell内subviews横向纵向都部署好了对tableViewContentView的自动约束，必须是对```ContentView```!!，对tableView无效!!  
+如果需要设置固定高度，则可以重写父类SideSlipBaseTableViewCell的```+ cellHeight```方法即可。  
+
 ###SideSlipFilter数据交流的方法  
 > 上面了解完如何去创建自己的Filter后，以下就是主要协同工作的api:  
 
@@ -39,11 +43,6 @@ Filter的导航控制器Class(构造方法只支持- initWithRootViewController:
 
 ####**语言本地化Localizable.strings**  
 <br>
-
-###自适应cell高度
-ZYSideSlipFilter会在每次reloadData时动态适配cell高度，前提是cell内subviews横向纵向都部署好了对tableViewContentView的自动约束，必须是对```ContentView```!!，对tableView无效!!  
-如果需要设置固定高度，则可以重写父类SideSlipBaseTableViewCell的```+ cellHeight```方法即可。  
-
 
 ##Usage  
 ==ZYSideSlipFilterController==  
