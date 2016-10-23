@@ -10,13 +10,13 @@ side slip filter with your goods page, support custom action, support custom reg
 <br>
 <br>
 ##Features:  
-[ZYSideSlipFilter](https://github.com/liuzhiyi1992/ZYSideSlipFilter)是一个侧边栏条件筛选器，功能当然就是那个，选择条件，保存选择状态，重置条件。即插即拔，基本支持自定义任何内脏，Demo我做成了商城风格，其实怎样用全在于你自己。ZYSideSlipFilter的工作核心是数据源，它贯穿了整个工作流程。
+[ZYSideSlipFilter](https://github.com/liuzhiyi1992/ZYSideSlipFilter)是一个侧边栏条件筛选器，功能当然就是那个，选择条件，保存选择状态，重置条件。即插即拔，基本支持自定义任何内脏，Demo我做成了商城风格，其实怎样用全在于你自己。ZYSideSlipFilter的工作核心是数据源，它贯穿了整个工作流程。  
 
-很久没做带效果的东西了，这次不上gif，我们来看结构图：
+一下是Demo做出来的效果，大致使用结构是这样的：
 ![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/SideSlipFilter%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BEedge%E6%96%B0.jpg)  
 
 <br>
-以上截图来自[Demo](https://github.com/liuzhiyi1992/ZYSideSlipFilter)，我们看见的数据、筛选区域、UI结构全部都不是ZYSideSlipFilter决定的，all self-definition自定义。我们通过数据源(dataList)来跟Filter交流交换数据，包括我们的筛选条目的cell结构，我们的筛选条件，默认选择，和用户选择的结果。也就是说这是一个变化的数据源，像是一张调查问卷，进去是干净的，而出来是涂画过的。我们怎样通过Filter这个中间者去给用户填问卷呢？来看看数据源的结构图：  
+上图中我们看见的数据、筛选区域、UI结构全部都不是ZYSideSlipFilter决定的，all self-definition自定义。我们通过数据源(dataList)来跟Filter交流交换数据，包括我们的筛选条目的cell结构，我们的筛选条件，默认选择，和用户选择的结果。也就是说这是一个变化的数据源，像是一张调查问卷，进去是干净的，而出来是涂画过的。我们怎样通过Filter这个中间者去给用户填问卷呢？来看看```数据源```的结构图：  
 ![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/ZYSideSlipFilterModel%E7%BB%93%E6%9E%84%E5%9B%BE%E6%88%AA%E5%9B%BE%E6%9B%B4%E6%96%B0.jpg)  
 
 ###ZYSideSlipFilterRegionModel和containerCellClass
