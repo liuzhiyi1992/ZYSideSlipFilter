@@ -93,7 +93,7 @@ _filterController.dataList = [self packageDataList];
     //option
     //respond while user click resetButton
 ```
->详细使用方法请参照[Demo](https://github.com/liuzhiyi1992/ZYSideSlipFilter)
+>详细使用方法请参照Demo
 
 <br>
 ###Demo自定义Region示意图
