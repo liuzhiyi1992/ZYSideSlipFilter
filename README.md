@@ -73,6 +73,11 @@ _filterController.animationDuration = .3f;
 _filterController.sideSlipLeading = 0.15*[UIScreen mainScreen].bounds.size.width;
 _filterController.dataList = [self packageDataList];
 ```
+```objc
+//need navigationBar?
+[_filterController.navigationController setNavigationBarHidden:NO];
+[_filterController setTitle:@"title"];
+```
 就是这样，我们的filter可以投向使用了吗？并不是，最重要的是我们的数据源dataList。数据源的结构见数据源结构图，ZYSideSlipFilter会按照数据源结构规则去工作起来。  
 
 数据源准备好后, 让Filter显示出来
