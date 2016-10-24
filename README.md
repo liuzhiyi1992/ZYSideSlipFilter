@@ -6,9 +6,18 @@ side slip filter with your goods page, support custom action, custom region, cus
 侧边栏条件筛选器，支持自定义事件，自定义筛选栏目，自定义所有。。。  
 </h5>
 </h1>
+<p align="center">
+<img src="https://img.shields.io/badge/pod-v0.2.0-blue.svg" />
+<img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" />
+</p>
 
 <br>
 <br>
+#CocoaPods  
+```
+pod 'ZYSideSlipFilter', '~> 0.2.0'
+``` 
+
 #Features  
 [ZYSideSlipFilter](https://github.com/liuzhiyi1992/ZYSideSlipFilter)是一个侧边栏条件筛选器，功能当然就是那个，选择条件，保存选择状态，重置条件。即插即拔，基本支持自定义任何内脏，Demo我做成了商城风格，其实怎样用全在于你自己。ZYSideSlipFilter的工作核心是数据源，它贯穿了整个工作流程。  
 
