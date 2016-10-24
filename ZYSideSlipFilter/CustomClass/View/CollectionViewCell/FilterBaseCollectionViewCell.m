@@ -9,5 +9,8 @@
 #import "FilterBaseCollectionViewCell.h"
 
 @implementation FilterBaseCollectionViewCell
-
++ (NSString *)cellReuseIdentifier {
+    NSAssert(NO, @"\nERROR: Must realize this function in subClass %s", __func__);
+    return @"";
+}
 @end
