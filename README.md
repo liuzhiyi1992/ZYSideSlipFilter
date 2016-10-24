@@ -1,7 +1,7 @@
 <h1 align="center">
 ZYSideSlipFilter
 <h5 align="center", style="color, #666">
-side slip filter with your goods page, support custom action, support custom region, custom all the things.   
+side slip filter with your goods page, support custom action, custom region, custom all the things.   
 <br>
 侧边栏条件筛选器，支持自定义事件，自定义筛选栏目，自定义所有。。。  
 </h5>
