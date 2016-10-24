@@ -49,6 +49,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         _commitBlock = commitBlock;
         UINavigationController *filterNavigation = [[NSClassFromString(FILTER_NAVIGATION_CONTROLLER_CLASS) alloc] initWithRootViewController:self];
         [filterNavigation setNavigationBarHidden:YES];
+        filterNavigation.navigationBar.translucent = NO;
         [filterNavigation.view setFrame:SLIP_ORIGIN_FRAME];
         self.filterNavigation = filterNavigation;
         [self configureStatic];
