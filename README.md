@@ -43,6 +43,11 @@ Filter的导航控制器Class(构造方法只支持- initWithRootViewController:
 - 各种UI参数
 
 ####**语言本地化Localizable.strings**  
+目前配置了两个bottomButton的title string，有需要可以在自己项目的.strings文件中配置，不配置则默认为Reset, Commit
+```
+"sZYFilterReset" = "Reset";
+"sZYFilterCommit" = "Commit";
+``` 
 <br>
 
 #Usage  
