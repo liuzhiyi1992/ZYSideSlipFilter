@@ -3,7 +3,7 @@ ZYSideSlipFilter
 <h5 align="center", style="color, #666">
 side slip filter with your goods page, support custom action, custom region, custom all the things.   
 <br>
-侧边栏条件筛选器，支持自定义事件，自定义筛选栏目，自定义所有。。。  
+侧边栏条件筛选器，支持自定义事件，自定义筛选栏目，自定义所有。。。   
 </h5>
 </h1>
 <p align="center">
@@ -117,4 +117,5 @@ _filterController.dataList = [self packageDataList];
 <br>
 ###Demo自定义Region示意图
 ![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/Demo%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89%E5%8C%BA%E5%9F%9F%E7%A4%BA%E6%84%8F%E5%9B%BE%E8%A3%81%E5%89%AA.png)
+<br>
 
