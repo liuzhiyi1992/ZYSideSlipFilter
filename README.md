@@ -3,12 +3,22 @@ ZYSideSlipFilter
 <h5 align="center", style="color, #666">
 side slip filter with your goods page, support custom action, custom region, custom all the things.   
 <br>
-侧边栏条件筛选器，支持自定义事件，自定义筛选栏目，自定义所有。。。  
+侧边栏条件筛选器，支持自定义事件，自定义筛选栏目，自定义所有。。。   
 </h5>
 </h1>
+<p align="center">
+<img src="https://img.shields.io/badge/pod-v0.2.0-blue.svg" />
+<img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" />
+</p>
 
 <br>
+![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/ZYSideSlipFilterGif.gif)  
 <br>
+#CocoaPods  
+```
+pod 'ZYSideSlipFilter', '~> 0.2.0'
+``` 
+
 #Features  
 [ZYSideSlipFilter](https://github.com/liuzhiyi1992/ZYSideSlipFilter)是一个侧边栏条件筛选器，功能当然就是那个，选择条件，保存选择状态，重置条件。即插即拔，基本支持自定义任何内脏，Demo我做成了商城风格，其实怎样用全在于你自己。ZYSideSlipFilter的工作核心是数据源，它贯穿了整个工作流程。  
 
@@ -64,6 +74,11 @@ _filterController.animationDuration = .3f;
 _filterController.sideSlipLeading = 0.15*[UIScreen mainScreen].bounds.size.width;
 _filterController.dataList = [self packageDataList];
 ```
+```objc
+//need navigationBar?
+[_filterController.navigationController setNavigationBarHidden:NO];
+[_filterController setTitle:@"title"];
+```
 就是这样，我们的filter可以投向使用了吗？并不是，最重要的是我们的数据源dataList。数据源的结构见数据源结构图，ZYSideSlipFilter会按照数据源结构规则去工作起来。  
 
 数据源准备好后, 让Filter显示出来
@@ -103,4 +118,5 @@ _filterController.dataList = [self packageDataList];
 <br>
 ###Demo自定义Region示意图
 ![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/Demo%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89%E5%8C%BA%E5%9F%9F%E7%A4%BA%E6%84%8F%E5%9B%BE%E8%A3%81%E5%89%AA.png)
+<br>
 
