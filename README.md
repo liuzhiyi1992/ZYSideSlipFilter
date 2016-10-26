@@ -12,7 +12,7 @@ side slip filter with your goods page, support custom action, custom region, cus
 </p>
 
 <br>
-![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/ZYSideSlipFilterGif.gif)  
+![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/ZYSideSlipFilterGif.gif)
 <br>
 #CocoaPods  
 ```
