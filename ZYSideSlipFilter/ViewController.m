@@ -15,11 +15,13 @@
 
 @interface ViewController ()
 @property (strong, nonatomic) ZYSideSlipFilterController *filterController;
+@property (weak, nonatomic) IBOutlet UIButton *showFilterButton;
 @end
 
 @implementation ViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configureShowFilterButton];
     self.filterController = [[ZYSideSlipFilterController alloc] initWithSponsor:self
                                                                      resetBlock:^(NSArray *dataList) {
         for (ZYSideSlipFilterRegionModel *model in dataList) {
@@ -73,6 +75,12 @@
     _filterController.animationDuration = .3f;
     _filterController.sideSlipLeading = 0.15*[UIScreen mainScreen].bounds.size.width;
     _filterController.dataList = [self packageDataList];
+}
+
+- (void)configureShowFilterButton {
+    _showFilterButton.layer.shadowOffset = CGSizeMake(1, 1);
+    _showFilterButton.layer.shadowOpacity = 0.6f;
+    _showFilterButton.layer.shadowColor = [UIColor grayColor].CGColor;
 }
 
 - (IBAction)clickFilterButton:(id)sender {

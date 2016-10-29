@@ -9,7 +9,11 @@
 #import "SideSlipBaseTableViewCell.h"
 #import "ZYSideSlipFilterConfig.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincomplete-implementation"
 @implementation SideSlipBaseTableViewCell
+#pragma clang diagnostic pop
+
 + (NSString *)cellReuseIdentifier {
     NSAssert(NO, @"\nERROR: Must realize this function in subClass %s", __func__);
     return nil;

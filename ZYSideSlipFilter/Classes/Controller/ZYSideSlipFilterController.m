@@ -49,6 +49,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         _commitBlock = commitBlock;
         UINavigationController *filterNavigation = [[NSClassFromString(FILTER_NAVIGATION_CONTROLLER_CLASS) alloc] initWithRootViewController:self];
         [filterNavigation setNavigationBarHidden:YES];
+        filterNavigation.navigationBar.translucent = NO;
         [filterNavigation.view setFrame:SLIP_ORIGIN_FRAME];
         self.filterNavigation = filterNavigation;
         [self configureStatic];
@@ -110,7 +111,11 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     [resetButton addTarget:self action:@selector(clickResetButton:) forControlEvents:UIControlEventTouchUpInside];
     [resetButton.titleLabel setFont:[UIFont systemFontOfSize:BOTTOM_BUTTON_FONT_SIZE]];
     [resetButton setTitleColor:[UIColor hexColor:FILTER_BLACK_STRING] forState:UIControlStateNormal];
-    [resetButton setTitle:LocalString(@"sReset") forState:UIControlStateNormal];
+    NSString *resetString = LocalString(@"sZYFilterReset");
+    if ([resetString isEqualToString:@"sZYFilterReset"]) {
+        resetString = @"Reset";
+    }
+    [resetButton setTitle:resetString forState:UIControlStateNormal];
     [resetButton setBackgroundColor:[UIColor whiteColor]];
     [bottomView addSubview:resetButton];
     //commitButton
@@ -119,7 +124,11 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     [commitButton addTarget:self action:@selector(clickCommitButton:) forControlEvents:UIControlEventTouchUpInside];
     [commitButton.titleLabel setFont:[UIFont systemFontOfSize:BOTTOM_BUTTON_FONT_SIZE]];
     [commitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [commitButton setTitle:LocalString(@"sCommit") forState:UIControlStateNormal];
+    NSString *commitString = LocalString(@"sZYFilterCommit");
+    if ([commitString isEqualToString:@"sZYFilterCommit"]) {
+        commitString = @"Commit";
+    }
+    [commitButton setTitle:commitString forState:UIControlStateNormal];
     [commitButton setBackgroundColor:[UIColor hexColor:FILTER_RED_STRING]];
     [bottomView addSubview:commitButton];
     //constraints

@@ -3,7 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -34,22 +34,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4CV-SM-Seu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrN-K1-hij">
+                                <color key="backgroundColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="QYT-Aw-cX6"/>
+                                    <constraint firstAttribute="width" constant="80" id="VAl-rK-hLD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="筛选">
-                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="clickFilterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SxO-KZ-LEN"/>
+                                    <action selector="clickFilterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XZA-A7-hFX"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4CV-SM-Seu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="lSh-2m-LGy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4CV-SM-Seu" secondAttribute="trailing" constant="30" id="qvp-nl-0j3"/>
+                            <constraint firstItem="RrN-K1-hij" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="31X-BD-2Yy"/>
+                            <constraint firstItem="RrN-K1-hij" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7z3-85-cXj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Grc-On-c6K"/>
+                    <connections>
+                        <outlet property="showFilterButton" destination="RrN-K1-hij" id="wlf-1T-5S8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

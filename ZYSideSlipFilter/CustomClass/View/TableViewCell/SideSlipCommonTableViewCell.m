@@ -67,8 +67,7 @@ const int BRIEF_ROW = 2;
     //title
     [self.titleLabel setText:_regionModel.regionTitle];
     //content
-    NSArray *itemsArray = _regionModel.itemList;
-    self.dataList = itemsArray;
+    self.dataList = _regionModel.itemList;
     //icon
     if (_regionModel.isShowAll) {
         [_controlIcon setImage:[UIImage imageNamed:@"icon_up"]];
