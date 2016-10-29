@@ -52,6 +52,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
         [filterNavigation.view setFrame:SLIP_ORIGIN_FRAME];
         self.filterNavigation = filterNavigation;
         [self configureStatic];
+        [self configureUI];
     }
     return self;
 }
@@ -61,19 +62,11 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 }
 
 - (void)configureUI {
-    //mainTableView
-    self.mainTableView = [[UITableView alloc] init];
-    _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _mainTableView.delegate = self;
-    _mainTableView.dataSource = self;
-    [_mainTableView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addSubview:_mainTableView];
-    
     //bottomView
     UIView *bottomView = [self createBottomView];
     [self.view addSubview:bottomView];
     
-    NSDictionary *views = @{@"mainTableView":_mainTableView, @"bottomView":bottomView};
+    NSDictionary *views = @{@"mainTableView":self.mainTableView, @"bottomView":bottomView};
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bottomView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.f constant:BOTTOM_BUTTON_HEIGHT]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[mainTableView]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bottomView]|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
@@ -86,7 +79,6 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 }
 
 - (void)show {
-    [self configureUI];
     [_sponsor.navigationController.view addSubview:self.backCover];
     [_sponsor.navigationController addChildViewController:self.navigationController];
     [_sponsor.navigationController.view addSubview:self.navigationController.view];
@@ -216,6 +208,18 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 }
 
 #pragma mark - GetSet
+- (UITableView *)mainTableView {
+    if (!_mainTableView) {
+        _mainTableView = [[UITableView alloc] init];
+        _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _mainTableView.delegate = self;
+        _mainTableView.dataSource = self;
+        [_mainTableView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        [self.view addSubview:_mainTableView];
+    }
+    return _mainTableView;
+}
+
 - (NSMutableDictionary *)templateCellDict {
     if (!_templateCellDict) {
         _templateCellDict = [NSMutableDictionary dictionary];
