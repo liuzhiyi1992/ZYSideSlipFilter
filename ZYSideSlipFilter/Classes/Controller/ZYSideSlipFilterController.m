@@ -155,6 +155,12 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
     [self dismiss];
 }
 
+- (void)reloadData {
+    if (_mainTableView) {
+        [_mainTableView reloadData];
+    }
+}
+
 #pragma mark - DataSource Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _dataList.count;
@@ -253,5 +259,12 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 - (void)setFilterNavigation:(UINavigationController *)filterNavigation {
     //让sponsor持有filterNavigation
     objc_setAssociatedObject(_sponsor, @selector(filterNavigation), filterNavigation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)setDataList:(NSArray *)dataList {
+    _dataList = dataList;
+    if (_mainTableView) {
+        [_mainTableView reloadData];
+    }
 }
 @end
