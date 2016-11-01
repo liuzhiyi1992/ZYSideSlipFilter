@@ -262,7 +262,7 @@ id (*objc_msgSendCreateCellWithIndexPath)(id self, SEL _cmd, NSIndexPath *) = (v
 }
 
 - (void)setDataList:(NSArray *)dataList {
-    _dataList = dataList;
+    _dataList = [dataList copy];
     if (_mainTableView) {
         [_mainTableView reloadData];
     }
