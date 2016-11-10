@@ -101,38 +101,58 @@ const int BRIEF_ROW = 2;
     [_mainCollectionView updateHeight:collectionViewHeight];
 }
 
-- (BOOL)tap2SelectItem:(NSIndexPath *)indexPath {
+- (void)tap2SelectItem:(NSIndexPath *)indexPath {
     switch (_selectionType) {
         case BrandTableViewCellSelectionTypeSingle:
         {
-            
+            NSArray *itemArray = _regionModel.itemList;
+            CommonItemModel *model = [itemArray objectAtIndex:indexPath.row];
+            if (!model.selected) {
+                for (CommonItemModel *item in itemArray) {
+                    item.selected = NO;
+                }
+                [self.selectedItemList removeAllObjects];
+                [self.selectedItemList addObject:model];
+            } else {
+                [self.selectedItemList removeObject:model];
+            }
+            model.selected = !model.selected;
         }
             break;
         case BrandTableViewCellSelectionTypeMultiple:
         {
-            
+            NSArray *itemArray = _regionModel.itemList;
+            CommonItemModel *model = [itemArray objectAtIndex:indexPath.row];
+                model.selected = !model.selected;
+                if (model.selected) {
+                    [self.selectedItemList addObject:model];
+                } else {
+                    [self.selectedItemList removeObject:model];
+                }
         }
             break;
         default:
             break;
     }
-    NSArray *itemArray = _regionModel.itemList;
-    CommonItemModel *model = [itemArray objectAtIndex:indexPath.row];
-    model.selected = !model.selected;
-    [self updateSelectedItemListWithItem:model];
-    return model.selected;
-}
-
-- (void)updateSelectedItemListWithItem:(CommonItemModel *)model {
-    if (model.selected) {
-        [self.selectedItemList addObject:model];
-    } else {
-        [self.selectedItemList removeObject:model];
-    }
-    //update Data
     _regionModel.selectedItemList = _selectedItemList;
     [self generateControlLabelText];
+//    NSArray *itemArray = _regionModel.itemList;
+//    CommonItemModel *model = [itemArray objectAtIndex:indexPath.row];
+//    model.selected = !model.selected;
+//    [self updateSelectedItemListWithItem:model];
+//    return model.selected;
 }
+
+//- (void)updateSelectedItemListWithItem:(CommonItemModel *)model {
+//    if (model.selected) {
+//        [self.selectedItemList addObject:model];
+//    } else {
+//        [self.selectedItemList removeObject:model];
+//    }
+//    //update Data
+//    _regionModel.selectedItemList = _selectedItemList;
+//    [self generateControlLabelText];
+//}
 
 - (NSString *)packageSelectedNameString {
     NSMutableArray *mutArray = [NSMutableArray array];
