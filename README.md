@@ -119,4 +119,12 @@ _filterController.dataList = [self packageDataList];
 ###Demo自定义Region示意图
 ![](https://raw.githubusercontent.com/liuzhiyi1992/MyStore/master/ZYSideSlipFilter/Demo%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%9B%E9%80%89%E5%8C%BA%E5%9F%9F%E7%A4%BA%E6%84%8F%E5%9B%BE%E8%A3%81%E5%89%AA.png)
 <br>
+###Demo所包含演示内容  
+- 筛选项折叠展开
+- 筛选项单双选
+- 筛选区域push新页
+- 筛选区域AutoLayout动态适配高度
+- 用户当前操作筛选区域跟踪于屏幕垂直方向中央
+- 不同类型的筛选区域插入Filter逻辑
+- Reset / Commit 逻辑
 
