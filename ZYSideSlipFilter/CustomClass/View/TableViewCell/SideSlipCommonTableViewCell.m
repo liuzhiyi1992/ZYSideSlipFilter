@@ -136,23 +136,7 @@ const int BRIEF_ROW = 2;
     }
     _regionModel.selectedItemList = _selectedItemList;
     [self generateControlLabelText];
-//    NSArray *itemArray = _regionModel.itemList;
-//    CommonItemModel *model = [itemArray objectAtIndex:indexPath.row];
-//    model.selected = !model.selected;
-//    [self updateSelectedItemListWithItem:model];
-//    return model.selected;
 }
-
-//- (void)updateSelectedItemListWithItem:(CommonItemModel *)model {
-//    if (model.selected) {
-//        [self.selectedItemList addObject:model];
-//    } else {
-//        [self.selectedItemList removeObject:model];
-//    }
-//    //update Data
-//    _regionModel.selectedItemList = _selectedItemList;
-//    [self generateControlLabelText];
-//}
 
 - (NSString *)packageSelectedNameString {
     NSMutableArray *mutArray = [NSMutableArray array];
@@ -203,8 +187,6 @@ const int BRIEF_ROW = 2;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:NO];
-//    FilterCommonCollectionViewCell *cell = (FilterCommonCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-//    [cell tap2SelectItem:[self tap2SelectItem:indexPath]];
     [self tap2SelectItem:indexPath];
     [_mainCollectionView reloadData];
 }
