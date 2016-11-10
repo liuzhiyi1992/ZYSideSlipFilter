@@ -12,6 +12,7 @@
 #import "CommonItemModel.h"
 #import "AddressModel.h"
 #import "PriceRangeModel.h"
+#import "SideSlipCommonTableViewCell.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) ZYSideSlipFilterController *filterController;
@@ -94,21 +95,22 @@
     [dataArray addObject:[self priceFilterRegionModel]];
     [dataArray addObject:[self allCategoryFilterRegionModel]];
     [dataArray addObject:[self spaceFilterRegionModel]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"品牌"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"种类"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"特性"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"适用场景"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"重量"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"包装"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"存储方式"]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"货仓"]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"品牌" selectionType:BrandTableViewCellSelectionTypeMultiple]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"种类" selectionType:BrandTableViewCellSelectionTypeSingle]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"特性" selectionType:BrandTableViewCellSelectionTypeMultiple]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"适用场景" selectionType:BrandTableViewCellSelectionTypeMultiple]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"重量" selectionType:BrandTableViewCellSelectionTypeMultiple]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"包装" selectionType:BrandTableViewCellSelectionTypeMultiple]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"存储方式" selectionType:BrandTableViewCellSelectionTypeMultiple]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"货仓" selectionType:BrandTableViewCellSelectionTypeMultiple]];
     return [dataArray mutableCopy];
 }
 
-- (ZYSideSlipFilterRegionModel *)commonFilterRegionModelWithKeyword:(NSString *)keyword {
+- (ZYSideSlipFilterRegionModel *)commonFilterRegionModelWithKeyword:(NSString *)keyword selectionType:(CommonTableViewCellSelectionType)selectionType {
     ZYSideSlipFilterRegionModel *model = [[ZYSideSlipFilterRegionModel alloc] init];
     model.containerCellClass = @"SideSlipCommonTableViewCell";
     model.regionTitle = keyword;
+    model.customDict = @{REGION_SELECTION_TYPE:@(selectionType)};
     model.itemList = @[[self createItemModelWithTitle:[NSString stringWithFormat:@"%@一", keyword] itemId:@"0000" selected:NO],
                        [self createItemModelWithTitle:[NSString stringWithFormat:@"%@二", keyword] itemId:@"0001" selected:NO],
                        [self createItemModelWithTitle:[NSString stringWithFormat:@"%@三", keyword] itemId:@"0002" selected:NO],

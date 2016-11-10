@@ -36,6 +36,7 @@ const int BRIEF_ROW = 2;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
 @property (strong, nonatomic) ZYSideSlipFilterRegionModel *regionModel;
+@property (assign, nonatomic) CommonTableViewCellSelectionType selectionType;
 @property (strong, nonatomic) NSMutableArray *selectedItemList;
 @property (copy, nonatomic) NSString *selectedItemString;
 @end
@@ -77,6 +78,11 @@ const int BRIEF_ROW = 2;
     //controlLabel
     self.selectedItemList = [NSMutableArray arrayWithArray:_regionModel.selectedItemList];
     [self generateControlLabelText];
+    //selectionType
+    NSNumber *selectionType = _regionModel.customDict[REGION_SELECTION_TYPE];
+    if (selectionType) {
+        self.selectionType = [selectionType unsignedIntegerValue];
+    }
     //UI
     [_mainCollectionView reloadData];
     [self fitCollectonViewHeight];
@@ -96,6 +102,20 @@ const int BRIEF_ROW = 2;
 }
 
 - (BOOL)tap2SelectItem:(NSIndexPath *)indexPath {
+    switch (_selectionType) {
+        case BrandTableViewCellSelectionTypeSingle:
+        {
+            
+        }
+            break;
+        case BrandTableViewCellSelectionTypeMultiple:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
     NSArray *itemArray = _regionModel.itemList;
     CommonItemModel *model = [itemArray objectAtIndex:indexPath.row];
     model.selected = !model.selected;
@@ -163,8 +183,10 @@ const int BRIEF_ROW = 2;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:NO];
-    FilterCommonCollectionViewCell *cell = (FilterCommonCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [cell tap2SelectItem:[self tap2SelectItem:indexPath]];
+//    FilterCommonCollectionViewCell *cell = (FilterCommonCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+//    [cell tap2SelectItem:[self tap2SelectItem:indexPath]];
+    [self tap2SelectItem:indexPath];
+    [_mainCollectionView reloadData];
 }
 
 - (IBAction)clickShowMoreButton:(id)sender {
