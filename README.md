@@ -128,3 +128,7 @@ _filterController.dataList = [self packageDataList];
 - 不同类型的筛选区域插入Filter逻辑
 - Reset / Commit 逻辑
 
+
+<br>
+#License  
+ZYSideSlipFilter is released under the MIT license.
