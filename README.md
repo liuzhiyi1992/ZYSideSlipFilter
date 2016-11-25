@@ -7,7 +7,7 @@ side slip filter with your goods page, support custom action, custom region, cus
 </h5>
 </h1>
 <p align="center">
-<img src="https://img.shields.io/badge/pod-v0.3.0-blue.svg" />
+<img src="https://img.shields.io/badge/pod-v0.5.0-blue.svg" />
 <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" />
 </p>
 
@@ -16,7 +16,7 @@ side slip filter with your goods page, support custom action, custom region, cus
 <br>
 #CocoaPods  
 ```
-pod 'ZYSideSlipFilter', '~> 0.3.0'
+pod 'ZYSideSlipFilter', '~> 0.5.0'
 ``` 
 
 #Features  
