@@ -101,6 +101,17 @@ const int BRIEF_ROW = 2;
     [_mainCollectionView updateHeight:collectionViewHeight];
 }
 
+- (UIViewController *)currentViewController{
+    UIResponder *next = [self nextResponder];
+    do {
+        if ([next isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)next;
+        }
+        next = [next nextResponder];
+    } while (next != nil);
+    return nil;
+}
+
 - (void)tap2SelectItem:(NSIndexPath *)indexPath {
     switch (_selectionType) {
         case BrandTableViewCellSelectionTypeSingle:
@@ -119,6 +130,29 @@ const int BRIEF_ROW = 2;
             model.selected = !model.selected;
         }
             break;
+        case BrandTableViewCellSelectionTypeDouble:
+        {
+            NSArray *itemArray = _regionModel.itemList;
+            CommonItemModel *model = [itemArray objectAtIndex:indexPath.row];
+            if (!model.selected) {
+                if (self.selectedItemList.count < 2) {
+                    [self.selectedItemList addObject:model];
+                }else{
+                    model.selected = YES;
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"最多可以选中2个" preferredStyle:UIAlertControllerStyleAlert];
+                    [alertController addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        NSLog(@"最多只能选中2个");
+                    }]];
+                    [[self currentViewController] presentViewController:alertController animated:YES completion:nil];
+                }
+            } else {
+                model.selected = YES;
+                [self.selectedItemList removeObject:model];
+            }
+            model.selected = !model.selected;
+        }
+            break;
+
         case BrandTableViewCellSelectionTypeMultiple:
         {
             NSArray *itemArray = _regionModel.itemList;

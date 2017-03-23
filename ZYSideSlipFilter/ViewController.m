@@ -95,12 +95,12 @@
     [dataArray addObject:[self priceFilterRegionModel]];
     [dataArray addObject:[self allCategoryFilterRegionModel]];
     [dataArray addObject:[self spaceFilterRegionModel]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"品牌" selectionType:BrandTableViewCellSelectionTypeMultiple]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"品牌" selectionType:BrandTableViewCellSelectionTypeDouble]];
     [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"种类" selectionType:BrandTableViewCellSelectionTypeSingle]];
     [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"特性" selectionType:BrandTableViewCellSelectionTypeMultiple]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"适用场景" selectionType:BrandTableViewCellSelectionTypeMultiple]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"适用场景" selectionType:BrandTableViewCellSelectionTypeDouble]];
     [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"重量" selectionType:BrandTableViewCellSelectionTypeMultiple]];
-    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"包装" selectionType:BrandTableViewCellSelectionTypeMultiple]];
+    [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"包装" selectionType:BrandTableViewCellSelectionTypeDouble]];
     [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"存储方式" selectionType:BrandTableViewCellSelectionTypeMultiple]];
     [dataArray addObject:[self commonFilterRegionModelWithKeyword:@"货仓" selectionType:BrandTableViewCellSelectionTypeMultiple]];
     return [dataArray mutableCopy];
