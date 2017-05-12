@@ -10,8 +10,9 @@
 #import "SideSlipBaseTableViewCell.h"
 
 typedef NS_ENUM(NSUInteger, CommonTableViewCellSelectionType) {
-    BrandTableViewCellSelectionTypeSingle = 0,                  //单选
-    BrandTableViewCellSelectionTypeMultiple = 1,                //双选
+    BrandTableViewCellSelectionTypeSingle   = 0,                  //单选
+    BrandTableViewCellSelectionTypeDouble   = 1,                //双选
+    BrandTableViewCellSelectionTypeMultiple = 2,                //多选
 };
 
 /**
